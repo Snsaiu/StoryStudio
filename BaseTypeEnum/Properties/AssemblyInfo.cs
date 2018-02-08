@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("StoryStudio")]
+[assembly: AssemblyTitle("BaseTypeEnum")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("StoryStudio")]
+[assembly: AssemblyProduct("BaseTypeEnum")]
 [assembly: AssemblyCopyright("Copyright ©  2018")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("42f3e4c2-801a-4a61-bda4-a7de0af5373f")]
+[assembly: Guid("337e92f4-fa82-4519-b488-8e73e80b56de")]
 
 // Version information for an assembly consists of the following four values:
 //

@@ -4,12 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StoryStudio
+namespace BaseTypeEnum
 {
-    class Program
+    public enum BaseTypeEnum
     {
-        static void Main(string[] args)
-        {
-        }
+        Node,Panel
     }
 }
