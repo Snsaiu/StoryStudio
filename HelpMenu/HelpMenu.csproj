@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{F8085D51-BC3C-44A5-8BAB-232C83E51942}</ProjectGuid>
+    <ProjectGuid>{CBB278D8-0355-4C13-839B-38069731992E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IPanelBase</RootNamespace>
-    <AssemblyName>IPanelBase</AssemblyName>
+    <RootNamespace>HelpMenu</RootNamespace>
+    <AssemblyName>HelpMenu</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,12 +30,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,13 +42,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPanelBase.cs" />
+    <Compile Include="HelpMenu.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SSBase\ISSBase.csproj">
-      <Project>{C5E0AFC7-BC71-4621-BF29-E30FA06A2BD5}</Project>
-      <Name>ISSBase</Name>
+    <ProjectReference Include="..\IFillMenuUI\IFillMenuUI.csproj">
+      <Project>{6265F75D-CC68-48E8-A73E-EE82AF3B98DC}</Project>
+      <Name>IFillMenuUI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IUsableData\IUsableData.csproj">
+      <Project>{E351724B-B1F8-4B38-B6F5-C9EEBEB1C198}</Project>
+      <Name>IUsableData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MefExport\MefExport.csproj">
+      <Project>{24BB0335-5A8C-418F-88C9-0761F3A7CAA3}</Project>
+      <Name>MefExport</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

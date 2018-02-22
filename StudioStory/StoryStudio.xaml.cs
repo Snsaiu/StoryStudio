@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Menu;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,10 @@ namespace StudioStory
         public MainWindow()
         {
             InitializeComponent();
+            Menu.Menu menu = new Menu.Menu();
+            menu.SetValue(Grid.RowProperty, 0);
+            menu.SetValue(Grid.ColumnSpanProperty, 2);
+            this.MainGrid.Children.Add(menu);
         }
     }
 }
