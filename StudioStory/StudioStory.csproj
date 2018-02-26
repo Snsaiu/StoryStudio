@@ -95,9 +95,12 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Menu\Menu.csproj">
-      <Project>{6109C726-96EA-47E3-A3B1-871DB0A4B98B}</Project>
+      <Project>{6109c726-96ea-47e3-a3b1-871db0a4b98b}</Project>
       <Name>Menu</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SystemPlugins\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -42,6 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ExportMenuPluginAttribute.cs" />
+    <Compile Include="ExportNodePluginAttribute.cs" />
+    <Compile Include="ExportPanelPluginAttribute.cs" />
+    <Compile Include="MenuTypePlugin.cs" />
+    <Compile Include="NodeTypePlugin.cs" />
+    <Compile Include="PanelTypePlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

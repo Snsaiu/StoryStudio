@@ -15,7 +15,8 @@ namespace HelpMenu
     {
         public bool Draw(StackPanel parent, IUsableData.IUsableData data)
         {
-            throw new NotImplementedException();
+            // todo;
+            return true;
         }
     }
 }

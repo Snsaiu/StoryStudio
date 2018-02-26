@@ -6,15 +6,16 @@
         xmlns:local="clr-namespace:StudioStory"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid Name="MainGrid">
+    <Grid Name="MainGrid" ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="424*"/>
             <ColumnDefinition Width="93*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="14"/>
-            <RowDefinition Height="289*"/>
+            <RowDefinition Height="18"/>
+            <RowDefinition/>
             <RowDefinition Height="14"/>
         </Grid.RowDefinitions>
+
     </Grid>
 </Window>

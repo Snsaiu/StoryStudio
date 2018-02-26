@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
@@ -45,9 +46,21 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IFillMenuUI\IFillMenuUI.csproj">
+      <Project>{6265F75D-CC68-48E8-A73E-EE82AF3B98DC}</Project>
+      <Name>IFillMenuUI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IPluginManager\IPluginManager.csproj">
       <Project>{439FF116-E4A2-4C6D-B255-9A90F157C90F}</Project>
       <Name>IPluginManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IUsableData\IUsableData.csproj">
+      <Project>{E351724B-B1F8-4B38-B6F5-C9EEBEB1C198}</Project>
+      <Name>IUsableData</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MefExport\MefExport.csproj">
+      <Project>{24BB0335-5A8C-418F-88C9-0761F3A7CAA3}</Project>
+      <Name>MefExport</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

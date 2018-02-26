@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using MenuPluginManager;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace Menu
@@ -11,10 +12,14 @@ namespace Menu
         public Menu()
         {
             InitializeComponent();
+            // here load plugin
+            MenuPluginManager.MenuPluginManager pluginManager = new MenuPluginManager.MenuPluginManager(this.MenuStackPanel);
+            pluginManager.InstallPlugin();
+
         }
 
         public string PanelLabel { get; set; }
-        public int Id { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public int Id { get; set; }
         public global::BaseTypeEnum.BaseTypeEnum BaseType { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
         public bool FindDataByTag(string tag, out object resource)

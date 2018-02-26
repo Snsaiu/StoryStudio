@@ -7,6 +7,7 @@ using System.ComponentModel.Composition;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace EditMenu
@@ -16,7 +17,21 @@ namespace EditMenu
     {
         public bool Draw(StackPanel parent, IUsableData.IUsableData data)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Menu menuContainer = new Menu();
+                MenuItem editMenu = new MenuItem();
+                editMenu.Header = "Edit";
+                menuContainer.Items.Add(editMenu);
+                // add children menus
+                return true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("load edit menu error");
+                return false;
+
+            }
         }
     }
 }

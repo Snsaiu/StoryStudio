@@ -64,6 +64,10 @@
       <Project>{F8085D51-BC3C-44A5-8BAB-232C83E51942}</Project>
       <Name>IPanelBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\MenuPluginManager\MenuPluginManager.csproj">
+      <Project>{436F105E-0FF9-4960-94B2-AF339C3EDDF9}</Project>
+      <Name>MenuPluginManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SSBase\ISSBase.csproj">
       <Project>{c5e0afc7-bc71-4621-bf29-e30fa06a2bd5}</Project>
       <Name>ISSBase</Name>

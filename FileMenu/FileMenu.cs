@@ -1,21 +1,64 @@
-﻿using IFillMenuUI;
-using IUsableData;
-using MefExport;
+﻿using MefExport;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace FileMenu
 {
+    /// <summary>
+    /// register filemenu 
+    /// </summary>
     [ExportMenuPlugin(PluginType ="FileMenu")]
     public class FileMenu : IFillMenuUI.IFillMenuUI
     {
         public bool Draw(StackPanel parent, IUsableData.IUsableData data)
         {
-            throw new NotImplementedException();
+            try
+            {
+                Menu menuContainer = new Menu();
+                MenuItem fileMenu = new MenuItem();
+                fileMenu.Header = "File";
+                menuContainer.Items.Add(fileMenu);
+                // add children menus
+
+                // add 'new item'
+
+                MenuItem newMenu = new MenuItem();
+                newMenu.Header = "_New";
+                fileMenu.Items.Add(newMenu);
+
+                //add 'open ' item
+
+                MenuItem openMenu = new MenuItem();
+                openMenu.Header = "_Open";
+                fileMenu.Items.Add(openMenu);
+
+                // add 'save' item
+
+                MenuItem saveMenu = new MenuItem();
+                saveMenu.Header = "_Save";
+                fileMenu.Items.Add(saveMenu);
+
+                // add 'save as' item
+                MenuItem saveasMenu = new MenuItem();
+                saveasMenu.Header = "Save as";
+                fileMenu.Items.Add(saveasMenu);
+
+                // add 'exit' item
+
+                MenuItem exitMenu = new MenuItem();
+                exitMenu.Header = "_Exit";
+                fileMenu.Items.Add(exitMenu);
+
+                // add to panel
+                parent.Children.Add(menuContainer);
+                return true;
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("load file menu error");
+                return false;
+            }
         }
     }
 }
