@@ -13,7 +13,7 @@ namespace HelpMenu
     [ExportMenuPlugin(PluginType = "FileMenu")]
     public class HelpMenu : IFillMenuUI.IFillMenuUI
     {
-        public bool Draw(StackPanel parent, IUsableData.IUsableData data)
+        public bool Draw(Menu parentMenu)
         {
             // todo;
             return true;

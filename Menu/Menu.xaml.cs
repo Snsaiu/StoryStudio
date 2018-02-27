@@ -12,8 +12,11 @@ namespace Menu
         public Menu()
         {
             InitializeComponent();
+
+            System.Windows.Controls.Menu MainMenu = new System.Windows.Controls.Menu();
+            this.MenuStackPanel.Children.Add(MainMenu);
             // here load plugin
-            MenuPluginManager.MenuPluginManager pluginManager = new MenuPluginManager.MenuPluginManager(this.MenuStackPanel);
+            MenuPluginManager.MenuPluginManager pluginManager = new MenuPluginManager.MenuPluginManager(MainMenu);
             pluginManager.InstallPlugin();
 
         }

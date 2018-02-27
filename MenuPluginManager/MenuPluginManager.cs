@@ -16,34 +16,84 @@ namespace MenuPluginManager
     public class MenuPluginManager : IPluginManager.IPluginManager
     {
         [ImportMany(typeof(IFillMenuUI.IFillMenuUI))]
-        public IEnumerable<Lazy<IFillMenuUI.IFillMenuUI,MenuTypePlugin>> MenuPlugins { get; set; }
-        private StackPanel _stackpanel = null;
+        public IEnumerable<Lazy<IFillMenuUI.IFillMenuUI, MenuTypePlugin>> MenuPlugins { get; set; }
+        private Menu _stackMenu = null;
 
-        public MenuPluginManager(StackPanel parent)
+        public MenuPluginManager(Menu parent)
         {
-            this._stackpanel = parent;
+            this._stackMenu = parent;
         }
 
         public void InstallPlugin()
         {
             this.getCompose();
+
+            // 这里不知道怎么样才能排序，所以 要循环多次 ,
+            //暂时用这种方法吧
+            // todo :需要使用更加好的方法进行排序
             foreach (var plugin in this.MenuPlugins)
             {
-                if (plugin.Metadata.PluginType=="FileMenu")
+                // load file menu
+                if (plugin.Metadata.PluginType == "FileMenu")
                 {
-                    try
-                    {
-                        plugin.Value.Draw(this._stackpanel, null);
 
-                    }
-                    catch (Exception)
+                    if (plugin.Value.Draw(this._stackMenu))
                     {
-
-                      //  throw;
+                        // todo : display true information
                     }
-                 
+                    else
+                    {
+                        // todo: display false information
+                    }
+
+                }
+             
+            }
+            foreach (var plugin in this.MenuPlugins)
+            {
+                if (plugin.Metadata.PluginType == "EditMenu")
+                {
+                    if (plugin.Value.Draw(this._stackMenu))
+                    {
+                        // todo: display true information
+                    }
+                    else
+                    {
+                        // todo: display false information
+                    }
                 }
             }
+            foreach (var plugin in this.MenuPlugins)
+            {
+                if (plugin.Metadata.PluginType == "NodeMenu")
+                {
+                    if (plugin.Value.Draw(this._stackMenu))
+                    {
+                        // todo :display true information
+                    }
+                    else
+                    {
+                        // todo: display false information
+                    }
+                }
+            }
+            foreach (var plugin in this.MenuPlugins)
+            {
+                if (plugin.Metadata.PluginType == "WindowMenu")
+                {
+                    if (plugin.Value.Draw(this._stackMenu))
+                    {
+                        // todo :display true information
+                    }
+                    else
+                    {
+                        // todo: display false information
+                    }
+                }
+            }
+
+         
+
         }
 
         public bool UninstallPlugin()
@@ -52,7 +102,7 @@ namespace MenuPluginManager
         }
 
 
-       private void getCompose()
+        private void getCompose()
         {
             var catalog = new DirectoryCatalog(@"..\..\SystemPlugins");
             CompositionContainer composition = new CompositionContainer(catalog);

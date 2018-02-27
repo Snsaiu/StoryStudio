@@ -11,14 +11,14 @@ namespace FileMenu
     [ExportMenuPlugin(PluginType ="FileMenu")]
     public class FileMenu : IFillMenuUI.IFillMenuUI
     {
-        public bool Draw(StackPanel parent, IUsableData.IUsableData data)
+        public bool Draw(Menu parentMenu)
         {
             try
             {
-                Menu menuContainer = new Menu();
+          
                 MenuItem fileMenu = new MenuItem();
                 fileMenu.Header = "File";
-                menuContainer.Items.Add(fileMenu);
+                parentMenu.Items.Add(fileMenu);
                 // add children menus
 
                 // add 'new item'
@@ -48,10 +48,14 @@ namespace FileMenu
 
                 MenuItem exitMenu = new MenuItem();
                 exitMenu.Header = "_Exit";
+
+
+              
                 fileMenu.Items.Add(exitMenu);
 
+
                 // add to panel
-                parent.Children.Add(menuContainer);
+          
                 return true;
             }
             catch (Exception)

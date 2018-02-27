@@ -10,6 +10,6 @@ namespace IFillMenuUI
 {
     public interface IFillMenuUI
     {
-        bool Draw(StackPanel parent, IUsableData.IUsableData data);
+        bool Draw(Menu parentMenu);
     }
 }

@@ -15,14 +15,37 @@ namespace EditMenu
     [ExportMenuPlugin(PluginType ="EditMenu")]
     public class EditMenu : IFillMenuUI.IFillMenuUI
     {
-        public bool Draw(StackPanel parent, IUsableData.IUsableData data)
+        public bool Draw(Menu parentMenu)
         {
             try
             {
-                Menu menuContainer = new Menu();
+          
                 MenuItem editMenu = new MenuItem();
                 editMenu.Header = "Edit";
-                menuContainer.Items.Add(editMenu);
+
+                //  add children menus
+
+                // add 'undo'
+
+                MenuItem undoMenu = new MenuItem();
+                undoMenu.Header = "Undo";
+                editMenu.Items.Add(undoMenu);
+
+                // add "redo"
+
+                MenuItem redoMenu = new MenuItem();
+                redoMenu.Header = "Redo";
+                editMenu.Items.Add(redoMenu);
+
+                // add 'delete'
+
+                MenuItem deleteMenu = new MenuItem();
+                deleteMenu.Header = "Delete";
+                editMenu.Items.Add(deleteMenu);
+
+                parentMenu.Items.Add(editMenu);
+
+
                 // add children menus
                 return true;
             }

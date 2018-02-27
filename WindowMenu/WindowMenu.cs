@@ -11,18 +11,17 @@ using System.Windows.Controls;
 
 namespace WindowMenu
 {
-    [ExportMenuPlugin(PluginType = "FileMenu")]
+    [ExportMenuPlugin(PluginType = "WindowMenu")]
     public class WindowMenu : IFillMenuUI.IFillMenuUI
     {
-        public bool Draw(StackPanel parent, IUsableData.IUsableData data)
+        public bool Draw(Menu parentMenu)
         {
             try
             {
-                Menu menuContainer = new Menu();
+             
                 MenuItem windowMenu = new MenuItem();
                 windowMenu.Header = "Window";
-                menuContainer.Items.Add(windowMenu);
-
+               
                 // add children menus
 
                 // add 'story board '
@@ -40,8 +39,8 @@ namespace WindowMenu
                 // add 'outline '
 
                 // add 'restore '
-                parent.Children.Add(menuContainer);
 
+                parentMenu.Items.Add(windowMenu);
                 return true;
 
 
