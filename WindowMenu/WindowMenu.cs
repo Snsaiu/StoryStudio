@@ -20,30 +20,48 @@ namespace WindowMenu
             {
              
                 MenuItem windowMenu = new MenuItem();
-                windowMenu.Header = "Window";
+                windowMenu.Header = "_Window";
                
                 // add children menus
 
                 // add 'story board '
                 MenuItem storyboardMenu = new MenuItem();
-                storyboardMenu.Header = "Stroy Studio";
+                storyboardMenu.Header = "_Stroy Board";
                 windowMenu.Items.Add(storyboardMenu);
 
 
                 // add 'Dope Sheet'
 
+                MenuItem dopesheepMenu = new MenuItem();
+                dopesheepMenu.Header = "_Dope Sheet";
+                windowMenu.Items.Add(dopesheepMenu);
+
                 // add 'story Editor'
 
-                // add 'node Edior'
+                MenuItem storyeditorMenu = new MenuItem();
+                storyeditorMenu.Header = "_Story Editor";
+                windowMenu.Items.Add(storyeditorMenu);
+
+                // add 'node Editor'
+
+                MenuItem nodeediorMenu = new MenuItem();
+                nodeediorMenu.Header = "_Node Editor";
+                windowMenu.Items.Add(nodeediorMenu);
 
                 // add 'outline '
 
+                MenuItem outlineMenu = new MenuItem();
+                outlineMenu.Header = "_OutLine";
+                windowMenu.Items.Add(outlineMenu);
+
                 // add 'restore '
+
+                MenuItem restoreMenu = new MenuItem();
+                restoreMenu.Header = "_Restore";
+                windowMenu.Items.Add(restoreMenu);
 
                 parentMenu.Items.Add(windowMenu);
                 return true;
-
-
             }
             catch (Exception)
             {

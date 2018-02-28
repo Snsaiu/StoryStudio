@@ -17,7 +17,7 @@ namespace FileMenu
             {
           
                 MenuItem fileMenu = new MenuItem();
-                fileMenu.Header = "File";
+                fileMenu.Header = "_File";
                 parentMenu.Items.Add(fileMenu);
                 // add children menus
 

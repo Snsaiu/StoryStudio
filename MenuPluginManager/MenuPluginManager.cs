@@ -91,8 +91,22 @@ namespace MenuPluginManager
                     }
                 }
             }
+            foreach (var plugin in this.MenuPlugins)
+            {
+                if (plugin.Metadata.PluginType == "HelpMenu")
+                {
+                    if (plugin.Value.Draw(this._stackMenu))
+                    {
+                        // todo :display true information
+                    }
+                    else
+                    {
+                        // todo: display false information
+                    }
+                }
+            }
 
-         
+
 
         }
 

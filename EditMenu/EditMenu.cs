@@ -21,26 +21,26 @@ namespace EditMenu
             {
           
                 MenuItem editMenu = new MenuItem();
-                editMenu.Header = "Edit";
+                editMenu.Header = "_Edit";
 
                 //  add children menus
 
                 // add 'undo'
 
                 MenuItem undoMenu = new MenuItem();
-                undoMenu.Header = "Undo";
+                undoMenu.Header = "_Undo";
                 editMenu.Items.Add(undoMenu);
 
                 // add "redo"
 
                 MenuItem redoMenu = new MenuItem();
-                redoMenu.Header = "Redo";
+                redoMenu.Header = "_Redo";
                 editMenu.Items.Add(redoMenu);
 
                 // add 'delete'
 
                 MenuItem deleteMenu = new MenuItem();
-                deleteMenu.Header = "Delete";
+                deleteMenu.Header = "_Delete";
                 editMenu.Items.Add(deleteMenu);
 
                 parentMenu.Items.Add(editMenu);
