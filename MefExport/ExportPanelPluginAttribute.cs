@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IFillPanelUI;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
@@ -11,6 +12,10 @@ namespace MefExport
     [AttributeUsage(AttributeTargets.Class,AllowMultiple =false)]
     public class ExportPanelPluginAttribute:ExportAttribute
     {
-        // todo;
+        public ExportPanelPluginAttribute():base(typeof(IFillPanelUI.IFillPanelUI))
+        {
+
+        }
+        public string PluginType { get; set; }
     }
 }

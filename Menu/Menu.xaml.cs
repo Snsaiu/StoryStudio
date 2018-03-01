@@ -1,4 +1,6 @@
-﻿using MenuPluginManager;
+﻿using BaseTypeEnum;
+using MenuPluginManager;
+using SSBase;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -23,7 +25,7 @@ namespace Menu
 
         public string PanelLabel { get; set; }
         public int Id { get; set; }
-        public global::BaseTypeEnum.BaseTypeEnum BaseType { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+        public BaseTypeEnum.BaseTypeEnum BaseType { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
 
         public bool FindDataByTag(string tag, out object resource)
         {

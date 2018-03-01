@@ -6,22 +6,22 @@
              xmlns:local="clr-namespace:NodePanel"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <Grid Name="NodeGrid" Background="Gray">
+    <Grid Name="NodeGrid" Background="Red">
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="15*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="15*"/>
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <StackPanel Name="UpHorStack" Grid.Row="0" Grid.Column="1" Background="Aqua" Orientation="Horizontal"/>
         <StackPanel Name="DownHorStack" Grid.Row="2" Grid.Column="1" Background="Aqua" Orientation="Horizontal"/>
         <StackPanel Name="LeftVerStack" Grid.Row="1" Grid.Column="0" Background="Aqua" Orientation="Vertical"/>
         <StackPanel Name="RightVerStack" Grid.Row="1" Grid.Column="2" Background="Aqua" Orientation="Vertical"/>
-        <Canvas Name="NodeCanvas" Background="Black"  Grid.RowSpan="3" Grid.ColumnSpan="3" Margin="0,0,-297,-297"/>
+        <Canvas Name="NodeCanvas" Background="Black"  Grid.RowSpan="3" Grid.ColumnSpan="3" />
     </Grid>
 
 </UserControl>

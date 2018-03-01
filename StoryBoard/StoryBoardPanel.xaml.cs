@@ -1,6 +1,4 @@
-﻿using BaseTypeEnum;
-using IPanelBase;
-using SSBase;
+﻿using IPanelBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,21 +14,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace NodePanel
+namespace StoryBoard
 {
     /// <summary>
-    /// Interaction logic for NodePanel.xaml
+    /// Interaction logic for StoryBoardPanel.xaml
     /// </summary>
-    public partial class NodePanel : UserControl,IPanelBase.IPanelBase
+    public partial class StoryBoardPanel : UserControl,IPanelBase.IPanelBase
     {
-        public NodePanel()
+        public StoryBoardPanel()
         {
             InitializeComponent();
         }
 
         public string PanelLabel { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-        public BaseTypeEnum.BaseTypeEnum BaseType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public global::BaseTypeEnum.BaseTypeEnum BaseType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public bool FindDataByTag(string tag, out object resource)
         {

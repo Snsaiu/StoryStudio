@@ -98,6 +98,10 @@
       <Project>{6109c726-96ea-47e3-a3b1-871db0a4b98b}</Project>
       <Name>Menu</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NodePanel\NodePanel.csproj">
+      <Project>{5329345A-C02C-4E03-BCEE-5C2FC2300B9A}</Project>
+      <Name>NodePanel</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SystemPlugins\" />
