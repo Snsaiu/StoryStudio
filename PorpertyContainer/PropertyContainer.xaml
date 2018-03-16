@@ -1,0 +1,17 @@
+﻿<UserControl x:Class="PorpertyContainer.PropertyContainer"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PorpertyContainer"
+             mc:Ignorable="d" 
+             d:DesignHeight="722" d:DesignWidth="370">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="14*"/>
+            <RowDefinition Height="5*"/>
+        </Grid.RowDefinitions>
+        <Grid Name="PriPropertyGrid" Background="Blue" Grid.Column="0" Grid.Row="0"></Grid>
+        <Grid Name="PublicPropertyGrid" Background="Yellow" Grid.Column="0" Grid.Row="1"></Grid>
+    </Grid>
+</UserControl>

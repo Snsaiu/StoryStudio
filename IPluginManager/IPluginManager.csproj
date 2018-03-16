@@ -43,5 +43,11 @@
     <Compile Include="IPluginManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IPanelContainer\IPanelContainer.csproj">
+      <Project>{4E7F8069-2EB6-4898-8C1D-BD569DC48A05}</Project>
+      <Name>IPanelContainer</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

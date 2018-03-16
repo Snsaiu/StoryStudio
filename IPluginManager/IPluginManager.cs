@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IPanelContainer;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,5 +11,6 @@ namespace IPluginManager
     {
         void InstallPlugin();
         bool UninstallPlugin();
+        void InstallPlugin(IPanelContainer.IPanelContainer panelContainer);
     }
 }

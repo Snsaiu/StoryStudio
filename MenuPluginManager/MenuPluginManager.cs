@@ -1,4 +1,5 @@
 ﻿using IFillMenuUI;
+using IPanelContainer;
 using IPluginManager;
 using MefExport;
 using System;
@@ -121,6 +122,11 @@ namespace MenuPluginManager
             var catalog = new DirectoryCatalog(@"..\..\SystemPlugins");
             CompositionContainer composition = new CompositionContainer(catalog);
             composition.ComposeParts(this);
+        }
+
+        public void InstallPlugin(IPanelContainer.IPanelContainer panelContainer)
+        {
+            throw new NotImplementedException();
         }
     }
 }

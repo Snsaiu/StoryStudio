@@ -2,6 +2,9 @@
 using System.Windows.Controls;
 using System;
 using NodePanel;
+using IPanelContainer;
+using PanelPluginManager;
+using CmdPanel;
 
 namespace StudioStory
 {
@@ -22,16 +25,49 @@ namespace StudioStory
        
             this.MainGrid.Children.Add(menu);
 
-            // add node panel ui
 
-            NodePanel.NodePanel nodePanel = new NodePanel.NodePanel();
-            nodePanel.SetValue(Grid.RowProperty, 1);
-            nodePanel.SetValue(Grid.ColumnProperty, 1);
-            nodePanel.HorizontalAlignment = HorizontalAlignment.Stretch;
-            nodePanel.VerticalAlignment = VerticalAlignment.Stretch;
-            this.MainGrid.Children.Add(nodePanel);
+            var panelPluginManager = new PanelPluginManager.PanelPluginManager();
 
-            
+            // add left panel ui
+
+            PanelContainer leftpanel = new PanelContainer();
+            panelPluginManager.InstallPlugin(leftpanel);
+            leftpanel.SetValue(Grid.RowProperty, 1);
+            leftpanel.SetValue(Grid.ColumnProperty, 0);
+            this.MainGrid.Children.Add(leftpanel);
+
+            // add  panel ui
+
+
+            PanelContainer mainPanel = new PanelContainer();
+
+            panelPluginManager.InstallPlugin(mainPanel);
+
+            mainPanel.SetValue(Grid.RowProperty, 1);
+            mainPanel.SetValue(Grid.ColumnProperty, 1);
+            mainPanel.HorizontalAlignment = HorizontalAlignment.Stretch;
+            mainPanel.VerticalAlignment = VerticalAlignment.Stretch;
+            this.MainGrid.Children.Add(mainPanel);
+
+            // add  panel ui
+
+            PanelContainer propertyPanel = new PanelContainer();
+            panelPluginManager.InstallPlugin(propertyPanel);
+            propertyPanel.SetValue(Grid.RowProperty, 1);
+            propertyPanel.SetValue(Grid.ColumnProperty, 2);
+            propertyPanel.HorizontalAlignment = HorizontalAlignment.Stretch;
+            propertyPanel.VerticalAlignment = VerticalAlignment.Stretch;
+            this.MainGrid.Children.Add(propertyPanel);
+
+            // add cmd panel
+
+            CmdPanel.CmdPanel cmdPanel = new CmdPanel.CmdPanel();
+            cmdPanel.HorizontalAlignment = HorizontalAlignment.Stretch;
+            cmdPanel.SetValue(Grid.RowProperty, 2);
+            cmdPanel.SetValue(Grid.ColumnProperty, 0);
+            cmdPanel.SetValue(Grid.ColumnSpanProperty, 3);
+            this.MainGrid.Children.Add(cmdPanel);
+
         }
 
 

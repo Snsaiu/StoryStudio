@@ -1,0 +1,24 @@
+﻿<UserControl x:Class="CmdPanel.CmdPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:CmdPanel"
+             mc:Ignorable="d" 
+           >
+    <Grid Background="#FF0AB6F7" >
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="50"/>
+            <ColumnDefinition Width="500*"/>
+            <ColumnDefinition Width="30"/>
+            <ColumnDefinition Width="1000"/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="x"  HorizontalAlignment="Left" VerticalAlignment="Center"  Grid.Column="0"/>
+        <TextBlock  Text="y" HorizontalAlignment="Left" VerticalAlignment="Center" Grid.Column="1"/>
+        <TextBlock Text="CMD " HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="3"/>
+        <TextBox   HorizontalAlignment="Stretch" VerticalAlignment="Center" Grid.Column="4"/>
+        <ProgressBar Value="50"  HorizontalContentAlignment="Right" Background="#FF0AB6F7" VerticalContentAlignment="Stretch" Grid.Column="5"/>
+    </Grid>
+</UserControl>

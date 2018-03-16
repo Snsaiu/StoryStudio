@@ -10,9 +10,8 @@ namespace NodeBase
 {
     public  interface INodeBase 
     {
-         List<INodeBase> Next { get; set; }
+         IEnumerable<INodeBase> Next { get; set; }
          Point Position { get; set; }
-
           void UpdateData(INodeBase node);
           void DataChanged();
         

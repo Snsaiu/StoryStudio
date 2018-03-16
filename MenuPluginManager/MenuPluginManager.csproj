@@ -51,6 +51,10 @@
       <Project>{6265F75D-CC68-48E8-A73E-EE82AF3B98DC}</Project>
       <Name>IFillMenuUI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IPanelContainer\IPanelContainer.csproj">
+      <Project>{4E7F8069-2EB6-4898-8C1D-BD569DC48A05}</Project>
+      <Name>IPanelContainer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IPluginManager\IPluginManager.csproj">
       <Project>{439FF116-E4A2-4C6D-B255-9A90F157C90F}</Project>
       <Name>IPluginManager</Name>

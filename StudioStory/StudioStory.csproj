@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{D8A38C39-F612-4A88-95FF-D13CD0FF8A9F}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <RootNamespace>StudioStory</RootNamespace>
     <AssemblyName>StudioStory</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
@@ -32,6 +32,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -94,6 +97,18 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CmdPanel\CmdPanel.csproj">
+      <Project>{CC810D6B-6C57-4018-9344-70764932502B}</Project>
+      <Name>CmdPanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPanelContainer\IPanelContainer.csproj">
+      <Project>{4E7F8069-2EB6-4898-8C1D-BD569DC48A05}</Project>
+      <Name>IPanelContainer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPluginManager\IPluginManager.csproj">
+      <Project>{439FF116-E4A2-4C6D-B255-9A90F157C90F}</Project>
+      <Name>IPluginManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Menu\Menu.csproj">
       <Project>{6109c726-96ea-47e3-a3b1-871db0a4b98b}</Project>
       <Name>Menu</Name>
@@ -102,9 +117,16 @@
       <Project>{5329345A-C02C-4E03-BCEE-5C2FC2300B9A}</Project>
       <Name>NodePanel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\PanelPluginManager\PanelPluginManager.csproj">
+      <Project>{22D4E608-B818-4DB4-9C80-0E22A41C48F0}</Project>
+      <Name>PanelPluginManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SystemPlugins\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="content\logo.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
