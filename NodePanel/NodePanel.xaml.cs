@@ -1,6 +1,8 @@
 ﻿using BaseTypeEnum;
 using IPanelBase;
+using NodeBase;
 using SSBase;
+using StoryStartNode;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,11 +25,16 @@ namespace NodePanel
     /// </summary>
     public partial class NodePanel : UserControl,IPanelBase.IPanelBase
     {
-
+        
         /// <summary>
         /// determain current canvas can mose position
         /// </summary>
         private bool _canMove = false;
+
+        /// <summary>
+        /// 捕获的节点保存在该字段中
+        /// </summary>
+        private INodeBase targetElement = null;
 
         private Point captureElementPoint;
 
@@ -45,6 +52,19 @@ namespace NodePanel
         public NodePanel()
         {
             InitializeComponent();
+
+            StoryStartNode.StoryStartNode storyStartNode = new StoryStartNode.StoryStartNode();
+
+            this.NodeCanvas.Children.Add(storyStartNode);
+            Canvas.SetLeft(storyStartNode, 20);
+            Canvas.SetTop(storyStartNode, 20);
+
+            StoryStartNode.StoryStartNode storyStartNode1 = new StoryStartNode.StoryStartNode();
+
+            this.NodeCanvas.Children.Add(storyStartNode1);
+            Canvas.SetLeft(storyStartNode1, 40);
+            Canvas.SetTop(storyStartNode1, 40);
+
 
 
             // node panel mousewheel event ,it can scale node panel size 
@@ -82,15 +102,22 @@ namespace NodePanel
             // it will set _canMove value change to true
             this.NodeCanvas.MouseLeftButtonDown += (s, e) =>
             {
-              //  if double click send node data to detail panel
-               var targetElement = e.Source as IInputElement;
+                //  if double click send node data to detail panel
+                if (e.Source is INodeBase)
+                {
+                    targetElement = e.Source as INodeBase;
+                    targetElement.CaptureMe();
+
+                }
+                else
+                {
+                    targetElement = null;
+                }
                 //if (e.ClickCount == 2 && targetElement is NodeBase)
                 //{
 
                 //    this.eventAggregator.GetEvent<SendNodeObjectEvent>().Publish(((NodeBase)targetElement));
                 //}
-
-                targetElement = e.Source as IInputElement;
                 //if (targetElement is NodeBase)
                 //{
                 //    captureElementPoint = e.GetPosition(targetElement);
@@ -106,14 +133,16 @@ namespace NodePanel
             // when mouse move and the _canMove is true ,it will move node panel
             this.NodeCanvas.MouseMove += (s, e) =>
             {
-
-                var targetElement = Mouse.Captured as UIElement;
+            
+         
+  
                 if (e.LeftButton == MouseButtonState.Pressed && targetElement != null && this._canMove)
                 {
                     var pCanvas = e.GetPosition(this.NodeCanvas);
                     // set finall position
-                    Canvas.SetLeft(targetElement, (pCanvas.X - captureElementPoint.X));
-                    Canvas.SetTop(targetElement, (pCanvas.Y - captureElementPoint.Y));
+                   targetElement.Position = new Point(pCanvas.X-5, pCanvas.Y-5);
+                   //Canvas.SetLeft(targetElement as StoryStartNode.StoryStartNode, (pCanvas.X - captureElementPoint.X));
+                   // Canvas.SetTop(targetElement as StoryStartNode.StoryStartNode, (pCanvas.Y - captureElementPoint.Y));
                     Console.WriteLine("level  " + this._scaleLevel);
                     return;
                 }
@@ -122,7 +151,8 @@ namespace NodePanel
                 string[] p = new string[2];
                 p[0] = e.GetPosition(this.NodeCanvas).X.ToString("0.");
                 p[1] = e.GetPosition(this.NodeCanvas).Y.ToString("0.");
-               
+
+              
 
                 if (e.LeftButton == MouseButtonState.Pressed && this._canMove)
                 {
@@ -139,10 +169,10 @@ namespace NodePanel
 
                         item.SetValue(Canvas.LeftProperty, newLeft);
                         item.SetValue(Canvas.TopProperty, newTop);
-                        //if (item is NodeBase)
+                        //if (item is INodeBase)
                         //{
-                        //    NodeBase nodeTemp = item as NodeBase;
-                        //    nodeTemp.SetPosition(newLeft, newTop);
+                        //    INodeBase nodeTemp = item as INodeBase;
+                        //    nodeTemp.Position = new Point(newLeft,newTop);                        
                         //}
 
                         //this.HorScrollbarValue = newLeft;
@@ -157,12 +187,18 @@ namespace NodePanel
             // when mouse left buttom up ,_canMove if false ,so user can node move node panel
             this.NodeCanvas.MouseLeftButtonUp += (s, e) =>
             {
-                Mouse.Capture(null);
+               
+                // 判断当前是否已经捕获到节点，如果捕获到节点，要释放
+                if(this.targetElement!=null)
+                {
+                    targetElement.ReleaseMe();
+                }
+
                 this.NodeCanvas.Cursor = null;
                 this._canMove = false;
-                Point endMovePosition = e.GetPosition(this.NodeCanvas);
-                totalTranslate.X += (endMovePosition.X - this._moveStartPoint.X) / this._scaleLevel;
-                totalTranslate.Y += (endMovePosition.Y - this._moveStartPoint.Y) / this._scaleLevel;
+                //Point endMovePosition = e.GetPosition(this.NodeCanvas);
+                //totalTranslate.X += (endMovePosition.X - this._moveStartPoint.X) / this._scaleLevel;
+                //totalTranslate.Y += (endMovePosition.Y - this._moveStartPoint.Y) / this._scaleLevel;
             };
 
         }

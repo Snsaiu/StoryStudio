@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Xml.Linq;
 
 namespace NodeBase
 {
@@ -14,6 +15,8 @@ namespace NodeBase
          Point Position { get; set; }
           void UpdateData(INodeBase node);
           void DataChanged();
+        bool CaptureMe();
+        void ReleaseMe();
         
     }
 }

@@ -21,13 +21,13 @@
 
         <Canvas Name="CanvasContainer" ClipToBounds="True" Grid.RowSpan="3" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
             <Canvas Height="{Binding ElementName=CanvasContainer, Path=ActualHeight}" Width="{Binding ElementName=CanvasContainer, Path=ActualWidth}" ClipToBounds="True"  Name="NodeCanvas" Background="YellowGreen" >
-                <Button Content="hello" Canvas.Left="194" Canvas.Top="128"></Button>
-                <Button Content="ddd" Canvas.Left="119" Canvas.Top="99"></Button>
+     
             </Canvas>
         </Canvas>
 
         <StackPanel Name="UpHorStack" Grid.Row="0" Grid.Column="1"  Orientation="Horizontal">
             <TextBlock  Text="node number"  />
+            <TextBlock Text="select node"/>
         </StackPanel>
         <StackPanel Name="DownHorStack" Grid.Row="2" Grid.Column="1" Background="Aqua" Orientation="Horizontal"/>
         <StackPanel Name="LeftVerStack" Grid.Row="1" Grid.Column="0" Background="Aqua" Orientation="Vertical"/>

@@ -14,5 +14,7 @@ namespace IPanelBase
         string PanelLabel { get; set; }
         void SetPanelFloat(UIElement parent);
         void SetPanelNoFloat(UIElement parent);
+
+ 
     }
 }
