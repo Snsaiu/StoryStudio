@@ -1,4 +1,6 @@
 ﻿using BaseTypeEnum;
+using GlobalTracker;
+using IJoinGlobalTracker;
 using IPanelBase;
 using NodeBase;
 using SSBase;
@@ -23,7 +25,7 @@ namespace NodePanel
     /// <summary>
     /// Interaction logic for NodePanel.xaml
     /// </summary>
-    public partial class NodePanel : UserControl,IPanelBase.IPanelBase
+    public partial class NodePanel : UserControl,IPanelBase.IPanelBase, IJoinGlobalTracker.IJoinGlobalTracker
     {
         
         /// <summary>
@@ -49,11 +51,18 @@ namespace NodePanel
         /// </summary>
         private Point _moveStartPoint;
 
+        /// <summary>
+        /// 获得节点编辑器的画布
+        /// </summary>
+        public Canvas GetCanvas => this.NodeCanvas;
+
         public NodePanel()
         {
             InitializeComponent();
 
             StoryStartNode.StoryStartNode storyStartNode = new StoryStartNode.StoryStartNode();
+
+           
 
             this.NodeCanvas.Children.Add(storyStartNode);
             Canvas.SetLeft(storyStartNode, 20);
@@ -203,9 +212,13 @@ namespace NodePanel
 
         }
 
-        public string PanelLabel { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string PanelLabel => "节点编辑器";
         public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public BaseTypeEnum.BaseTypeEnum BaseType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public string ShortName => "NEP";
+
+        public string LongName => "NodeEditPanel";
 
         public bool FindDataByTag(string tag, out object resource)
         {
@@ -220,6 +233,18 @@ namespace NodePanel
         public void SetPanelNoFloat(UIElement parent)
         {
             throw new NotImplementedException();
+        }
+
+        public void Join()
+        {
+            GlobalTracker.GlobalTracker gt = GlobalTracker.GlobalTracker.GetInstance();
+            gt.AddPanelInstance(this);
+        }
+
+        public bool Quit()
+        {
+            GlobalTracker.GlobalTracker gt = GlobalTracker.GlobalTracker.GetInstance();
+            return gt.RemovePanelByShortName("CP");
         }
     }
     

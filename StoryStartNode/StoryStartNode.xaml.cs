@@ -39,6 +39,9 @@ namespace StoryStartNode
             get { return Position; }
         }
 
+        public string ShortTag { get => "SS";  }
+        public string LongTag { get => "StoryStart";  }
+
         public bool CaptureMe()
         {
             return this.CaptureMouse();

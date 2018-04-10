@@ -33,6 +33,7 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
@@ -45,11 +46,20 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StoryNodes.cs" />
     <Compile Include="StoryStartNode.xaml.cs">
       <DependentUpon>StoryStartNode.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\IFillNode\IFillNode.csproj">
+      <Project>{40351DD5-1DAD-4543-906A-EE8664CAAFE5}</Project>
+      <Name>IFillNode</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MefExport\MefExport.csproj">
+      <Project>{24BB0335-5A8C-418F-88C9-0761F3A7CAA3}</Project>
+      <Name>MefExport</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NodeBase\NodeBase.csproj">
       <Project>{BEDD5D0A-28C5-4FD9-902C-8EF241F48D3B}</Project>
       <Name>NodeBase</Name>

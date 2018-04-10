@@ -101,6 +101,14 @@
       <Project>{CC810D6B-6C57-4018-9344-70764932502B}</Project>
       <Name>CmdPanel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GlobalTracker\GlobalTracker.csproj">
+      <Project>{802AEC58-DB62-4352-99B2-1B5A7CDF9120}</Project>
+      <Name>GlobalTracker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPanelBase\IPanelBase.csproj">
+      <Project>{F8085D51-BC3C-44A5-8BAB-232C83E51942}</Project>
+      <Name>IPanelBase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IPanelContainer\IPanelContainer.csproj">
       <Project>{4E7F8069-2EB6-4898-8C1D-BD569DC48A05}</Project>
       <Name>IPanelContainer</Name>
@@ -120,6 +128,10 @@
     <ProjectReference Include="..\PanelPluginManager\PanelPluginManager.csproj">
       <Project>{22D4E608-B818-4DB4-9C80-0E22A41C48F0}</Project>
       <Name>PanelPluginManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SSBase\ISSBase.csproj">
+      <Project>{C5E0AFC7-BC71-4621-BF29-E30FA06A2BD5}</Project>
+      <Name>ISSBase</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

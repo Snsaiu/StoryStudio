@@ -11,9 +11,29 @@ namespace IPanelBase
 {
     public interface IPanelBase:ISSBase
     {
-        string PanelLabel { get; set; }
+        /// <summary>
+        /// 面板名称
+        /// </summary>
+        string PanelLabel { get;}
+        /// <summary>
+        /// 设置面板浮动
+        /// </summary>
+        /// <param name="parent"></param>
         void SetPanelFloat(UIElement parent);
+        /// <summary>
+        /// 禁止面板浮动
+        /// </summary>
+        /// <param name="parent"></param>
         void SetPanelNoFloat(UIElement parent);
+        /// <summary>
+        /// 面板短名
+        /// </summary>
+        string ShortName { get; }
+        /// <summary>
+        /// 面板全名
+        /// </summary>
+        string LongName { get; }
+
 
  
     }

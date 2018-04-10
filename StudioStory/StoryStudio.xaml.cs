@@ -5,6 +5,7 @@ using NodePanel;
 using IPanelContainer;
 using PanelPluginManager;
 using CmdPanel;
+using GlobalTracker;
 
 namespace StudioStory
 {
@@ -17,6 +18,9 @@ namespace StudioStory
         {
             InitializeComponent();
 
+            // 实例化globaltracker
+            GlobalTracker.GlobalTracker globalTracker = GlobalTracker.GlobalTracker.GetInstance();
+
             //add menu ui
 
             Menu.Menu menu = new Menu.Menu();
@@ -24,6 +28,8 @@ namespace StudioStory
             menu.SetValue(Grid.ColumnSpanProperty, 3);
        
             this.MainGrid.Children.Add(menu);
+
+            globalTracker.AddPanelInstance(menu);
 
 
             var panelPluginManager = new PanelPluginManager.PanelPluginManager();
@@ -35,6 +41,9 @@ namespace StudioStory
             leftpanel.SetValue(Grid.RowProperty, 1);
             leftpanel.SetValue(Grid.ColumnProperty, 0);
             this.MainGrid.Children.Add(leftpanel);
+           
+
+          
 
             // add  panel ui
 

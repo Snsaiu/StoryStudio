@@ -48,6 +48,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GlobalTracker\GlobalTracker.csproj">
+      <Project>{802AEC58-DB62-4352-99B2-1B5A7CDF9120}</Project>
+      <Name>GlobalTracker</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IFillPanelUI\IFillPanelUI.csproj">
       <Project>{9648C388-FA30-406D-881E-E55A9BBA791E}</Project>
       <Name>IFillPanelUI</Name>

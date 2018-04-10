@@ -54,6 +54,10 @@
       <Project>{6265F75D-CC68-48E8-A73E-EE82AF3B98DC}</Project>
       <Name>IFillMenuUI</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IFillNode\IFillNode.csproj">
+      <Project>{40351DD5-1DAD-4543-906A-EE8664CAAFE5}</Project>
+      <Name>IFillNode</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IFillPanelUI\IFillPanelUI.csproj">
       <Project>{9648C388-FA30-406D-881E-E55A9BBA791E}</Project>
       <Name>IFillPanelUI</Name>

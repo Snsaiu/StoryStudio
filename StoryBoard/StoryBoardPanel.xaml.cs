@@ -1,4 +1,6 @@
-﻿using IPanelBase;
+﻿using GlobalTracker;
+using IJoinGlobalTracker;
+using IPanelBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,20 +21,36 @@ namespace StoryBoard
     /// <summary>
     /// Interaction logic for StoryBoardPanel.xaml
     /// </summary>
-    public partial class StoryBoardPanel : UserControl,IPanelBase.IPanelBase
+    public partial class StoryBoardPanel : UserControl,IPanelBase.IPanelBase, IJoinGlobalTracker.IJoinGlobalTracker
     {
         public StoryBoardPanel()
         {
             InitializeComponent();
         }
 
-        public string PanelLabel { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        public string PanelLabel => "故事板";
         public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public global::BaseTypeEnum.BaseTypeEnum BaseType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+
+        public string ShortName => "SBP";
+
+        public string LongName => "StoryBoardPanel";
 
         public bool FindDataByTag(string tag, out object resource)
         {
             throw new NotImplementedException();
+        }
+
+        public void Join()
+        {
+            GlobalTracker.GlobalTracker gt = GlobalTracker.GlobalTracker.GetInstance();
+            gt.AddPanelInstance(this);
+        }
+
+        public bool Quit()
+        {
+            GlobalTracker.GlobalTracker gt = GlobalTracker.GlobalTracker.GetInstance();
+           return gt.RemovePanelByShortName("SBP");
         }
 
         public void SetPanelFloat(UIElement parent)

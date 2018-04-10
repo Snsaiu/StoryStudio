@@ -1,4 +1,5 @@
-﻿using System;
+﻿using IFillNode;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.Linq;
@@ -11,7 +12,12 @@ namespace MefExport
     [AttributeUsage(AttributeTargets.Class,AllowMultiple =false)]
     public class ExportNodePluginAttribute:ExportAttribute
     {
-        // todo:
+        public ExportNodePluginAttribute():base(typeof(IFillNode.IFillNode))
+        {
+
+        }
+
+        public string PluginType { get; set; }
 
     }
 }
