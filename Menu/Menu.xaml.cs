@@ -25,6 +25,7 @@ namespace Menu
             GlobalTracker.GlobalTracker gt = GlobalTracker.GlobalTracker.GetInstance();
             return gt.RemovePanelByShortName("SBP");
         }
+        public bool IsActivity { get => IsActivity; set => IsActivity = value; }
 
         public Menu()
         {

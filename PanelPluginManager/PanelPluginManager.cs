@@ -24,6 +24,13 @@ namespace PanelPluginManager
         public void InstallPlugin()
         {
 
+            this.getCompose();
+            foreach(var plugin in this.PanelPlugins)
+            {
+                GlobalTracker.GlobalTracker tracker = GlobalTracker.GlobalTracker.GetInstance();
+                IPanelBase.IPanelBase p = plugin.Value.Draw() as IPanelBase.IPanelBase;
+                tracker.AddPanelInstance(p);
+            }
 
         }
 

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Xml.Linq;
 
 namespace NodeBase
@@ -38,6 +39,14 @@ namespace NodeBase
         /// node的全名
         /// </summary>
         string LongTag { get; }
+
+        /// <summary>
+        /// 创建一个新实例，并且加入容器
+        /// </summary>
+        /// <param name="canvas">容器</param>
+        void CreateSelf(Canvas canvas);
+
+        
         
         
     }

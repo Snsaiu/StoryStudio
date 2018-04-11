@@ -2,6 +2,8 @@
 using IJoinGlobalTracker;
 using IPanelBase;
 using NodeBase;
+using NodePanel;
+using StoryStartNode;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,6 +26,7 @@ namespace NodeListPanel
     /// </summary>
     public partial class NodeListPanel : UserControl, IPanelBase.IPanelBase, IJoinGlobalTracker.IJoinGlobalTracker
     {
+        
         public string PanelLabel =>"节点列表面板";
 
         public string ShortName => "NLP";
@@ -36,12 +39,15 @@ namespace NodeListPanel
         public NodeListPanel()
         {
             InitializeComponent();
+
+          
         }
 
-        public void demo()
-        {
-            MessageBox.Show("hello");
-        }
+        private bool _isactivity=false;
+
+        public bool IsActivity { get => _isactivity; set => this._isactivity = value; }
+
+
 
         /// <summary>
         /// 添加一个node标签
@@ -50,9 +56,12 @@ namespace NodeListPanel
         /// <param name="func">标签功能</param>
         public void AddNodeTag(string TagName,INodeBase nodeBase,Action<INodeBase> func)
         {
+
             Button btn = new Button();
             btn.Content = TagName;
-            btn.Click += (s, e) => { func(nodeBase); };
+            btn.Click += (s, e) => {
+               func(nodeBase);
+            };
             this.NodeListPanelContainer.Children.Add(btn);
         }
 

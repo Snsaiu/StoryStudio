@@ -99,9 +99,17 @@
       <Project>{BEDD5D0A-28C5-4FD9-902C-8EF241F48D3B}</Project>
       <Name>NodeBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NodePanel\NodePanel.csproj">
+      <Project>{5329345A-C02C-4E03-BCEE-5C2FC2300B9A}</Project>
+      <Name>NodePanel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SSBase\ISSBase.csproj">
       <Project>{C5E0AFC7-BC71-4621-BF29-E30FA06A2BD5}</Project>
       <Name>ISSBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StoryStartNode\StoryNodes.csproj">
+      <Project>{AEAE898E-1167-4BD8-B419-2ABDA62106B1}</Project>
+      <Name>StoryNodes</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

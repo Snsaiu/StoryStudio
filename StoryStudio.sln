@@ -101,6 +101,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GlobalTracker", "GlobalTrac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IJoinGlobalTracker", "IJoinGlobalTracker\IJoinGlobalTracker.csproj", "{F10979C6-5553-4985-BF0D-EEFE23E391D2}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PanelContainer", "PanelContainer\PanelContainer.csproj", "{A681B35E-3924-4507-913D-57E779825CC4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -259,6 +261,10 @@ Global
 		{F10979C6-5553-4985-BF0D-EEFE23E391D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F10979C6-5553-4985-BF0D-EEFE23E391D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F10979C6-5553-4985-BF0D-EEFE23E391D2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A681B35E-3924-4507-913D-57E779825CC4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A681B35E-3924-4507-913D-57E779825CC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A681B35E-3924-4507-913D-57E779825CC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A681B35E-3924-4507-913D-57E779825CC4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -299,6 +305,7 @@ Global
 		{CC810D6B-6C57-4018-9344-70764932502B} = {F4621C15-39A1-46EB-A903-987B74D433A4}
 		{AEAE898E-1167-4BD8-B419-2ABDA62106B1} = {7BFD843F-28CE-4FAB-A9D3-B53F8756F430}
 		{40351DD5-1DAD-4543-906A-EE8664CAAFE5} = {3CD3CD93-4300-4E07-A18E-F241DCBD3301}
+		{A681B35E-3924-4507-913D-57E779825CC4} = {3CD3CD93-4300-4E07-A18E-F241DCBD3301}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D39CA4CD-6479-4A26-A192-322B489288E3}

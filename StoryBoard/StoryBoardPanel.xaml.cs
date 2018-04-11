@@ -28,6 +28,10 @@ namespace StoryBoard
             InitializeComponent();
         }
 
+        private bool _isactivity = false;
+
+        public bool IsActivity { get => _isactivity; set => this._isactivity = value; }
+
         public string PanelLabel => "故事板";
         public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public global::BaseTypeEnum.BaseTypeEnum BaseType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

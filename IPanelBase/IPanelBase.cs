@@ -34,6 +34,11 @@ namespace IPanelBase
         /// </summary>
         string LongName { get; }
 
+        /// <summary>
+        /// 设置当前面板是否是激活状态
+        /// </summary>
+        bool IsActivity { get; set; }
+
 
  
     }

@@ -29,6 +29,7 @@ namespace EventPropertyPanel
             InitializeComponent();
         }
 
+        public bool IsActivity { get => IsActivity; set => IsActivity = value; }
         public string PanelLabel =>"事件属性面板";
 
         public string ShortName => "EPP";

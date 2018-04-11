@@ -47,30 +47,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IPanelContainer.cs" />
-    <Compile Include="PanelContainer.xaml.cs">
-      <DependentUpon>PanelContainer.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="PanelContainer.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\IPanelBase\IPanelBase.csproj">
-      <Project>{F8085D51-BC3C-44A5-8BAB-232C83E51942}</Project>
-      <Name>IPanelBase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NodePanel\NodePanel.csproj">
-      <Project>{5329345A-C02C-4E03-BCEE-5C2FC2300B9A}</Project>
-      <Name>NodePanel</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SSBase\ISSBase.csproj">
-      <Project>{C5E0AFC7-BC71-4621-BF29-E30FA06A2BD5}</Project>
-      <Name>ISSBase</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -26,8 +26,7 @@ namespace StoryStartNode
             InitializeComponent();
         }
 
-        public IEnumerable<INodeBase> Next { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
-
+      
         /// <summary>
         /// 设置节点的位置，获得节点的当前位置
         /// </summary>
@@ -41,11 +40,13 @@ namespace StoryStartNode
 
         public string ShortTag { get => "SS";  }
         public string LongTag { get => "StoryStart";  }
+        public IEnumerable<INodeBase> Next { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         public bool CaptureMe()
         {
             return this.CaptureMouse();
         }
+
 
         public void DataChanged()
         {
@@ -57,10 +58,24 @@ namespace StoryStartNode
             this.ReleaseMouseCapture();
         }
 
-        public void UpdateData(INodeBase node)
+        public void CreateSelf(Canvas canvas)
+        {
+            StoryStartNode temp = new StoryStartNode();
+            canvas.Children.Add(temp);
+            Random r = new Random();
+            Canvas.SetLeft(temp,500+r.Next(50,100));
+            Canvas.SetTop(temp, 300+r.Next(50,100));
+        }
+
+
+        public void UpdateData(StoryStartNode node)
         {
             throw new NotImplementedException();
         }
 
+        public void UpdateData(INodeBase node)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

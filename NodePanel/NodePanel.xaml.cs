@@ -54,11 +54,15 @@ namespace NodePanel
         /// <summary>
         /// 获得节点编辑器的画布
         /// </summary>
-        public Canvas GetCanvas => this.NodeCanvas;
+        public Canvas GetCanvas { get { return this.NodeCanvas; } }
 
         public NodePanel()
         {
             InitializeComponent();
+
+           
+
+
 
             StoryStartNode.StoryStartNode storyStartNode = new StoryStartNode.StoryStartNode();
 
@@ -219,6 +223,10 @@ namespace NodePanel
         public string ShortName => "NEP";
 
         public string LongName => "NodeEditPanel";
+
+        private bool _isactivity = false;
+
+        public bool IsActivity { get => _isactivity; set => this._isactivity = value; }
 
         public bool FindDataByTag(string tag, out object resource)
         {

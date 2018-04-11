@@ -84,6 +84,10 @@
       <Project>{5329345A-C02C-4E03-BCEE-5C2FC2300B9A}</Project>
       <Name>NodePanel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StoryStartNode\StoryNodes.csproj">
+      <Project>{AEAE898E-1167-4BD8-B419-2ABDA62106B1}</Project>
+      <Name>StoryNodes</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -5,7 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:StudioStory"
         mc:Ignorable="d"
-        Title="Story Studio" Height="350" Width="525" Icon="content/logo.png">
+        Title="Story Studio" 
+        Height="600" Width="800"
+        Icon="content/logo.png" WindowState="Maximized" ResizeMode="CanResizeWithGrip">
     <Grid Name="MainGrid" ShowGridLines="True">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>

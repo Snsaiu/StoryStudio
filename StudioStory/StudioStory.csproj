@@ -105,13 +105,13 @@
       <Project>{802AEC58-DB62-4352-99B2-1B5A7CDF9120}</Project>
       <Name>GlobalTracker</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IJoinGlobalTracker\IJoinGlobalTracker.csproj">
+      <Project>{F10979C6-5553-4985-BF0D-EEFE23E391D2}</Project>
+      <Name>IJoinGlobalTracker</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IPanelBase\IPanelBase.csproj">
       <Project>{F8085D51-BC3C-44A5-8BAB-232C83E51942}</Project>
       <Name>IPanelBase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IPanelContainer\IPanelContainer.csproj">
-      <Project>{4E7F8069-2EB6-4898-8C1D-BD569DC48A05}</Project>
-      <Name>IPanelContainer</Name>
     </ProjectReference>
     <ProjectReference Include="..\IPluginManager\IPluginManager.csproj">
       <Project>{439FF116-E4A2-4C6D-B255-9A90F157C90F}</Project>
@@ -121,9 +121,21 @@
       <Project>{6109c726-96ea-47e3-a3b1-871db0a4b98b}</Project>
       <Name>Menu</Name>
     </ProjectReference>
+    <ProjectReference Include="..\NodeListPanel\NodeListPanel.csproj">
+      <Project>{BB2B8873-C3FA-4AEE-87D1-2392E6DF2C28}</Project>
+      <Name>NodeListPanel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\NodePanel\NodePanel.csproj">
       <Project>{5329345A-C02C-4E03-BCEE-5C2FC2300B9A}</Project>
       <Name>NodePanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NodePluginManager\NodePluginManager.csproj">
+      <Project>{F566EFD2-B5A5-42D3-9AA5-89C4685C1DFC}</Project>
+      <Name>NodePluginManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PanelContainer\PanelContainer.csproj">
+      <Project>{A681B35E-3924-4507-913D-57E779825CC4}</Project>
+      <Name>PanelContainer</Name>
     </ProjectReference>
     <ProjectReference Include="..\PanelPluginManager\PanelPluginManager.csproj">
       <Project>{22D4E608-B818-4DB4-9C80-0E22A41C48F0}</Project>

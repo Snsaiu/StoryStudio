@@ -1,11 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
-using System;
-using NodePanel;
-using IPanelContainer;
-using PanelPluginManager;
-using CmdPanel;
-using GlobalTracker;
 
 namespace StudioStory
 {
@@ -29,28 +23,34 @@ namespace StudioStory
        
             this.MainGrid.Children.Add(menu);
 
-            globalTracker.AddPanelInstance(menu);
-
 
             var panelPluginManager = new PanelPluginManager.PanelPluginManager();
+            panelPluginManager.InstallPlugin();
 
             // add left panel ui
 
-            PanelContainer leftpanel = new PanelContainer();
-            panelPluginManager.InstallPlugin(leftpanel);
+
+            // add  panel ui
+            PanelContainer.PanelContainer leftpanel = new PanelContainer.PanelContainer("leftpanel");
+            PanelContainer.PanelContainer mainPanel = new PanelContainer.PanelContainer("mainpanel");
+            PanelContainer.PanelContainer propertyPanel = new PanelContainer.PanelContainer("rightpanel");
+
+            foreach (var item in globalTracker.GetPanels())
+            {
+                leftpanel.AddNewPanel(item.PanelLabel, item as UIElement);
+                mainPanel.AddNewPanel(item.PanelLabel, item as UIElement);
+                propertyPanel.AddNewPanel(item.PanelLabel, item as UIElement);
+
+            }
+
+            //panelPluginManager.InstallPlugin(leftpanel);
             leftpanel.SetValue(Grid.RowProperty, 1);
             leftpanel.SetValue(Grid.ColumnProperty, 0);
             this.MainGrid.Children.Add(leftpanel);
            
+  
 
-          
-
-            // add  panel ui
-
-
-            PanelContainer mainPanel = new PanelContainer();
-
-            panelPluginManager.InstallPlugin(mainPanel);
+            //panelPluginManager.InstallPlugin(mainPanel);
 
             mainPanel.SetValue(Grid.RowProperty, 1);
             mainPanel.SetValue(Grid.ColumnProperty, 1);
@@ -58,10 +58,10 @@ namespace StudioStory
             mainPanel.VerticalAlignment = VerticalAlignment.Stretch;
             this.MainGrid.Children.Add(mainPanel);
 
-            // add  panel ui
+          
 
-            PanelContainer propertyPanel = new PanelContainer();
-            panelPluginManager.InstallPlugin(propertyPanel);
+          
+            //panelPluginManager.InstallPlugin(propertyPanel);
             propertyPanel.SetValue(Grid.RowProperty, 1);
             propertyPanel.SetValue(Grid.ColumnProperty, 2);
             propertyPanel.HorizontalAlignment = HorizontalAlignment.Stretch;
@@ -76,6 +76,13 @@ namespace StudioStory
             cmdPanel.SetValue(Grid.ColumnProperty, 0);
             cmdPanel.SetValue(Grid.ColumnSpanProperty, 3);
             this.MainGrid.Children.Add(cmdPanel);
+
+
+            //加载Node
+
+            NodePluginManager.NodePluginManager nodePluginManager= new NodePluginManager.NodePluginManager(globalTracker.GetPanelByShorName("NLP") as NodeListPanel.NodeListPanel);
+            nodePluginManager.InstallPlugin();
+
 
         }
 

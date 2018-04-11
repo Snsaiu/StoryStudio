@@ -1,10 +1,5 @@
-﻿using IPanelBase;
-using NodeBase;
-using System;
+﻿using IPanelContainer;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace GlobalTracker
 {
@@ -21,9 +16,16 @@ namespace GlobalTracker
         /// </summary>
         private List<IPanelBase.IPanelBase> panellist = null;
 
+        /// <summary>
+        /// 存放所有容器面板
+        /// </summary>
+        private List<IPanelContainer.IPanelContainer> containerlist = null;
+       
+
         private GlobalTracker()
         {
             this.panellist = new List<IPanelBase.IPanelBase>();
+            this.containerlist = new List<IPanelContainer.IPanelContainer>();
         }
 
         /// <summary>
@@ -89,6 +91,50 @@ namespace GlobalTracker
         }
 
         /// <summary>
+        /// 根据容器面板的名称获得容器实例
+        /// </summary>
+        /// <param name="panelname">容器面板的名称</param>
+        /// <returns>返回容器面板的实例如果存在，否则返回null</returns>
+        public IPanelContainer.IPanelContainer GetContainerByPanelName(string panelname)
+        {
+            foreach (var item in this.containerlist)
+            {
+                if (item.PanelName==panelname)
+                {
+                    return item;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// 添加新的容器面板
+        /// </summary>
+        /// <param name="container">容器面板实例</param>
+        public void AddContanierInstance(IPanelContainer.IPanelContainer container)
+        {
+            this.containerlist.Add(container);
+        }
+
+        /// <summary>
+        /// 根据容器面板名称移除容器面板
+        /// </summary>
+        /// <param name="panelName">容器面板名称</param>
+        /// <returns>移除成功返回true，否则返回false</returns>
+        public bool RemoveContainerInstanceByPanelName(string panelName)
+        {
+            foreach (var item in this.containerlist)
+            {
+                if (item.PanelName == panelName)
+                {
+                    this.containerlist.Remove(item);
+                    return true;
+                }
+
+            }
+            return false;
+        }
+        /// <summary>
         /// 根据短名从globaltracker中移除面板实例
         /// </summary>
         /// <param name="shortname">需要移除的面板实例的短名</param>
@@ -124,6 +170,33 @@ namespace GlobalTracker
 
             }
             return false;
+        }
+
+        /// <summary>
+        /// 获得所有的容器面板实例
+        /// </summary>
+        /// <returns>返回容器的列表</returns>
+        public List<IPanelContainer.IPanelContainer> GetContainers()
+        {
+            if (this.containerlist!=null)
+            {
+                return this.containerlist;
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// 获得所有的面板实例
+        /// </summary>
+        /// <returns>返回面板列表实例如果列表有值，否则返回Null</returns>
+        public List<IPanelBase.IPanelBase> GetPanels()
+        {
+            if (this.panellist.Count==0)
+            {
+                return null;
+            }
+            return this.panellist;
+
         }
 
 

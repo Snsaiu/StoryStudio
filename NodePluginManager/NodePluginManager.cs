@@ -6,6 +6,7 @@ using MefExport;
 using NodeBase;
 using NodeListPanel;
 using NodePanel;
+using StoryStartNode;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
@@ -13,6 +14,7 @@ using System.ComponentModel.Composition.Hosting;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace NodePluginManager
@@ -24,6 +26,7 @@ namespace NodePluginManager
         {
             this.nodelistpanel = nodeListPanel;
         }
+
 
         [ImportMany(typeof(IFillNode.IFillNode))]
         public IEnumerable<Lazy<IFillNode.IFillNode, NodeTypePlugin>> nodeplugins { get; set; }
@@ -51,8 +54,10 @@ namespace NodePluginManager
 
             NodePanel.NodePanel panel = gt.GetPanelByShorName("NEP") as NodePanel.NodePanel;
             Canvas canvas = panel.GetCanvas;
-            canvas.Children.Add(node)
-
+      
+            
+            node.CreateSelf(canvas);
+          
             
         }
 

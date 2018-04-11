@@ -28,6 +28,10 @@ namespace CmdPanel
             InitializeComponent();
         }
 
+        private bool _isactivity = false;
+
+        public bool IsActivity { get => _isactivity; set => this._isactivity = value; }
+
         public string PanelLabel => "命令面板";
 
         public string ShortName => "CP";

@@ -37,6 +37,9 @@ namespace CCPropertyPanel
 
         public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public BaseTypeEnum.BaseTypeEnum BaseType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        private bool _isactivity = false;
+
+        public bool IsActivity { get => _isactivity; set => this._isactivity = value; }
 
         public bool FindDataByTag(string tag, out object resource)
         {

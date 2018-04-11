@@ -20,8 +20,7 @@
 
 
         <Canvas Name="CanvasContainer" ClipToBounds="True" Grid.RowSpan="3" Grid.ColumnSpan="3" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <Canvas Height="{Binding ElementName=CanvasContainer, Path=ActualHeight}" Width="{Binding ElementName=CanvasContainer, Path=ActualWidth}" ClipToBounds="True"  Name="NodeCanvas" Background="YellowGreen" >
-     
+            <Canvas Height="{Binding ElementName=CanvasContainer, Path=ActualHeight}" Width="{Binding ElementName=CanvasContainer, Path=ActualWidth}" ClipToBounds="True"  Name="NodeCanvas" Background="#FF2D2D30" >
             </Canvas>
         </Canvas>
 
