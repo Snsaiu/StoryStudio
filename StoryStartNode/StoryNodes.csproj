@@ -47,9 +47,7 @@
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StoryNodes.cs" />
-    <Compile Include="StoryStartNode.xaml.cs">
-      <DependentUpon>StoryStartNode.xaml</DependentUpon>
-    </Compile>
+    <Compile Include="StoryStartNode.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\IFillNode\IFillNode.csproj">
@@ -64,12 +62,6 @@
       <Project>{BEDD5D0A-28C5-4FD9-902C-8EF241F48D3B}</Project>
       <Name>NodeBase</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="StoryStartNode.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -7,18 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace StoryStartNode
 {
     [ExportNodePlugin(PluginType = "storynode")]
     public class StoryNodes : IFillNode.IFillNode
     {
-        private List<INodeBase> nodelist = null;
+        private List<NodeBase.NodeBase> nodelist = null;
 
         public StoryNodes()
         {
-            this.nodelist = new List<INodeBase>();
+            this.nodelist = new List<NodeBase.NodeBase>();
         }
-        public List<INodeBase> Draw()
+        public List<NodeBase.NodeBase> Draw()
         {
             this.nodelist.Add(new StoryStartNode());
 

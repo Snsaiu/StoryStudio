@@ -52,10 +52,6 @@
       <Project>{4E7F8069-2EB6-4898-8C1D-BD569DC48A05}</Project>
       <Name>IPanelContainer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NodeBase\NodeBase.csproj">
-      <Project>{BEDD5D0A-28C5-4FD9-902C-8EF241F48D3B}</Project>
-      <Name>NodeBase</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SSBase\ISSBase.csproj">
       <Project>{C5E0AFC7-BC71-4621-BF29-E30FA06A2BD5}</Project>
       <Name>ISSBase</Name>

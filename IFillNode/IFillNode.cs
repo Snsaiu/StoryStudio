@@ -9,6 +9,6 @@ namespace IFillNode
 {
    public interface IFillNode
     {
-        List<INodeBase> Draw();
+        List<NodeBase.NodeBase> Draw();
     }
 }

@@ -54,7 +54,7 @@ namespace NodeListPanel
         /// </summary>
         /// <param name="TagName">标签名</param>
         /// <param name="func">标签功能</param>
-        public void AddNodeTag(string TagName,INodeBase nodeBase,Action<INodeBase> func)
+        public void AddNodeTag(string TagName,NodeBase.NodeBase nodeBase,Action<NodeBase.NodeBase> func)
         {
 
             Button btn = new Button();

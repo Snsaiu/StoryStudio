@@ -36,7 +36,7 @@ namespace NodePanel
         /// <summary>
         /// 捕获的节点保存在该字段中
         /// </summary>
-        private INodeBase targetElement = null;
+        private NodeBase.NodeBase targetElement = null;
 
         private Point captureElementPoint;
 
@@ -59,24 +59,6 @@ namespace NodePanel
         public NodePanel()
         {
             InitializeComponent();
-
-           
-
-
-
-            StoryStartNode.StoryStartNode storyStartNode = new StoryStartNode.StoryStartNode();
-
-           
-
-            this.NodeCanvas.Children.Add(storyStartNode);
-            Canvas.SetLeft(storyStartNode, 20);
-            Canvas.SetTop(storyStartNode, 20);
-
-            StoryStartNode.StoryStartNode storyStartNode1 = new StoryStartNode.StoryStartNode();
-
-            this.NodeCanvas.Children.Add(storyStartNode1);
-            Canvas.SetLeft(storyStartNode1, 40);
-            Canvas.SetTop(storyStartNode1, 40);
 
 
 
@@ -116,9 +98,9 @@ namespace NodePanel
             this.NodeCanvas.MouseLeftButtonDown += (s, e) =>
             {
                 //  if double click send node data to detail panel
-                if (e.Source is INodeBase)
+                if (e.Source is NodeBase.NodeBase)
                 {
-                    targetElement = e.Source as INodeBase;
+                    targetElement = e.Source as NodeBase.NodeBase;
                     targetElement.CaptureMe();
 
                 }

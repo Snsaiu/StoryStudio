@@ -37,7 +37,7 @@ namespace NodePluginManager
             foreach (var plugin in this.nodeplugins)
             {
                 
-                List<INodeBase> nodes = plugin.Value.Draw();
+                List<NodeBase.NodeBase> nodes = plugin.Value.Draw();
                 foreach (var item in nodes)
                 {
                    
@@ -48,7 +48,7 @@ namespace NodePluginManager
            
         }
 
-        private void NodeActivity(INodeBase node)
+        private void NodeActivity(NodeBase.NodeBase node)
         {
             GlobalTracker.GlobalTracker gt = GlobalTracker.GlobalTracker.GetInstance();
 
@@ -56,7 +56,7 @@ namespace NodePluginManager
             Canvas canvas = panel.GetCanvas;
       
             
-            node.CreateSelf(canvas);
+            node.SetMyInitialPositon(canvas);
           
             
         }
