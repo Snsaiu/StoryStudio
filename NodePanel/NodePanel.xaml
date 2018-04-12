@@ -24,13 +24,13 @@
             </Canvas>
         </Canvas>
 
-        <StackPanel Name="UpHorStack" Grid.Row="0" Grid.Column="1"  Orientation="Horizontal">
-            <TextBlock  Text="node number"  />
-            <TextBlock Text="select node"/>
+        <StackPanel Name="UpHorStack" Opacity="0.555" Background="Gray" Grid.Row="0" Grid.Column="1"  Orientation="Horizontal">
+            <TextBlock Name="nodenumberTxt" Text="node number" Foreground="White" />
+            <TextBlock Margin="10 0" Name="selectnodeTxt" Text="select node" Foreground="White"/>
         </StackPanel>
-        <StackPanel Name="DownHorStack" Grid.Row="2" Grid.Column="1" Background="Aqua" Orientation="Horizontal"/>
-        <StackPanel Name="LeftVerStack" Grid.Row="1" Grid.Column="0" Background="Aqua" Orientation="Vertical"/>
-        <StackPanel Name="RightVerStack" Grid.Row="1" Grid.Column="2" Background="Aqua" Orientation="Vertical"/>
+        <StackPanel Name="DownHorStack" Grid.Row="2" Grid.Column="1" Background="Gray" Orientation="Horizontal" Opacity="0.555"/>
+        <StackPanel Name="LeftVerStack" Grid.Row="1" Grid.Column="0" Background="Gray" Opacity="0.555" Orientation="Vertical"/>
+        <StackPanel Name="RightVerStack" Grid.Row="1" Grid.Column="2" Background="Gray" Opacity="0.555" Orientation="Vertical"/>
 
     </Grid>
 
