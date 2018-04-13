@@ -40,14 +40,26 @@ namespace NodeBase
 
             if (this._inputs!=null)
             {
-                //todo：在ui中显示
+                for (int i = 0; i < this._inputs.Count; i++)
+                {
+                    this.inputgrid.ColumnDefinitions.Add(new ColumnDefinition());
+                    Viewbox v = new Viewbox();
+                    v.Child = this._inputs[i];
+                    this.inputgrid.Children.Add(v);
+                    Grid.SetColumn(v, i);
+                }
             }
 
             if (this._outputs!=null)
             {
-                foreach (var item in this._outputs)
+
+                for (int i = 0; i < this._outputs.Count; i++)
                 {
-                    this.nodegrid.Children.Add(item);
+                    this.outputgrid.ColumnDefinitions.Add(new ColumnDefinition());
+                    Viewbox v = new Viewbox();
+                    v.Child = this._outputs[i];
+                    this.outputgrid.Children.Add(v);
+                    Grid.SetColumn(v, i);
                 }
             }
         }
@@ -77,7 +89,7 @@ namespace NodeBase
                 Canvas.SetTop(this, value.Y);
             }
 
-            get { return Position; }
+            get { return new Point(Canvas.GetLeft(this),Canvas.GetTop(this)); }
         }
 
         public abstract string ShortTag { get; }

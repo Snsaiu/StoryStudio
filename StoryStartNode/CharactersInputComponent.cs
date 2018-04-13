@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace StoryStartNode
 {
-    public class CharactersOutputComponent : OutputComponent
+    public class CharactersInputComponent : InputComponent
     {
         public override string Label => "角色";
 
-        public override string ShortName => "COC";
+        public override string ShortName => "CIC";
 
-        public override string LongName => "CharactersOutputComponent";
+        public override string LongName => "CharactersInputComponent";
 
         public override string Type => "input";
 
@@ -21,7 +21,7 @@ namespace StoryStartNode
         {
             try
             {
-                this.AddStringAttr("ccoutputname", "角色姓名", "", false,true);
+                this.AddStringAttr("ccinputname", "角色姓名", "", false,true);
 
                 return true;
             }

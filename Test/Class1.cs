@@ -14,7 +14,7 @@ using test2;
 
 namespace Test
 {
-    class Class1 : t2u
+    class Class1 : UserControl1
     {
         public Class1()
         {

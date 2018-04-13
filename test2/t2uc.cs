@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace test2
 {
-    class t2uc:t2u
+    class t2uc : t2u
     {
+        public override void demo()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

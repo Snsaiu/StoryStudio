@@ -21,5 +21,10 @@
         /// 属性默认值
         /// </summary>
         public string DefaultValue { get; set; }
+
+        /// <summary>
+        /// 属性是否要显示在Node面板中
+        /// </summary>
+        public bool DisplayOnNode { get; set; }
     }
 }

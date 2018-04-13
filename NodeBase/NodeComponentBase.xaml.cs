@@ -110,8 +110,9 @@ namespace NodeBase
         /// <param name="displayname">属性显示名称</param>
         /// <param name="defalultvalue">属性默认值</param>
         /// <param name="hascontent">true：启用大面积输入框</param>
+        /// <param name="displayOnNode">true:属性显示在Node面板中</param>
         /// <returns>若添加成功返回true，否则返回false</returns>
-        protected bool AddStringAttr(string name,string displayname,string defalultvalue,bool hascontent)
+        protected bool AddStringAttr(string name,string displayname,string defalultvalue,bool hascontent,bool displayOnNode)
         {
             if (this._stringAttrs!=null)
             {
@@ -125,7 +126,7 @@ namespace NodeBase
                 }
 
                 // 添加新属性到容器中
-                this._stringAttrs.Add(new StringAttr() { Name = name, DisplayName = displayname, DefaultValue = defalultvalue, HasContent = hascontent });
+                this._stringAttrs.Add(new StringAttr() { Name = name, DisplayName = displayname, DefaultValue = defalultvalue, HasContent = hascontent,DisplayOnNode=displayOnNode });
                 return true;
             
             }

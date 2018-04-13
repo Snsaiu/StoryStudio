@@ -22,7 +22,9 @@ namespace StoryStartNode
 
         protected override List<InputComponent> AddInputComponent()
         {
-            return null;
+            List<InputComponent> temp = new List<InputComponent>();
+            temp.Add(new CharactersInputComponent());
+            return temp;
         }
 
         protected override List<OutputComponent> AddOutputComponent()

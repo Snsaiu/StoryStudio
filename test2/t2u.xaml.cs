@@ -11,7 +11,7 @@ namespace test2
     /// <summary>
     /// Interaction logic for t2u.xaml
     /// </summary>
-    public partial class t2u : UserControl
+    public abstract partial class t2u : UserControl
     {
         public t2u()
         {
@@ -19,6 +19,8 @@ namespace test2
             this.LoadViewFromUri("/test2;component/t2u.xaml");
            
         }
+
+        public abstract void demo();
     }
     static class Extension
     {

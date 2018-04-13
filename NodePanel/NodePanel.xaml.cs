@@ -38,7 +38,10 @@ namespace NodePanel
         /// </summary>
         private NodeBase.NodeBase targetElement = null;
 
-        private Point captureElementPoint;
+        /// <summary>
+        /// 鼠标点击到Node后，鼠标位置与Node左上角的差值
+        /// </summary>
+        private Point _nodeMouseDistance;
 
         TranslateTransform totalTranslate = new TranslateTransform();
         TranslateTransform tempTranslate = new TranslateTransform();
@@ -102,7 +105,10 @@ namespace NodePanel
                 {
                     targetElement = e.Source as NodeBase.NodeBase;
                     targetElement.CaptureMe();
-
+                    // 计算鼠标与节点右上角距离差值
+                    var pCanvas = e.GetPosition(this.NodeCanvas);
+                    this._nodeMouseDistance.X = pCanvas.X - targetElement.Position.X;
+                    this._nodeMouseDistance.Y = pCanvas.Y - targetElement.Position.Y;
                 }
                 else
                 {
@@ -135,7 +141,7 @@ namespace NodePanel
                 {
                     var pCanvas = e.GetPosition(this.NodeCanvas);
                     // set finall position
-                   targetElement.Position = new Point(pCanvas.X-5, pCanvas.Y-5);
+                   targetElement.Position = new Point(pCanvas.X-this._nodeMouseDistance.X, pCanvas.Y-this._nodeMouseDistance.Y);
                    //Canvas.SetLeft(targetElement as StoryStartNode.StoryStartNode, (pCanvas.X - captureElementPoint.X));
                    // Canvas.SetTop(targetElement as StoryStartNode.StoryStartNode, (pCanvas.Y - captureElementPoint.Y));
                     Console.WriteLine("level  " + this._scaleLevel);
