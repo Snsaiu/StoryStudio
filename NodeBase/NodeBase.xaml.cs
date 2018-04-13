@@ -14,12 +14,57 @@ namespace NodeBase
     /// </summary>
     public abstract partial class NodeBase : UserControl
     {
+        /// <summary>
+        /// 输入组件集
+        /// </summary>
+        private List<InputComponent> _inputs = null;
+
+        /// <summary>
+        /// 输出组件集
+        /// </summary>
+        private List<OutputComponent> _outputs = null;
+
         public NodeBase()
         {
             // InitializeComponent();
             this.LoadViewFromUri("/NodeBase;component/nodebase.xaml");
 
+            //装配组件
+            this.RigComponent();
         }
+
+        private void RigComponent()
+        {
+            this._inputs = this.AddInputComponent();
+            this._outputs = this.AddOutputComponent();
+
+            if (this._inputs!=null)
+            {
+                //todo：在ui中显示
+            }
+
+            if (this._outputs!=null)
+            {
+                foreach (var item in this._outputs)
+                {
+                    this.nodegrid.Children.Add(item);
+                }
+            }
+        }
+
+
+        /// <summary>
+        /// 添加输入组件
+        /// </summary>
+        /// <returns>输入组件实例清单</returns>
+        protected abstract List<InputComponent> AddInputComponent();
+
+        /// <summary>
+        /// 添加输出的组件
+        /// </summary>
+        /// <returns>输出组件实例清单</returns>
+        protected abstract List<OutputComponent> AddOutputComponent();
+
 
         /// <summary>
         /// 设置节点的位置，获得节点的当前位置

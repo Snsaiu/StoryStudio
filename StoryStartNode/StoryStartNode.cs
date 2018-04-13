@@ -19,5 +19,17 @@ namespace StoryStartNode
             StoryStartNode s = new StoryStartNode();
             return s;
         }
+
+        protected override List<InputComponent> AddInputComponent()
+        {
+            return null;
+        }
+
+        protected override List<OutputComponent> AddOutputComponent()
+        {
+            List<OutputComponent> temp = new List<OutputComponent>();
+            temp.Add(new CharactersOutputComponent());
+            return temp;
+        }
     }
 }
