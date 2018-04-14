@@ -83,9 +83,36 @@ namespace NodeBase
         private List<StringAttr> _stringAttrs = null;
 
         /// <summary>
+        /// 获得字符串属性集合
+        /// </summary>
+        /// <returns>返回字符串集合如果存在，否则返回Null</returns>
+        public List<StringAttr> GetStringAttrSet()
+        {
+            if (this._stringAttrs!=null)
+            {
+                return this._stringAttrs;
+            }
+            return null;
+        }
+
+        /// <summary>
         /// 存放数字属性
         /// </summary>
         private List<IntAttr> _intAttrs = null;
+
+        /// <summary>
+        /// 获得Int属性集合
+        /// </summary>
+        /// <returns>返回int集合如果存在，否则返回Null</returns>
+        public List<IntAttr> GetIntAttrSet()
+        {
+            if (this._intAttrs != null)
+            {
+                return this._intAttrs;
+            }
+            return null;
+        }
+        //todo:添加方法用于获得集合属性
 
         /// <summary>
         /// 存放bool属性
@@ -102,6 +129,7 @@ namespace NodeBase
         /// </summary>
         private List<MulitSelectAttr> _mulitSelectAttrs = null;
 
+   
 
         /// <summary>
         /// 添加一个新的字符串属性到字符串属性容器中

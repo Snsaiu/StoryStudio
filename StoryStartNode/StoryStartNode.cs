@@ -14,6 +14,8 @@ namespace StoryStartNode
 
         public override string LongTag =>"StoryStartNode";
 
+        public override string NodeLable => "起始";
+
         public override NodeBase.NodeBase CreateSelf()
         {
             StoryStartNode s = new StoryStartNode();

@@ -31,6 +31,17 @@ namespace NodeBase
 
             //装配组件
             this.RigComponent();
+
+            // 显示Nodelabel
+            if (this.NodeLable=="")
+            {
+                this.nodelabel.Text = "未定义节点名称";
+            
+            }
+            else
+            {
+                this.nodelabel.Text = this.NodeLable;
+            }
         }
 
         private void RigComponent()
@@ -47,6 +58,18 @@ namespace NodeBase
                     v.Child = this._inputs[i];
                     this.inputgrid.Children.Add(v);
                     Grid.SetColumn(v, i);
+
+                    //判断是否Node显示组件
+                    foreach (var item in this._inputs[i].GetStringAttrSet())
+                    {
+                        if (item.DisplayOnNode)
+                        {
+                            StringAttrUI stringAttrUI = new StringAttrUI();
+                            stringAttrUI.StrUILabel = item.DisplayName;
+                            stringAttrUI.StrUIContent = item.DefaultValue;
+                            this.componentstack.Children.Add(stringAttrUI);
+                        }
+                    }
                 }
             }
 
@@ -92,7 +115,19 @@ namespace NodeBase
             get { return new Point(Canvas.GetLeft(this),Canvas.GetTop(this)); }
         }
 
+        /// <summary>
+        /// 获得node显示名称
+        /// </summary>
+        public abstract string NodeLable { get; }
+
+        /// <summary>
+        /// 获得Node短名
+        /// </summary>
         public abstract string ShortTag { get; }
+
+        /// <summary>
+        /// 获得node长名
+        /// </summary>
         public abstract string LongTag { get;}
 
         /// <summary>
