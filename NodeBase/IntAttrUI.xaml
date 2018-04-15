@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="NodeBase.StringAttrUI"
+﻿<UserControl x:Class="NodeBase.IntAttrUI"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -196,7 +196,7 @@
                             <Border BorderBrush="#FF0F0F0F" BorderThickness="{TemplateBinding BorderThickness}" Background="#FF530C0C" Grid.Row="1"/>
                             <RepeatButton x:Name="PART_LineUpButton" Command="{x:Static ScrollBar.LineUpCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Style="{StaticResource ScrollBarButton}" BorderBrush="#FFA4A4A4" Background="White">
                                 <!--<Path x:Name="ArrowTop" Data="M 0,4 C0,4 0,6 0,6 0,6 3.5,2.5 3.5,2.5 3.5,2.5 7,6 7,6 7,6 7,4 7,4 7,4 3.5,0.5 3.5,0.5 3.5,0.5 0,4 0,4 z" Fill="{StaticResource ScrollBar.Static.Glyph}" Margin="3,4,3,3" Stretch="Uniform" d:IsHidden="True"/>-->
-                                                                               
+
                             </RepeatButton>
                             <Track x:Name="PART_Track" IsDirectionReversed="true" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="1">
                                 <Track.DecreaseRepeatButton>
@@ -211,7 +211,7 @@
                             </Track>
                             <RepeatButton x:Name="PART_LineDownButton" Command="{x:Static ScrollBar.LineDownCommand}" IsEnabled="{TemplateBinding IsMouseOver}" Grid.Row="2" Style="{StaticResource ScrollBarButton}">
                                 <!--<Path x:Name="ArrowBottom" Data="M 0,2.5 C0,2.5 0,0.5 0,0.5 0,0.5 3.5,4 3.5,4 3.5,4 7,0.5 7,0.5 7,0.5 7,2.5 7,2.5 7,2.5 3.5,6 3.5,6 3.5,6 0,2.5 0,2.5 z" Fill="{StaticResource ScrollBar.Static.Glyph}" Stretch="Uniform" />-->
-                                
+
                             </RepeatButton>
                         </Grid>
                         <ControlTemplate.Triggers>
@@ -327,14 +327,17 @@
             </Style.Triggers>
         </Style>
     </UserControl.Resources>
-    <Border BorderBrush="#FF0098D7" BorderThickness="1">
-        <Grid>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="30*"/>
-                <ColumnDefinition Width="70*"/>
-            </Grid.ColumnDefinitions>
-            <TextBlock Name="StrgLabel"  TextAlignment="Center" Background="#FF373737" Foreground="White" FontSize="2">dd</TextBlock>
-            <TextBox Name="StrContent" BorderThickness="0" Foreground="White" MaxLines="2" TextWrapping="Wrap" Grid.Column="1" VerticalScrollBarVisibility="Auto" Background="#FF676767" FontSize="2" Style="{DynamicResource TextBoxStyle1}"></TextBox>
-        </Grid>
-    </Border>
+    <Grid>
+        <Border BorderBrush="#FF0098D7" BorderThickness="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="70*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Name="IntLabel"  TextAlignment="Center" Background="#FF373737" Foreground="White" FontSize="2"></TextBlock>
+                <TextBox Name="IntContent" DataObject.Pasting="IntContent_Pasting" PreviewTextInput="IntContent_PreviewTextInput" BorderThickness="0" Foreground="White" MaxLines="2" TextWrapping="Wrap" Grid.Column="1" VerticalScrollBarVisibility="Auto" Background="#FF676767" FontSize="2" Style="{DynamicResource TextBoxStyle1}" ></TextBox>
+
+            </Grid>
+        </Border>
+    </Grid>
 </UserControl>

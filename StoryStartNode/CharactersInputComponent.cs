@@ -22,6 +22,7 @@ namespace StoryStartNode
             try
             {
                 this.AddStringAttr("ccinputname", "角色姓名", "", false,true);
+                this.AddFloatAttr("ccinputheight", "角色身高", 1.8f, true);
 
                 return true;
             }

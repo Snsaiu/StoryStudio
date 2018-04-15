@@ -24,12 +24,13 @@ namespace NodeBase
         {
             //InitializeComponent();
             this.LoadViewFromUri("/NodeBase;component/stringattrui.xaml");
+            
         }
 
         /// <summary>
         /// 设置或者获得字符串组件Ui的显示标签
         /// </summary>
-        public string StrUILabel { get=>this.StrgLabel.Text; set=> this.StrgLabel.Text=value; }
+        public string StrUILabel { get=>this.StrLabel.Text; set=> this.StrLabel.Text=value; }
 
         /// <summary>
         /// 设置或者获得字符串组件ui的显示内容

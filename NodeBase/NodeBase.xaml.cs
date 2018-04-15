@@ -59,7 +59,7 @@ namespace NodeBase
                     this.inputgrid.Children.Add(v);
                     Grid.SetColumn(v, i);
 
-                    //判断是否Node显示组件
+                    //判断Node是否显示string类型组件
                     foreach (var item in this._inputs[i].GetStringAttrSet())
                     {
                         if (item.DisplayOnNode)
@@ -70,6 +70,27 @@ namespace NodeBase
                             this.componentstack.Children.Add(stringAttrUI);
                         }
                     }
+                    // 判断node是否显示int类型组件
+                    foreach (var item in this._inputs[i].GetIntAttrSet())
+                    {
+                        if (item.DisplayOnNode)
+                        {
+                            // todo:添加Int类型组件
+                        }
+                    }
+                    // 判断node是否显示float类型组件
+                    foreach (var item in this._inputs[i].GetFloatAttrSet())
+                    {
+                        if (item.DisplayOnNode)
+                        {
+                            FloatAttrUI floatAttrUI = new FloatAttrUI();
+                            floatAttrUI.FloatUILabel = item.DisplayName;
+                            floatAttrUI.FloatUIContent = item.DefaultValue.ToString();
+                            this.componentstack.Children.Add(floatAttrUI);
+                        }
+                    }
+
+
                 }
             }
 

@@ -30,6 +30,7 @@ namespace NodeBase
             this._intAttrs = new List<IntAttr>();
             this._boolAttrs = new List<BoolAttr>();
             this._listAttrs = new List<ListAttr>();
+            this._floatAttrs = new List<FloatAttr>();
             this._mulitSelectAttrs = new List<MulitSelectAttr>();
 
             //添加属性
@@ -112,7 +113,25 @@ namespace NodeBase
             }
             return null;
         }
-        //todo:添加方法用于获得集合属性
+
+        /// <summary>
+        /// 存放浮点型数字属性
+        /// </summary>
+        private List<FloatAttr> _floatAttrs = null;
+
+        /// <summary>
+        /// 获得浮点型属性集合
+        /// </summary>
+        /// <returns>返回浮点型数字集合如果存在，否则返回null</returns>
+        public List<FloatAttr> GetFloatAttrSet()
+        {
+            if (this._floatAttrs!=null)
+            {
+                return this._floatAttrs;
+            }
+            return null;
+        }
+
 
         /// <summary>
         /// 存放bool属性
@@ -120,15 +139,54 @@ namespace NodeBase
         private List<BoolAttr> _boolAttrs = null;
 
         /// <summary>
+        /// 获得bool属性集合
+        /// </summary>
+        /// <returns>返回bool集合如果存在，否则返回null</returns>
+        public List<BoolAttr> GetBoolAttrSet()
+        {
+            if (this._boolAttrs!=null)
+            {
+                return this._boolAttrs;
+            }
+            return null;
+        }
+
+        /// <summary>
         /// 存放单选列表属性
         /// </summary>
         private List<ListAttr> _listAttrs = null;
+        
+        /// <summary>
+        /// 获得单选集合列表集合
+        /// </summary>
+        /// <returns>返回单选列表集合如果存在，否则返回null</returns>
+        public List<ListAttr> GetListAttrSet()
+        {
+            if (this._listAttrs!=null)
+            {
+                return this._listAttrs;
+            }
+            return null;
+        }
+
 
         /// <summary>
         /// 存放多选列表属性
         /// </summary>
         private List<MulitSelectAttr> _mulitSelectAttrs = null;
 
+        /// <summary>
+        /// 获得多选集合列表集合
+        /// </summary>
+        /// <returns>返回多选列表集合如果存在，否则返回null</returns>
+        public List<MulitSelectAttr> GetMulitSelectAttrSet()
+        {
+            if (this._mulitSelectAttrs!=null)
+            {
+                return this._mulitSelectAttrs;
+            }
+            return null;
+        }
    
 
         /// <summary>
@@ -158,6 +216,140 @@ namespace NodeBase
                 return true;
             
             }
+            return false;
+        }
+
+       /// <summary>
+       /// 添加一个新的浮点型属性到浮点型属性容器中
+       /// </summary>
+       /// <param name="name">属性的唯一标识名</param>
+       /// <param name="displayname">属性显示名称</param>
+       /// <param name="defalutvalue">属性默认值</param>
+       /// <param name="displayOnNode">true：属性显示在node面板中</param>
+       /// <returns>若添加成功返回true，否则返回false</returns>
+        protected bool AddFloatAttr(string name,string displayname,float defalutvalue,bool displayOnNode)
+        {
+            if (this._floatAttrs!=null)
+            {
+                foreach (var item in this._floatAttrs)
+                {
+                    if (item.Name==name)
+                    {
+                        return false;
+                    }
+
+                }
+                this._floatAttrs.Add(new FloatAttr() { Name = name, DisplayName = displayname, DefaultValue = defalutvalue, DisplayOnNode = displayOnNode });
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// 添加一个新的整型属性到容器中
+        /// </summary>
+        /// <param name="name">属性的唯一标识名</param>
+        /// <param name="displayname">属性显示名称</param>
+        /// <param name="defaultvalue">属性默认值</param>
+        /// <param name="displayonNode">true：属性显示在node面板中</param>
+        /// <returns>若添加成功返回true，否则返回false</returns>
+        protected bool AddIntAttr(string name,string displayname,int defaultvalue,bool displayOnNode)
+        {
+            if (this._floatAttrs!=null)
+            {
+                foreach (var item in this._intAttrs)
+                {
+                    if (item.Name==name)
+                    {
+                        return false;
+                    }
+                }
+                this._intAttrs.Add(new IntAttr() { Name = name, DisplayName = displayname, DefaultValue = defaultvalue, DisplayOnNode = displayOnNode });
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// 添加一个新的bool属性到容器中
+        /// </summary>
+        /// <param name="name">属性的唯一标识名</param>
+        /// <param name="displayname">属性显示名称</param>
+        /// <param name="defalutvalue">属性默认值</param>
+        /// <param name="displayOnNode">true：属性显示在node面板中</param>
+        /// <returns>若添加成功返回true，否则返回false</returns>
+        protected bool AddBoolAttr(string name,string displayname,bool defalutvalue,bool displayOnNode)
+        {
+            if (this._boolAttrs!=null)
+            {
+                foreach (var item in this._boolAttrs)
+                {
+                    if (item.Name==name)
+                    {
+                        return false;
+                    }
+                }
+                this._boolAttrs.Add(new BoolAttr() { Name = name, DisplayName = displayname, DefaultValue = defalutvalue, DisplayOnNode = displayOnNode });
+                return true;
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// 添加一个新的单选列表到属性容器中
+        /// </summary>
+        /// <param name="name">属性的唯一标识名</param>
+        /// <param name="displayname">属性显示名称</param>
+        /// <param name="value">单选列表内容</param>
+        /// <param name="defaultindex">单选列表默认值</param>
+        /// <param name="displayOnNode">true：属性显示在node面板中</param>
+        /// <returns>若添加成功返回true，否则返回false</returns>
+        protected bool AddListAttr(string name,string displayname, List<string> value, int defaultindex,bool displayOnNode)
+        {
+            if (this._listAttrs!=null)
+            {
+                foreach (var item in this._listAttrs)
+                {
+                    if (item.Name==name)
+                    {
+                        return false;
+                    }
+                    this._listAttrs.Add(new ListAttr() { Name = name, DisplayName = displayname, Value = value, DefaultIndex = defaultindex, DisplayOnNode = displayOnNode });
+                    return true;
+                }
+            }
+
+            return false;
+        }
+
+        /// <summary>
+        /// 添加一个新的多选列表到属性容器中
+        /// </summary>
+        /// <param name="name">属性的唯一标识名</param>
+        /// <param name="displayname">属性显示名称</param>
+        /// <param name="value">多选列表内容</param>
+        /// <param name="defaultindexs">多选列表默认值</param>
+        /// <param name="displayOnNode">true：属性显示在node面板中</param>
+        /// <returns>若添加成功返回true，否则返回false</returns>
+        protected bool AddMultiSelectAttr(string name,string displayname,List<string> value,List<int> defaultindexs,bool displayOnNode)
+        {
+
+            if (this._mulitSelectAttrs!=null)
+            {
+                foreach (var item in this._mulitSelectAttrs)
+                {
+                    if (item.Name==name)
+                    {
+                        return false;
+                    }
+                }
+                this._mulitSelectAttrs.Add(new MulitSelectAttr() { Name = name, DisplayName = displayname, Value = value, DefaultIndexs = defaultindexs, DisplayOnNode = displayOnNode });
+                return true;
+            }
+
             return false;
         }
 
