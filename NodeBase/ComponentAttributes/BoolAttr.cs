@@ -19,7 +19,7 @@
         /// <summary>
         /// 属性默认值
         /// </summary>
-        public bool DefaultValue { get; set; }
+        public bool? DefaultValue { get; set; }
 
         /// <summary>
         /// 属性是否要显示在Node面板中

@@ -75,7 +75,11 @@ namespace NodeBase
                     {
                         if (item.DisplayOnNode)
                         {
-                            // todo:添加Int类型组件
+                          
+                            IntAttrUI intAttr = new IntAttrUI();
+                            intAttr.IntUILabel = item.DisplayName;
+                            intAttr.IntUIContent = item.DefaultValue.ToString();
+                            this.componentstack.Children.Add(intAttr);
                         }
                     }
                     // 判断node是否显示float类型组件
@@ -87,6 +91,45 @@ namespace NodeBase
                             floatAttrUI.FloatUILabel = item.DisplayName;
                             floatAttrUI.FloatUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(floatAttrUI);
+                        }
+                    }
+
+                    // 判断node是否显示单选类型组件
+                    foreach (var item in this._inputs[i].GetListAttrSet())
+                    {
+                        if (item.DisplayOnNode)
+                        {
+                            ListAttrUI listAttrUI = new ListAttrUI();
+                            listAttrUI.ListUILabel = item.DisplayName;
+                            listAttrUI.ListUIContent = item.Value;
+                            listAttrUI.DefaultIndex = item.DefaultIndex;
+                            this.componentstack.Children.Add(listAttrUI);
+                        }
+                    }
+
+                    // 判断Node是否显示多选类型组件
+                    foreach (var item in this._inputs[i].GetMulitSelectAttrSet())
+                    {
+                        if (item.DisplayOnNode)
+                        {
+                            MultiSelectAttrUI multiSelectAttrUI = new MultiSelectAttrUI();
+                            multiSelectAttrUI.MultiSelectUILabel = item.DisplayName;
+                            multiSelectAttrUI.MulitListUIContent = item.Value;
+                            // todo 添加默认值
+                            multiSelectAttrUI.DefaultIndexs = item.DefaultItems;
+                            this.componentstack.Children.Add(multiSelectAttrUI);
+                        }
+                    }
+
+                    //判断是否显示Bool类型组件
+                    foreach (var item in this._inputs[i].GetBoolAttrSet())
+                    {
+                        if (item.DisplayOnNode)
+                        {
+                            BoolAttrUI boolAttrUI = new BoolAttrUI();
+                            boolAttrUI.BoolUILabel = item.DisplayName;
+                            boolAttrUI.BoolUIContent = item.DefaultValue;
+                            this.componentstack.Children.Add(boolAttrUI);
                         }
                     }
 

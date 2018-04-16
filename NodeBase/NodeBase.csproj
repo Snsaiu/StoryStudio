@@ -44,6 +44,9 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BoolAttrUI.xaml.cs">
+      <DependentUpon>BoolAttrUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="ComponentAttributes\BoolAttr.cs" />
     <Compile Include="ComponentAttributes\FloatAttr.cs" />
     <Compile Include="FloatAttrUI.xaml.cs">
@@ -55,6 +58,12 @@
     <Compile Include="ComponentAttributes\MulitSelectAttr.cs" />
     <Compile Include="IntAttrUI.xaml.cs">
       <DependentUpon>IntAttrUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ListAttrUI.xaml.cs">
+      <DependentUpon>ListAttrUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MultiSelectAttrUI.xaml.cs">
+      <DependentUpon>MultiSelectAttrUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="NodeBase.xaml.cs">
       <DependentUpon>NodeBase.xaml</DependentUpon>
@@ -88,11 +97,23 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="BoolAttrUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="FloatAttrUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="IntAttrUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ListAttrUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MultiSelectAttrUI.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

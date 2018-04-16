@@ -30,12 +30,12 @@ namespace NodeBase
         /// <summary>
         /// 设置或者获得整型组件Ui的显示标签
         /// </summary>
-        public string FloatUILabel { get => this.IntLabel.Text; set => this.IntLabel.Text = value; }
+        public string IntUILabel { get => this.IntLabel.Text; set => this.IntLabel.Text = value; }
 
         /// <summary>
         /// 设置或者获得整型组件ui的显示内容
         /// </summary>
-        public string FloatUIContent { get => this.IntContent.Text; set => this.IntContent.Text = value; }
+        public string IntUIContent { get => this.IntContent.Text; set => this.IntContent.Text = value; }
 
 
 

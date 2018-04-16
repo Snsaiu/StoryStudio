@@ -28,7 +28,7 @@ namespace NodeBase
         /// <summary>
         /// 属性列表索引列表
         /// </summary>
-        public List<int> DefaultIndexs { get; set; }
+        public List<string> DefaultItems { get; set; }
 
         /// <summary>
         /// 属性是否要显示在Node面板中

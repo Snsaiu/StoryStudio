@@ -23,7 +23,9 @@ namespace StoryStartNode
             {
                 this.AddStringAttr("ccinputname", "角色姓名", "", false,true);
                 this.AddFloatAttr("ccinputheight", "角色身高", 1.8f, true);
-
+                this.AddBoolAttr("ccbool", "bool类型", true, true);
+                this.AddListAttr("cclist", "单选框", new List<string>() { "heloo", "fdhkfh", "fhjdhf" }, 2, true);
+                this.AddMultiSelectAttr("ccmultilist", "多选", new List<string>() { "dfd", "fdfdfd", "ssss" }, new List<string>() { "dfd", "fdfdfd" }, true);
                 return true;
             }
             catch (Exception)

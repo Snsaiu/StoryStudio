@@ -280,7 +280,7 @@ namespace NodeBase
         /// <param name="defalutvalue">属性默认值</param>
         /// <param name="displayOnNode">true：属性显示在node面板中</param>
         /// <returns>若添加成功返回true，否则返回false</returns>
-        protected bool AddBoolAttr(string name,string displayname,bool defalutvalue,bool displayOnNode)
+        protected bool AddBoolAttr(string name,string displayname,bool? defalutvalue,bool displayOnNode)
         {
             if (this._boolAttrs!=null)
             {
@@ -317,9 +317,10 @@ namespace NodeBase
                     {
                         return false;
                     }
-                    this._listAttrs.Add(new ListAttr() { Name = name, DisplayName = displayname, Value = value, DefaultIndex = defaultindex, DisplayOnNode = displayOnNode });
-                    return true;
+                  
                 }
+                this._listAttrs.Add(new ListAttr() { Name = name, DisplayName = displayname, Value = value, DefaultIndex = defaultindex, DisplayOnNode = displayOnNode });
+                return true;
             }
 
             return false;
@@ -334,7 +335,7 @@ namespace NodeBase
         /// <param name="defaultindexs">多选列表默认值</param>
         /// <param name="displayOnNode">true：属性显示在node面板中</param>
         /// <returns>若添加成功返回true，否则返回false</returns>
-        protected bool AddMultiSelectAttr(string name,string displayname,List<string> value,List<int> defaultindexs,bool displayOnNode)
+        protected bool AddMultiSelectAttr(string name,string displayname,List<string> value,List<string> defaultitems,bool displayOnNode)
         {
 
             if (this._mulitSelectAttrs!=null)
@@ -346,7 +347,7 @@ namespace NodeBase
                         return false;
                     }
                 }
-                this._mulitSelectAttrs.Add(new MulitSelectAttr() { Name = name, DisplayName = displayname, Value = value, DefaultIndexs = defaultindexs, DisplayOnNode = displayOnNode });
+                this._mulitSelectAttrs.Add(new MulitSelectAttr() { Name = name, DisplayName = displayname, Value = value, DefaultItems = defaultitems, DisplayOnNode = displayOnNode });
                 return true;
             }
 
