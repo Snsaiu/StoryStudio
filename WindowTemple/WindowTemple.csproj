@@ -4,16 +4,18 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5329345A-C02C-4E03-BCEE-5C2FC2300B9A}</ProjectGuid>
-    <OutputType>library</OutputType>
-    <RootNamespace>NodePanel</RootNamespace>
-    <AssemblyName>NodePanel</AssemblyName>
+    <ProjectGuid>{C69CE66B-4280-42CD-9ADC-4925152D6CCB}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WindowTemple</RootNamespace>
+    <AssemblyName>WindowTemple</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -23,12 +25,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -47,9 +53,24 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="NodePanel.xaml.cs">
-      <DependentUpon>NodePanel.xaml</DependentUpon>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
     </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -73,44 +94,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="NodePanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\BaseTypeEnum\BaseTypeEnum.csproj">
-      <Project>{337E92F4-FA82-4519-B488-8E73E80B56DE}</Project>
-      <Name>BaseTypeEnum</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\GlobalTracker\GlobalTracker.csproj">
-      <Project>{802AEC58-DB62-4352-99B2-1B5A7CDF9120}</Project>
-      <Name>GlobalTracker</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IJoinGlobalTracker\IJoinGlobalTracker.csproj">
-      <Project>{F10979C6-5553-4985-BF0D-EEFE23E391D2}</Project>
-      <Name>IJoinGlobalTracker</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\IPanelBase\IPanelBase.csproj">
-      <Project>{F8085D51-BC3C-44A5-8BAB-232C83E51942}</Project>
-      <Name>IPanelBase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NodeBase\NodeBase.csproj">
-      <Project>{BEDD5D0A-28C5-4FD9-902C-8EF241F48D3B}</Project>
-      <Name>NodeBase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SSBase\ISSBase.csproj">
-      <Project>{C5E0AFC7-BC71-4621-BF29-E30FA06A2BD5}</Project>
-      <Name>ISSBase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SSLine\SSLine.csproj">
-      <Project>{517F1B3F-E555-4BBA-8385-86483FA947C2}</Project>
-      <Name>SSLine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\StoryStartNode\StoryNodes.csproj">
-      <Project>{AEAE898E-1167-4BD8-B419-2ABDA62106B1}</Project>
-      <Name>StoryNodes</Name>
-    </ProjectReference>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

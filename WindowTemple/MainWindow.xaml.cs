@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Test
+namespace WindowTemple
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
@@ -23,10 +23,6 @@ namespace Test
         public MainWindow()
         {
             InitializeComponent();
-            Class1 c = new Class1();
-
-            Window1 w = new Window1();
-            w.Show();
         }
     }
 }

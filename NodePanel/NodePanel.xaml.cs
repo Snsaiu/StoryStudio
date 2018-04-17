@@ -4,6 +4,7 @@ using IJoinGlobalTracker;
 using IPanelBase;
 using NodeBase;
 using SSBase;
+using SSLine;
 using StoryStartNode;
 using System;
 using System.Collections.Generic;
@@ -62,6 +63,20 @@ namespace NodePanel
         public NodePanel()
         {
             InitializeComponent();
+
+
+
+            // todo 
+            ArrowLineWithText a = new ArrowLineWithText();
+            a.Text = "hello";
+            a.StartPoint = new Point(50, 60);
+            a.EndPoint = new Point(100, 400);
+            a.Stroke = Brushes.Red;
+            a.StrokeThickness = 1;
+            this.GetCanvas.Children.Add(a);
+            a.SetValue(Canvas.LeftProperty, (double)50);
+            a.SetValue(Canvas.TopProperty, (double)60);
+
 
 
 
@@ -165,8 +180,8 @@ namespace NodePanel
                     {
                         double newTop = deltaV + (double)item.GetValue(Canvas.TopProperty);
                         double newLeft = deltaH + (double)item.GetValue(Canvas.LeftProperty);
-                        Console.WriteLine(newTop.ToString());
-                        Console.WriteLine(newLeft.ToString());
+                  
+                      
 
                         item.SetValue(Canvas.LeftProperty, newLeft);
                         item.SetValue(Canvas.TopProperty, newTop);
@@ -203,6 +218,7 @@ namespace NodePanel
             };
 
         }
+
 
         public string PanelLabel => "节点编辑器";
         public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }

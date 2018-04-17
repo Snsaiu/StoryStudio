@@ -13,20 +13,21 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Test
+namespace SSLine
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for EditLIneTextWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class EditLIneTextWindow : Window
     {
-        public MainWindow()
+        private ArrowLineWithText _lineWithText;
+        public EditLIneTextWindow(ArrowLineWithText lineWithText)
         {
             InitializeComponent();
-            Class1 c = new Class1();
 
-            Window1 w = new Window1();
-            w.Show();
+            this._lineWithText = lineWithText;
+            // 获得数据
+            this.contentTxt.Text = this._lineWithText.Text;
         }
     }
 }
