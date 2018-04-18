@@ -10,7 +10,6 @@ namespace ISSCommand
     {
         void Execute(object param);
         void Undo(object param);
-        void Redo(object Param);
     }
 }
       
