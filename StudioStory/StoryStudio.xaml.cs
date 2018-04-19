@@ -52,7 +52,7 @@ namespace StudioStory
 
             //panelPluginManager.InstallPlugin(mainPanel);
 
-            mainPanel.SetValue(Grid.RowProperty, 1);
+            mainPanel.SetValue(Grid.RowProperty, 2);
             mainPanel.SetValue(Grid.ColumnProperty, 1);
             mainPanel.HorizontalAlignment = HorizontalAlignment.Stretch;
             mainPanel.VerticalAlignment = VerticalAlignment.Stretch;
@@ -62,7 +62,7 @@ namespace StudioStory
 
           
             //panelPluginManager.InstallPlugin(propertyPanel);
-            propertyPanel.SetValue(Grid.RowProperty, 1);
+            propertyPanel.SetValue(Grid.RowProperty, 2);
             propertyPanel.SetValue(Grid.ColumnProperty, 2);
             propertyPanel.HorizontalAlignment = HorizontalAlignment.Stretch;
             propertyPanel.VerticalAlignment = VerticalAlignment.Stretch;
@@ -72,7 +72,7 @@ namespace StudioStory
 
             CmdPanel.CmdPanel cmdPanel = new CmdPanel.CmdPanel();
             cmdPanel.HorizontalAlignment = HorizontalAlignment.Stretch;
-            cmdPanel.SetValue(Grid.RowProperty, 2);
+            cmdPanel.SetValue(Grid.RowProperty, 3);
             cmdPanel.SetValue(Grid.ColumnProperty, 0);
             cmdPanel.SetValue(Grid.ColumnSpanProperty, 3);
             this.MainGrid.Children.Add(cmdPanel);

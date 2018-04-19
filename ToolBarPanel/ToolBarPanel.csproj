@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{24BB0335-5A8C-418F-88C9-0761F3A7CAA3}</ProjectGuid>
+    <ProjectGuid>{CDAC7389-F026-4AAC-9470-E81BE68CC571}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>MefExport</RootNamespace>
-    <AssemblyName>MefExport</AssemblyName>
+    <RootNamespace>ToolBarPanel</RootNamespace>
+    <AssemblyName>ToolBarPanel</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -30,43 +30,51 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
-    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ExportMenuPluginAttribute.cs" />
-    <Compile Include="ExportNodePluginAttribute.cs" />
-    <Compile Include="ExportPanelPluginAttribute.cs" />
-    <Compile Include="ExportToolBarPluginAttribute.cs" />
-    <Compile Include="MenuTypePlugin.cs" />
-    <Compile Include="NodeTypePlugin.cs" />
-    <Compile Include="PanelTypePlugin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ToolBarTypePlugin.cs" />
+    <Compile Include="ToolBarPanel.xaml.cs">
+      <DependentUpon>ToolBarPanel.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\IFillMenuUI\IFillMenuUI.csproj">
-      <Project>{6265F75D-CC68-48E8-A73E-EE82AF3B98DC}</Project>
-      <Name>IFillMenuUI</Name>
+    <Page Include="ToolBarPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BaseTypeEnum\BaseTypeEnum.csproj">
+      <Project>{337E92F4-FA82-4519-B488-8E73E80B56DE}</Project>
+      <Name>BaseTypeEnum</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IFillNode\IFillNode.csproj">
-      <Project>{40351DD5-1DAD-4543-906A-EE8664CAAFE5}</Project>
-      <Name>IFillNode</Name>
+    <ProjectReference Include="..\GlobalTracker\GlobalTracker.csproj">
+      <Project>{802AEC58-DB62-4352-99B2-1B5A7CDF9120}</Project>
+      <Name>GlobalTracker</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IFillPanelUI\IFillPanelUI.csproj">
-      <Project>{9648C388-FA30-406D-881E-E55A9BBA791E}</Project>
-      <Name>IFillPanelUI</Name>
+    <ProjectReference Include="..\IJoinGlobalTracker\IJoinGlobalTracker.csproj">
+      <Project>{F10979C6-5553-4985-BF0D-EEFE23E391D2}</Project>
+      <Name>IJoinGlobalTracker</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IFillToolBar\IFillToolBar.csproj">
-      <Project>{8ef2ae0d-f7f0-4e10-b378-b5576323fd65}</Project>
-      <Name>IFillToolBar</Name>
+    <ProjectReference Include="..\IPanelBase\IPanelBase.csproj">
+      <Project>{F8085D51-BC3C-44A5-8BAB-232C83E51942}</Project>
+      <Name>IPanelBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SSBase\ISSBase.csproj">
+      <Project>{C5E0AFC7-BC71-4621-BF29-E30FA06A2BD5}</Project>
+      <Name>ISSBase</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
