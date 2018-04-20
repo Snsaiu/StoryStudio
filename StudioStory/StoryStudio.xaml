@@ -8,7 +8,7 @@
         Title="Story Studio" 
         Height="600" Width="800"
         Icon="content/logo.png" WindowState="Maximized" ResizeMode="CanResizeWithGrip">
-    <Grid Name="MainGrid" ShowGridLines="True">
+    <Grid Name="MainGrid" ShowGridLines="False">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="20"/>
             <ColumnDefinition Width="8*"/>
@@ -21,5 +21,6 @@
             <RowDefinition />
             <RowDefinition Height="15"/>
         </Grid.RowDefinitions>
+       
     </Grid>
 </Window>

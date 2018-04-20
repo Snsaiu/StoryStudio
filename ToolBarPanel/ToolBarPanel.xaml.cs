@@ -23,16 +23,14 @@ namespace ToolBarPanel
     /// </summary>
     public partial class ToolBarPanel : UserControl,IPanelBase.IPanelBase, IJoinGlobalTracker.IJoinGlobalTracker
     {
+     
         public ToolBarPanel()
         {
             InitializeComponent();
-
-            ToolBarTray tbt = new ToolBarTray();
-            ToolBar tb = new ToolBar();
-            tbt.ToolBars.Add(tb);
-
-
+          
         }
+
+        public ToolBar toolbar { get=>this.tb; }
 
         public string PanelLabel =>"工具栏";
 

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:Menu"
              mc:Ignorable="d" 
              d:DesignHeight="22.455" d:DesignWidth="582.036">
-    <StackPanel Orientation="Horizontal" Background="Gray" Name="MenuStackPanel"  >
+    <StackPanel Orientation="Horizontal" Background="#FF28292A" Name="MenuStackPanel"  >
       
     </StackPanel>
 </UserControl>

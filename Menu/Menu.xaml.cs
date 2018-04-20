@@ -3,8 +3,10 @@ using GlobalTracker;
 using IJoinGlobalTracker;
 using MenuPluginManager;
 using SSBase;
+using System.Drawing;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace Menu
 {
@@ -32,6 +34,8 @@ namespace Menu
             InitializeComponent();
 
             System.Windows.Controls.Menu MainMenu = new System.Windows.Controls.Menu();
+            MainMenu.Background =new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FF28292A"));
+            MainMenu.Foreground = System.Windows.Media.Brushes.White;
             this.MenuStackPanel.Children.Add(MainMenu);
             // here load plugin
             MenuPluginManager.MenuPluginManager pluginManager = new MenuPluginManager.MenuPluginManager(MainMenu);
@@ -61,5 +65,7 @@ namespace Menu
         {
             // todo: need implement;
         }
+
+ 
     }
 }

@@ -7,7 +7,7 @@ using System.Windows.Controls;
 
 namespace IFillToolBar
 {
-    public interface IFillMenuUI
+    public interface IFillToolBar
     {
         bool Draw(ToolBar toolBar);
     }

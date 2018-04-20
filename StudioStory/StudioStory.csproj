@@ -145,6 +145,14 @@
       <Project>{C5E0AFC7-BC71-4621-BF29-E30FA06A2BD5}</Project>
       <Name>ISSBase</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ToolBarPanel\ToolBarPanel.csproj">
+      <Project>{CDAC7389-F026-4AAC-9470-E81BE68CC571}</Project>
+      <Name>ToolBarPanel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ToolBarPluginManager\ToolBarPluginManager.csproj">
+      <Project>{32ae96a9-19c4-46e7-a84e-3a1d19b98ae6}</Project>
+      <Name>ToolBarPluginManager</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="SystemPlugins\" />

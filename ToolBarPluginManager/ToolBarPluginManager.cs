@@ -13,8 +13,8 @@ namespace ToolBarPluginManager
 {
     public class ToolBarPluginManager : IPluginManager.IPluginManager
     {
-        [ImportMany(typeof(IFillToolBar.IFillMenuUI))]
-        public IEnumerable<Lazy<IFillToolBar.IFillMenuUI, ToolBarTypePlugin>> ToolBarPlugins { get; set; }
+        [ImportMany(typeof(IFillToolBar.IFillToolBar))]
+        public IEnumerable<Lazy<IFillToolBar.IFillToolBar, ToolBarTypePlugin>> ToolBarPlugins { get; set; }
 
         private ToolBar toolBar = null;
         public ToolBarPluginManager(ToolBar toolBar)
@@ -24,6 +24,7 @@ namespace ToolBarPluginManager
 
         public void InstallPlugin()
         {
+            this.getCompose();
             foreach (var item in this.ToolBarPlugins)
             {
                 item.Value.Draw(this.toolBar);

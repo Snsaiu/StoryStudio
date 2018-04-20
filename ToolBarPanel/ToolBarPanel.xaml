@@ -6,7 +6,9 @@
              xmlns:local="clr-namespace:ToolBarPanel"
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="800">
-    <Grid Name="toolbarContainer">
-            
+    <Grid Background="Red" Name="toolbarContainer">
+        <ToolBarTray IsLocked="True"  Background="#FF28292A" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <ToolBar Name="tb" Background="{x:Null}" Foreground="Black"  />
+        </ToolBarTray>
     </Grid>
 </UserControl>

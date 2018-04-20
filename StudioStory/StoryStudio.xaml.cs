@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+using ToolBarPanel;
 
 namespace StudioStory
 {
@@ -23,6 +24,17 @@ namespace StudioStory
        
             this.MainGrid.Children.Add(menu);
 
+            // add toolbartray
+
+            ToolBarPanel.ToolBarPanel toolBarPanel = new ToolBarPanel.ToolBarPanel();
+      
+            toolBarPanel.SetValue(Grid.RowProperty, 1);
+            toolBarPanel.SetValue(Grid.ColumnSpanProperty, 2);
+            this.MainGrid.Children.Add(toolBarPanel);
+
+            var toolbarpluginmanager = new ToolBarPluginManager.ToolBarPluginManager(toolBarPanel.toolbar);
+            toolbarpluginmanager.InstallPlugin();
+
 
             var panelPluginManager = new PanelPluginManager.PanelPluginManager();
             panelPluginManager.InstallPlugin();
@@ -44,7 +56,7 @@ namespace StudioStory
             }
 
             //panelPluginManager.InstallPlugin(leftpanel);
-            leftpanel.SetValue(Grid.RowProperty, 1);
+            leftpanel.SetValue(Grid.RowProperty, 2);
             leftpanel.SetValue(Grid.ColumnProperty, 0);
             this.MainGrid.Children.Add(leftpanel);
            

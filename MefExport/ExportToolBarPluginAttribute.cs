@@ -12,7 +12,7 @@ namespace MefExport
     public class ExportToolBarPluginAttribute : ExportAttribute
     {
 
-        public ExportToolBarPluginAttribute():base(typeof(IFillToolBar.IFillMenuUI))
+        public ExportToolBarPluginAttribute():base(typeof(IFillToolBar.IFillToolBar))
         {
 
         }

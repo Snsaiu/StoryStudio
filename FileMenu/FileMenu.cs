@@ -2,6 +2,7 @@
 using System;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace FileMenu
 {
@@ -17,6 +18,7 @@ namespace FileMenu
             {
           
                 MenuItem fileMenu = new MenuItem();
+             
                 fileMenu.Header = "_File";
                 parentMenu.Items.Add(fileMenu);
                 // add children menus
@@ -25,6 +27,8 @@ namespace FileMenu
 
                 MenuItem newMenu = new MenuItem();
                 newMenu.Header = "_New";
+                newMenu.Background= new SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FF28292A"));
+                newMenu.Foreground = Brushes.White;
                 fileMenu.Items.Add(newMenu);
 
                 //add 'open ' item

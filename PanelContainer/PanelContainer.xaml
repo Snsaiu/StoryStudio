@@ -7,12 +7,13 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     <Grid>
+        <Border BorderThickness="1" BorderBrush="#FF0D677F">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="20"/>
                 <RowDefinition Height="100*"/>
             </Grid.RowDefinitions>
-            <StackPanel Orientation="Horizontal" Name="TitlePanle" Background="Gray" FlowDirection="RightToLeft">
+                <StackPanel Orientation="Horizontal" Name="TitlePanle" Background="#FF28292A" FlowDirection="RightToLeft">
                 <ComboBox Name="TagList">
                     <ComboBox.ItemTemplate>
                         <DataTemplate>
@@ -23,5 +24,6 @@
             </StackPanel>
             <Grid Name="Container" Grid.Row="1" Background="#FF232323" />
         </Grid>
+        </Border>
     </Grid>
 </UserControl>
