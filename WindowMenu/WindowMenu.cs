@@ -1,4 +1,5 @@
-﻿using IFillMenuUI;
+﻿using DisplayLabelEnum;
+using IFillMenuUI;
 using IUsableData;
 using MefExport;
 using System;
@@ -20,44 +21,38 @@ namespace WindowMenu
             {
              
                 MenuItem windowMenu = new MenuItem();
-                windowMenu.Header = "_Window";
+                windowMenu.Header = MenuDisplayLabel.窗口;
                
                 // add children menus
 
                 // add 'story board '
-                MenuItem storyboardMenu = new MenuItem();
-                storyboardMenu.Header = "_Stroy Board";
+                SSMenuItem.SSMenuItem storyboardMenu = new StoryBoardMenuItem();
                 windowMenu.Items.Add(storyboardMenu);
 
 
                 // add 'Dope Sheet'
 
-                MenuItem dopesheepMenu = new MenuItem();
-                dopesheepMenu.Header = "_Dope Sheet";
+                SSMenuItem.SSMenuItem dopesheepMenu = new DopeSheetMenuItem();
                 windowMenu.Items.Add(dopesheepMenu);
 
                 // add 'story Editor'
 
-                MenuItem storyeditorMenu = new MenuItem();
-                storyeditorMenu.Header = "_Story Editor";
+                SSMenuItem.SSMenuItem storyeditorMenu = new StoryEditorMenuItem();
                 windowMenu.Items.Add(storyeditorMenu);
 
                 // add 'node Editor'
 
-                MenuItem nodeediorMenu = new MenuItem();
-                nodeediorMenu.Header = "_Node Editor";
+                SSMenuItem.SSMenuItem nodeediorMenu = new NodeEditorMenuItem();
                 windowMenu.Items.Add(nodeediorMenu);
 
                 // add 'outline '
 
-                MenuItem outlineMenu = new MenuItem();
-                outlineMenu.Header = "_OutLine";
+                SSMenuItem.SSMenuItem outlineMenu = new OutLineMenuItem();
                 windowMenu.Items.Add(outlineMenu);
 
                 // add 'restore '
 
-                MenuItem restoreMenu = new MenuItem();
-                restoreMenu.Header = "_Restore";
+                SSMenuItem.SSMenuItem restoreMenu = new RestoreMenuItem();
                 windowMenu.Items.Add(restoreMenu);
 
                 parentMenu.Items.Add(windowMenu);

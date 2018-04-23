@@ -1,4 +1,5 @@
-﻿using IFillMenuUI;
+﻿using DisplayLabelEnum;
+using IFillMenuUI;
 using IUsableData;
 using MefExport;
 using System;
@@ -21,26 +22,23 @@ namespace EditMenu
             {
           
                 MenuItem editMenu = new MenuItem();
-                editMenu.Header = "_Edit";
+                editMenu.Header = MenuDisplayLabel.编辑;
 
                 //  add children menus
 
                 // add 'undo'
 
-                MenuItem undoMenu = new MenuItem();
-                undoMenu.Header = "_Undo";
+                SSMenuItem.SSMenuItem undoMenu = new UndoMenuItem();
                 editMenu.Items.Add(undoMenu);
 
                 // add "redo"
 
-                MenuItem redoMenu = new MenuItem();
-                redoMenu.Header = "_Redo";
+                SSMenuItem.SSMenuItem redoMenu = new RedoMenuItem();
                 editMenu.Items.Add(redoMenu);
 
                 // add 'delete'
 
-                MenuItem deleteMenu = new MenuItem();
-                deleteMenu.Header = "_Delete";
+                SSMenuItem.SSMenuItem deleteMenu = new DeleteMenuItem();
                 editMenu.Items.Add(deleteMenu);
 
                 parentMenu.Items.Add(editMenu);

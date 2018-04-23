@@ -1,4 +1,5 @@
-﻿using IFillMenuUI;
+﻿using DisplayLabelEnum;
+using IFillMenuUI;
 using IUsableData;
 using MefExport;
 using System;
@@ -19,26 +20,23 @@ namespace HelpMenu
             try
             {
                 MenuItem helpMenu = new MenuItem();
-                helpMenu.Header = "_Help";
+                helpMenu.Header = MenuDisplayLabel.帮助;
 
                 // add children menu
 
                 // add send feedback
 
-                MenuItem sendfeedbackMenu = new MenuItem();
-                sendfeedbackMenu.Header = "_Send Feedback";
+                SSMenuItem.SSMenuItem sendfeedbackMenu = new SendFaceBackMenuItem();
                 helpMenu.Items.Add(sendfeedbackMenu);
 
                 // add technical support
 
-                MenuItem technicalsupportMenu = new MenuItem();
-                technicalsupportMenu.Header = "_Technical Support";
+                SSMenuItem.SSMenuItem technicalsupportMenu = new TechnicalSupportMenuItem();
                 helpMenu.Items.Add(technicalsupportMenu);
 
                 // about
 
-                MenuItem aboutMenu = new MenuItem();
-                aboutMenu.Header = "_About";
+                SSMenuItem.SSMenuItem aboutMenu = new AboutMenuItem();
                 helpMenu.Items.Add(aboutMenu);
 
                 parentMenu.Items.Add(helpMenu);
