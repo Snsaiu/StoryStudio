@@ -74,9 +74,9 @@ namespace SSMenuItem
         public object DisplayLabel { get=>this.Header; }
 
         /// <summary>
-        /// 保存背景色
+        ///保存文字颜色
         /// </summary>
-        private Brush _SaveBackgroundColor = null;
+        private Brush _saveForeground = null;
         
 
         /// <summary>
@@ -91,7 +91,7 @@ namespace SSMenuItem
             // 背景颜色
             this.Background= new System.Windows.Media.SolidColorBrush((System.Windows.Media.Color)System.Windows.Media.ColorConverter.ConvertFromString("#FF28292A"));
 
-            this._SaveBackgroundColor = this.Background;
+            this._saveForeground = this.Foreground;
 
             // 显示菜单子按钮的显示内容
             this.Header = this.SetDisplayLabel();
@@ -111,13 +111,14 @@ namespace SSMenuItem
 
         private void SSMenuItem_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            this.Background = this._SaveBackgroundColor;
+            this.Foreground = this._saveForeground;
          
         }
 
         private void SSMenuItem_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            this.Background = new SolidColorBrush(Colors.Gray);
+          
+            this.Foreground = new SolidColorBrush(Colors.Black);
            
            
         }

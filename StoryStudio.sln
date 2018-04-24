@@ -135,6 +135,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSMenuItem", "SSMenuItem\SS
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DisplayLabelEnum", "DisplayLabelEnum\DisplayLabelEnum.csproj", "{D4FF5E98-64D3-4766-9E9D-D04F75466D87}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SSNodeButton", "SSNodeButton\SSNodeButton.csproj", "{8B568D5D-4590-4658-B675-FEFA62136340}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -349,6 +351,10 @@ Global
 		{D4FF5E98-64D3-4766-9E9D-D04F75466D87}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4FF5E98-64D3-4766-9E9D-D04F75466D87}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4FF5E98-64D3-4766-9E9D-D04F75466D87}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B568D5D-4590-4658-B675-FEFA62136340}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B568D5D-4590-4658-B675-FEFA62136340}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B568D5D-4590-4658-B675-FEFA62136340}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B568D5D-4590-4658-B675-FEFA62136340}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -402,6 +408,7 @@ Global
 		{F5C2363B-4ADF-467A-B099-110D1AE9CC71} = {C7F92D5C-EA9B-4E93-9179-648BAA9F9674}
 		{24B9CC5A-2D6F-4012-9EAB-7175848C28E3} = {C7F92D5C-EA9B-4E93-9179-648BAA9F9674}
 		{D4FF5E98-64D3-4766-9E9D-D04F75466D87} = {09D2F375-F946-4051-947D-073B8117EC6C}
+		{8B568D5D-4590-4658-B675-FEFA62136340} = {C7F92D5C-EA9B-4E93-9179-648BAA9F9674}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D39CA4CD-6479-4A26-A192-322B489288E3}

@@ -8,12 +8,14 @@ namespace CommandSet
 {
     public class MoveNodeCommand : ISSCommand.ISSCommand
     {
-        public void Execute(object param)
+ 
+
+        public void Execute()
         {
             throw new NotImplementedException();
         }
 
-        public void Undo(object param)
+        public void Undo()
         {
             throw new NotImplementedException();
         }

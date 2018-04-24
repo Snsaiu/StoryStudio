@@ -38,27 +38,25 @@ namespace NodePluginManager
             {
                 
                 List<NodeBase.NodeBase> nodes = plugin.Value.Draw();
+
+                GlobalTracker.GlobalTracker gt = GlobalTracker.GlobalTracker.GetInstance();
+                NodePanel.NodePanel panel = gt.GetPanelByShorName("NEP") as NodePanel.NodePanel;
+                Canvas canvas = panel.GetCanvas;
+
                 foreach (var item in nodes)
                 {
                    
-                    this.nodelistpanel.AddNodeTag(item.ShortTag,item,NodeActivity);
+                    this.nodelistpanel.AddNodeTag(item.ShortTag,item,NodeActivity,canvas);
                 }
 
             }
            
         }
 
-        private void NodeActivity(NodeBase.NodeBase node)
+        private void NodeActivity(NodeBase.NodeBase node,Canvas canvas)
         {
-            GlobalTracker.GlobalTracker gt = GlobalTracker.GlobalTracker.GetInstance();
-
-            NodePanel.NodePanel panel = gt.GetPanelByShorName("NEP") as NodePanel.NodePanel;
-            Canvas canvas = panel.GetCanvas;
-      
-            
             node.SetMyInitialPositon(canvas);
-          
-            
+                     
         }
 
         public void InstallPlugin(IPanelContainer.IPanelContainer panelContainer)

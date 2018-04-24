@@ -1,22 +1,49 @@
 ﻿using ISSCommand;
+using NodeBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 
 namespace CommandSet
 {
     public class AddNodeCommand : ISSCommand.ISSCommand
     {
-        public void Execute(object param)
+
+
+        private Action<NodeBase.NodeBase, Canvas> _actionNode;
+
+        /// <summary>
+        /// 节点实例
+        /// </summary>
+        private NodeBase.NodeBase _lastNode = null;
+
+        /// <summary>
+        /// 节点存放的面板实例
+        /// </summary>
+        private Canvas _canvas = null;
+
+        public AddNodeCommand(Action<NodeBase.NodeBase,Canvas> func,NodeBase.NodeBase node,Canvas canvas)
         {
-            throw new NotImplementedException();
+            this._actionNode = func;
+            this._lastNode = node;
+            this._canvas = canvas;
         }
 
-        public void Undo(object param)
+
+
+        public void Execute()
         {
-            throw new NotImplementedException();
+            this._actionNode(this._lastNode, this._canvas);
+
+        }
+
+        public void Undo()
+        {
+            this._canvas.Children.Remove(this._lastNode);
         }
     }
 }

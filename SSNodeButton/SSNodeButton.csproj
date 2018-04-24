@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{37665FA5-3B08-4998-BB30-56E14C616C59}</ProjectGuid>
+    <ProjectGuid>{8B568D5D-4590-4658-B675-FEFA62136340}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CommandSet</RootNamespace>
-    <AssemblyName>CommandSet</AssemblyName>
+    <RootNamespace>SSNodeButton</RootNamespace>
+    <AssemblyName>SSNodeButton</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -40,17 +40,21 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AddNodeCommand.cs" />
-    <Compile Include="CreateLineCommand.cs" />
-    <Compile Include="DeleteNodeCommand.cs" />
-    <Compile Include="EditLineTextCommand.cs" />
-    <Compile Include="MoveNodeCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="RemoveLineCommand.cs" />
+    <Compile Include="SSNodeButton.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommandManager\CommandManager.csproj">
+      <Project>{9F724C5E-5126-42D5-8575-6CDEECD8A67E}</Project>
+      <Name>CommandManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CommandSet\CommandSet.csproj">
+      <Project>{37665FA5-3B08-4998-BB30-56E14C616C59}</Project>
+      <Name>CommandSet</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ISSCommand\ISSCommand.csproj">
       <Project>{A886CB65-6727-4BC4-B567-9CEE0B765608}</Project>
       <Name>ISSCommand</Name>

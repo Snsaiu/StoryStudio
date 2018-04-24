@@ -42,7 +42,7 @@ namespace CommandManager
         /// 获得commandManager实例
         /// </summary>
         /// <returns>返回CommandManager对象实例</returns>
-        public CommandManager GetInstance()
+        public static CommandManager GetInstance()
         {
             if (_instance==null)
             {
@@ -61,10 +61,10 @@ namespace CommandManager
             this._undoStack = new Stack<ISSCommand.ISSCommand>();
         }
 
-        public void ExecuteCommand(ISSCommand.ISSCommand cmd,object cmdParam)
+        public void ExecuteCommand(ISSCommand.ISSCommand cmd)
         {
             // todo :需要添加其他的逻辑，
-            cmd.Execute(cmdParam);
+            cmd.Execute();
         }
 
         public void Undo()

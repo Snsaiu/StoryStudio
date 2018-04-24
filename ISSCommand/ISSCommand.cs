@@ -8,8 +8,8 @@ namespace ISSCommand
 {
     public interface ISSCommand
     {
-        void Execute(object param);
-        void Undo(object param);
+        void Execute();
+        void Undo();
     }
 }
       

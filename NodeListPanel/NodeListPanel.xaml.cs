@@ -3,6 +3,7 @@ using IJoinGlobalTracker;
 using IPanelBase;
 using NodeBase;
 using NodePanel;
+using SSNodeButton;
 using StoryStartNode;
 using System;
 using System.Collections.Generic;
@@ -54,14 +55,17 @@ namespace NodeListPanel
         /// </summary>
         /// <param name="TagName">标签名</param>
         /// <param name="func">标签功能</param>
-        public void AddNodeTag(string TagName,NodeBase.NodeBase nodeBase,Action<NodeBase.NodeBase> func)
+        /// <param name="nodeBase">节点实例</param>
+        /// <param name="canvas">节点存放的面板实例</param>
+        public void AddNodeTag(string TagName,NodeBase.NodeBase nodeBase,Action<NodeBase.NodeBase,Canvas> func,Canvas canvas)
         {
 
-            Button btn = new Button();
-            btn.Content = TagName;
-            btn.Click += (s, e) => {
-               func(nodeBase);
-            };
+            SSNodeButton.SSNodeButton btn = new SSNodeButton.SSNodeButton();
+
+            //todo:命令管理器
+
+            btn.DisplayLabel = TagName;
+            btn.NodeActivity(func, nodeBase, canvas);
             this.NodeListPanelContainer.Children.Add(btn);
         }
 

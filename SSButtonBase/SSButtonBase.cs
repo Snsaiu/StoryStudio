@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls.Primitives;
+using System.Windows.Media;
 
 namespace SSButtonBase
 {
@@ -27,6 +28,12 @@ namespace SSButtonBase
             set { _cmdManager = value; }
         }
 
+
+        /// <summary>
+        /// 设置显示名称
+        /// </summary>
+        /// <returns></returns>
+        protected abstract object DisplayLabel();
 
         /// <summary>
         /// 构造ssbuttonbase实例
@@ -53,6 +60,9 @@ namespace SSButtonBase
         /// </summary>
         private void initialize()
         {
+            this.Content = this.DisplayLabel();
+            this.Foreground = Brushes.White;
+
             this.Click += SSButtonBase_Click;
             this.MouseDoubleClick += SSButtonBase_MouseDoubleClick;
         }
