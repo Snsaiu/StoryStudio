@@ -7,11 +7,10 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid Name="gr">
-        <Menu>
-            <MenuItem Header="hello">
+        <ToolBarTray>
+            <ToolBar Name="tt">
               
-                
-            </MenuItem>
-        </Menu>
+            </ToolBar>
+        </ToolBarTray>
     </Grid>
 </Window>

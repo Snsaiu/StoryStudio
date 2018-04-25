@@ -23,10 +23,11 @@ namespace Test
         public MainWindow()
         {
             InitializeComponent();
-            Class1 c = new Class1();
 
-            Window1 w = new Window1();
-            w.Show();
+            Button b = new Button();
+            b.Background = new ImageBrush(new BitmapImage(new Uri("undo.png", UriKind.Relative)));
+            this.tt.Items.Add(b);
+          
         }
     }
 }

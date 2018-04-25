@@ -5,14 +5,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace SStoolbarItem
 {
    public class Undo : SSButtonBase.SSButtonBase
     {
-        protected override object DisplayLabel()
+        protected override Brush DisplayBG()
         {
-            return "撤销";
+
+          return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\undo.png", UriKind.RelativeOrAbsolute)));
         }
 
         protected override void DoubleClick(object sender, RoutedEventArgs e)

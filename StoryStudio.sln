@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudioStory", "StudioStory\StudioStory.csproj", "{D8A38C39-F612-4A88-95FF-D13CD0FF8A9F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoryStudio", "StudioStory\StoryStudio.csproj", "{D8A38C39-F612-4A88-95FF-D13CD0FF8A9F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ISSBase", "SSBase\ISSBase.csproj", "{C5E0AFC7-BC71-4621-BF29-E30FA06A2BD5}"
 EndProject

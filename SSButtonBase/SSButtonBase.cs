@@ -4,15 +4,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Resources;
+
 
 namespace SSButtonBase
 {
     /// <summary>
     /// 抽象类, storystudio中所有的按钮理论都应该继承SSButtonBase
     /// </summary>
-    public abstract class SSButtonBase:ButtonBase
+    public abstract class SSButtonBase:Button
     {
         /// <summary>
         /// 存储命令管理器
@@ -33,7 +38,7 @@ namespace SSButtonBase
         /// 设置显示名称
         /// </summary>
         /// <returns></returns>
-        protected abstract object DisplayLabel();
+        protected abstract Brush DisplayBG();
 
         /// <summary>
         /// 构造ssbuttonbase实例
@@ -51,6 +56,7 @@ namespace SSButtonBase
         /// </summary>
         public SSButtonBase()
         {
+          
             this.initialize();
 
         }
@@ -60,8 +66,12 @@ namespace SSButtonBase
         /// </summary>
         private void initialize()
         {
-            this.Content = this.DisplayLabel();
-            this.Foreground = Brushes.White;
+
+
+
+            this.Width = 20;
+            this.Height = 20;
+            this.Background = this.DisplayBG();
 
             this.Click += SSButtonBase_Click;
             this.MouseDoubleClick += SSButtonBase_MouseDoubleClick;

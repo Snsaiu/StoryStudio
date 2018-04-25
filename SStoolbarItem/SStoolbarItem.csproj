@@ -68,5 +68,11 @@
       <Name>SSButtonBase</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="content\undo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="content\手指向.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

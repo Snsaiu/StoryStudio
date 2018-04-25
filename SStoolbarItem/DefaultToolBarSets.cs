@@ -21,12 +21,14 @@ namespace SStoolbarItem
                 toolBar.Items.Add(new Save());
                 toolBar.Items.Add(new SaveAs());
                 toolBar.Items.Add(new Undo());
+                toolBar.Items.Add(new Redo());
 
                 return true;
             }
-            catch (Exception)
+            catch (Exception e)
             {
 
+                Console.WriteLine(e.Message);
                 return false;
             }
         }

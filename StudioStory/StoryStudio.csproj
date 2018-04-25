@@ -160,5 +160,8 @@
   <ItemGroup>
     <Resource Include="content\logo.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="content\undo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

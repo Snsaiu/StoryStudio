@@ -5,14 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+using System.Windows.Media;
 
 namespace SStoolbarItem
 {
     public class SaveAs : SSButtonBase.SSButtonBase
     {
-        protected override object DisplayLabel()
+        protected override Brush DisplayBG()
         {
-            return "另存为";
+            return null;
         }
 
         protected override void DoubleClick(object sender, RoutedEventArgs e)
