@@ -35,10 +35,23 @@ namespace SSButtonBase
 
 
         /// <summary>
-        /// 设置显示名称
+        /// 设置鼠标离开背景图标
         /// </summary>
         /// <returns></returns>
         protected abstract Brush DisplayBG();
+
+        /// <summary>
+        /// 设置鼠标点击背景图标
+        /// </summary>
+        /// <returns></returns>
+        protected abstract Brush MouseClickBG();
+
+        /// <summary>
+        /// 设置鼠标进入背景图标
+        /// </summary>
+        /// <returns></returns>
+        protected abstract Brush MouseEnterBG();
+
 
         /// <summary>
         /// 构造ssbuttonbase实例
@@ -66,25 +79,40 @@ namespace SSButtonBase
         /// </summary>
         private void initialize()
         {
-
-
-
             this.Width = 20;
             this.Height = 20;
             this.Background = this.DisplayBG();
 
+
+
+            //
+            //this.Style.Triggers.Clear();
+            //TriggerBase trigger = new EventTrigger(MouseEnterEvent);
+
+            //Setter setter = new Setter();
+            //setter.Property = BackgroundProperty;
+            //setter.Value = new SolidColorBrush(Colors.Green);
+            //trigger.SetValue(BackgroundProperty, new SolidColorBrush(Colors.Green));
+            //this.Triggers.Add(trigger);
+
+            Console.WriteLine(this.Triggers.Count());
+
             this.Click += SSButtonBase_Click;
             this.MouseDoubleClick += SSButtonBase_MouseDoubleClick;
+            this.MouseEnter += SSButtonBase_MouseEnter;
+            this.MouseLeave += SSButtonBase_MouseLeave;
+           
         }
 
-        /// <summary>
-        /// 按钮单击事件
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void SSButtonBase_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        private void SSButtonBase_MouseLeave(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            this.OnceClick(sender, e);
+            this.Background = this.DisplayBG();
+        }
+
+        private void SSButtonBase_MouseEnter(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+          
+            this.Background = this.MouseEnterBG();
         }
 
         /// <summary>
@@ -92,9 +120,23 @@ namespace SSButtonBase
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
+        private void SSButtonBase_MouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            //this.Background = this.MouseClickBG();
+            //this.DoubleClick(sender, e);
+        }
+
+        /// <summary>
+        /// 按钮单击事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void SSButtonBase_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            this.DoubleClick(sender, e);
+            this.Background = this.MouseClickBG();
+            this.OnceClick(sender, e);
+
+           
         }
 
         /// <summary>
@@ -102,14 +144,14 @@ namespace SSButtonBase
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected abstract void OnceClick(object sender, System.Windows.Input.MouseButtonEventArgs e);
+        protected abstract void OnceClick(object sender, System.Windows.RoutedEventArgs e);
 
         /// <summary>
         /// 按钮双击事件的具体实现，子类必须实现该方法
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        protected abstract void DoubleClick(object sender, System.Windows.RoutedEventArgs e);
+        protected abstract void DoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e);
 
     }
 }

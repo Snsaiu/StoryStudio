@@ -15,17 +15,30 @@ namespace SStoolbarItem
         protected override Brush DisplayBG()
         {
 
-          return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\undo.png", UriKind.RelativeOrAbsolute)));
+          return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\undo.png", UriKind.RelativeOrAbsolute))) { Stretch=Stretch.Uniform};
         }
 
-        protected override void DoubleClick(object sender, RoutedEventArgs e)
+
+   
+        protected override void DoubleClick(object sender, MouseButtonEventArgs e)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("helo");
         }
 
-        protected override void OnceClick(object sender, MouseButtonEventArgs e)
+        protected override Brush MouseClickBG()
         {
-            throw new NotImplementedException();
+            return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\undo_click.png", UriKind.RelativeOrAbsolute))) { Stretch = Stretch.Uniform };
+        }
+
+        protected override Brush MouseEnterBG()
+        {
+            return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\undo_click.png", UriKind.RelativeOrAbsolute))) { Stretch = Stretch.Uniform };
+        }
+
+
+        protected override void OnceClick(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine("hello");
         }
     }
 }

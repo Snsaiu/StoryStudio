@@ -16,12 +16,25 @@ namespace SStoolbarItem
             return null;
         }
 
-        protected override void DoubleClick(object sender, RoutedEventArgs e)
+
+        protected override void DoubleClick(object sender, MouseButtonEventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        protected override void OnceClick(object sender, MouseButtonEventArgs e)
+        protected override Brush MouseClickBG()
+        {
+            throw new NotImplementedException();
+        }
+
+        protected override Brush MouseEnterBG()
+        {
+            throw new NotImplementedException();
+        }
+
+
+
+        protected override void OnceClick(object sender, RoutedEventArgs e)
         {
             throw new NotImplementedException();
         }
