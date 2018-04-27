@@ -69,6 +69,10 @@
       <DependentUpon>StoryStudio.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="styles\button_style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -161,10 +165,28 @@
     <Resource Include="content\logo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="content\undo.png" />
+    <Resource Include="content\redo_click.png" />
+    <Resource Include="content\redo_enter.png" />
+    <Resource Include="content\redo_leave.png" />
+    <Resource Include="content\undo_click.png" />
+    <Resource Include="content\undo_enter.png" />
+    <Resource Include="content\undo_leave.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="content\unfo_click.png" />
+    <Resource Include="content\new_click.png" />
+    <Resource Include="content\new_leave.png" />
+    <Resource Include="content\open_click.png" />
+    <Resource Include="content\open_enter.png" />
+    <Resource Include="content\open_leave.png" />
+    <Resource Include="content\saveas_click.png" />
+    <Resource Include="content\saveas_enter.png" />
+    <Resource Include="content\saveas_leave.png" />
+    <Resource Include="content\save_click.png" />
+    <Resource Include="content\save_enter.png" />
+    <Resource Include="content\save_leave.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="content\new_enter.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

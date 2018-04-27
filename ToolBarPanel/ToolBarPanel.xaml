@@ -7,8 +7,8 @@
              mc:Ignorable="d" 
              d:DesignHeight="50" d:DesignWidth="800">
     <Grid Background="Red" Name="toolbarContainer">
-        <ToolBarTray IsLocked="True"  Background="#FF28292A" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
-            <ToolBar Name="tb" Background="{x:Null}" Foreground="Black"  />
+        <ToolBarTray IsLocked="True" Name="tt"  Background="#FF28292A" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">
+            <ToolBar Name="tb" Background="{x:Null}" Foreground="Black" Width="{Binding ElementName=tt,Path=ActualWidth}"  />
         </ToolBarTray>
     </Grid>
 </UserControl>

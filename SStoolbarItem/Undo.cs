@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CommandManager;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,15 +15,24 @@ namespace SStoolbarItem
     {
         protected override Brush DisplayBG()
         {
-
-          return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\undo.png", UriKind.RelativeOrAbsolute))) { Stretch=Stretch.Uniform};
+                return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\undo_leave.png", UriKind.RelativeOrAbsolute))) { Stretch = Stretch.Uniform };
         }
 
-
-   
-        protected override void DoubleClick(object sender, MouseButtonEventArgs e)
+        public Undo()
         {
-            Console.WriteLine("helo");
+            this.commandManager = CommandManager.CommandManager.GetInstance();
+        }
+
+        private CommandManager.CommandManager commandManager = null;
+
+        protected override List<Key> SetHotKey()
+        {
+            return new List<Key>() { Key.LeftCtrl, Key.Z };
+        }
+
+        protected override object SetToolTip()
+        {
+            return "撤销";
         }
 
         protected override Brush MouseClickBG()
@@ -32,13 +42,15 @@ namespace SStoolbarItem
 
         protected override Brush MouseEnterBG()
         {
-            return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\undo_click.png", UriKind.RelativeOrAbsolute))) { Stretch = Stretch.Uniform };
+          
+          return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\undo_enter.png", UriKind.RelativeOrAbsolute))) { Stretch = Stretch.Uniform };
         }
 
 
         protected override void OnceClick(object sender, RoutedEventArgs e)
         {
             Console.WriteLine("hello");
+            this.commandManager.Undo();
         }
     }
 }

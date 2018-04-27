@@ -1,5 +1,6 @@
 ﻿using IPanelContainer;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace GlobalTracker
 {
@@ -197,6 +198,26 @@ namespace GlobalTracker
             }
             return this.panellist;
 
+        }
+
+        private Window _window = null;
+
+        /// <summary>
+        /// 获得主窗口
+        /// </summary>
+        /// <returns></returns>
+        public Window GetWindow()
+        {
+            return this._window;
+        }
+
+        /// <summary>
+        /// 设置主窗口
+        /// </summary>
+        /// <param name="window"></param>
+        public void SetWindow(Window window)
+        {
+            this._window = window;
         }
 
 

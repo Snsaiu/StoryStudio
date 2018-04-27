@@ -16,6 +16,8 @@ namespace StudioStory
             // 实例化globaltracker
             GlobalTracker.GlobalTracker globalTracker = GlobalTracker.GlobalTracker.GetInstance();
 
+            globalTracker.SetWindow(this);
+
             //add menu ui
 
             Menu.Menu menu = new Menu.Menu();

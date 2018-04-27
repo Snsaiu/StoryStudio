@@ -55,6 +55,10 @@
     <Compile Include="Undo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\CommandManager\CommandManager.csproj">
+      <Project>{9F724C5E-5126-42D5-8575-6CDEECD8A67E}</Project>
+      <Name>CommandManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IFillToolBar\IFillToolBar.csproj">
       <Project>{8ef2ae0d-f7f0-4e10-b378-b5576323fd65}</Project>
       <Name>IFillToolBar</Name>

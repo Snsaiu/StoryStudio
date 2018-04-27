@@ -57,6 +57,9 @@ namespace CommandManager
         /// <param name="undoCount"></param>
         private CommandManager()
         {
+            //撤销最大次数
+            this.UndoCount = 20;
+
             this._redoStack = new Stack<ISSCommand.ISSCommand>();
             this._undoStack = new Stack<ISSCommand.ISSCommand>();
         }
@@ -64,17 +67,41 @@ namespace CommandManager
         public void ExecuteCommand(ISSCommand.ISSCommand cmd)
         {
             // todo :需要添加其他的逻辑，
+
+            // 执行命令之后 压入undo的栈
             cmd.Execute();
+            this._undoStack.Push(cmd);
         }
 
         public void Undo()
         {
-            //todo:添加逻辑
+            //todo:缺少判断,如果为空应该禁止执行,如果栈上限了,应该把最底层的命令删除掉
+
+            // 将undo栈中的最上层的对象先弹出出来
+            if (this._undoStack.Count==0)
+            {
+                return;
+            }
+            ISSCommand.ISSCommand undocommond = this._undoStack.Pop();
+            // 执行一下undo
+            undocommond.Undo();
+            // 压入redo栈中
+            this._redoStack.Push(undocommond);
+
+
         }
 
         public void Redo()
         {
-            // todo:添加逻辑
+            if (this._redoStack.Count == 0)
+            {
+                return;
+            }
+            // todo:缺少判断,如果为空应该禁止执行,如果栈上限了,应该把最底层的命令删除掉
+            ISSCommand.ISSCommand redocommand = this._redoStack.Pop();
+            redocommand.Execute();
+            this._undoStack.Push(redocommand);
+
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace SStoolbarItem
 {
@@ -13,30 +14,29 @@ namespace SStoolbarItem
     {
         protected override Brush DisplayBG()
         {
-            return null;
+            return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\new_leave.png", UriKind.RelativeOrAbsolute))) { Stretch = Stretch.Uniform };
         }
 
-
-        protected override void DoubleClick(object sender, MouseButtonEventArgs e)
-        {
-            throw new NotImplementedException();
-        }
 
         protected override Brush MouseClickBG()
         {
-            throw new NotImplementedException();
+            return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\new_click.png", UriKind.RelativeOrAbsolute))) { Stretch = Stretch.Uniform };
         }
 
         protected override Brush MouseEnterBG()
         {
-            throw new NotImplementedException();
+            return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\new_enter.png", UriKind.RelativeOrAbsolute))) { Stretch = Stretch.Uniform };
         }
 
+        protected override object SetToolTip()
+        {
+            return "新建";
+        }
 
 
         protected override void OnceClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+            Console.WriteLine("ddd");
         }
     }
 }

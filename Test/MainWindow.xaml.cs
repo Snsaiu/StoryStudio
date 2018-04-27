@@ -24,9 +24,6 @@ namespace Test
         {
             InitializeComponent();
 
-            Button b = new Button();
-            b.Background = new ImageBrush(new BitmapImage(new Uri("undo.png", UriKind.Relative)));
-            this.tt.Items.Add(b);
           
         }
     }

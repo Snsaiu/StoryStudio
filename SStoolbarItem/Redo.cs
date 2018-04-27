@@ -19,34 +19,38 @@ namespace SStoolbarItem
         protected override Brush DisplayBG()
         {
 
-            //ImageBrush image = new ImageBrush();
-            //image.ImageSource = new BitmapImage(new Uri("undo.png", UriKind.Relative));
-            //image.Stretch = Stretch.Fill;
-            //image.TileMode = TileMode.Tile;
-            //return image;
-            return null;
+            return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\redo_leave.png", UriKind.RelativeOrAbsolute))) { Stretch = Stretch.Uniform };
         }
 
+        private CommandManager.CommandManager commandManager = null;
 
-        protected override void DoubleClick(object sender, MouseButtonEventArgs e)
+
+        protected override object SetToolTip()
         {
-            throw new NotImplementedException();
+            return "重做";
+        }
+
+        public Redo()
+        {
+            this.commandManager = CommandManager.CommandManager.GetInstance();
         }
 
         protected override Brush MouseClickBG()
         {
-            return null;
+            return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\redo_click.png", UriKind.RelativeOrAbsolute))) { Stretch = Stretch.Uniform };
         }
 
         protected override Brush MouseEnterBG()
         {
-            return null;
+            return new ImageBrush(new BitmapImage(new Uri(@"..\..\content\redo_enter.png", UriKind.RelativeOrAbsolute))) { Stretch = Stretch.Uniform };
         }
 
 
         protected override void OnceClick(object sender, RoutedEventArgs e)
         {
-            throw new NotImplementedException();
+
+            this.commandManager.Redo();
+            Console.WriteLine("dd");
         }
     }
 }
