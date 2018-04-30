@@ -1,4 +1,5 @@
-﻿using NodeBase;
+﻿using BaseTypeEnum;
+using NodeBase;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +16,11 @@ namespace StoryStartNode
 
         public override string LongName => "CharactersOutputComponent";
 
-        public override string Type => "input";
+      
+
+        public override NodeType Type =>NodeType.characterType;
+
+        public override IOTypeEnum IOType => IOTypeEnum.output;
 
         protected override bool SetAttributes()
         {

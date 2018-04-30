@@ -52,6 +52,10 @@
     <Compile Include="StoryStartNode.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BaseTypeEnum\BaseTypeEnum.csproj">
+      <Project>{337E92F4-FA82-4519-B488-8E73E80B56DE}</Project>
+      <Name>BaseTypeEnum</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IFillNode\IFillNode.csproj">
       <Project>{40351DD5-1DAD-4543-906A-EE8664CAAFE5}</Project>
       <Name>IFillNode</Name>

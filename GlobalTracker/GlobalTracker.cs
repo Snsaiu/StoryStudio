@@ -1,6 +1,7 @@
 ﻿using IPanelContainer;
 using System.Collections.Generic;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace GlobalTracker
 {
@@ -220,6 +221,27 @@ namespace GlobalTracker
             this._window = window;
         }
 
+        /// <summary>
+        /// 保存节点面板
+        /// </summary>
+        private Canvas _canvas = null;
+
+        /// <summary>
+        /// 快捷获得节点面板对象
+        /// </summary>
+        /// <returns>获得节点面板对象</returns>
+        public Canvas GetNodeCanvas()
+        {
+            return _canvas;
+        }
+        /// <summary>
+        /// 快捷设置节点面板对象
+        /// </summary>
+        /// <param name="canvas">节点面板对象</param>
+        public void SetNodeCanvas(Canvas canvas)
+        {
+            _canvas = canvas;
+        }
 
     }
 }

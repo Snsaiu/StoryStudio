@@ -39,6 +39,7 @@ namespace NodePanel
         /// </summary>
         private NodeBase.NodeBase targetElement = null;
 
+      
         /// <summary>
         /// 鼠标点击到Node后，鼠标位置与Node左上角的差值
         /// </summary>
@@ -64,18 +65,20 @@ namespace NodePanel
         {
             InitializeComponent();
 
+            GlobalTracker.GlobalTracker g = GlobalTracker.GlobalTracker.GetInstance();
+            g.SetNodeCanvas(this.GetCanvas);
 
 
             // todo 
-            ArrowLineWithText a = new ArrowLineWithText();
-            a.Text = "hello";
-            a.StartPoint = new Point(50, 60);
-            a.EndPoint = new Point(100, 400);
-            a.Stroke = Brushes.Red;
-            a.StrokeThickness = 1;
-            this.GetCanvas.Children.Add(a);
-            a.SetValue(Canvas.LeftProperty, (double)50);
-            a.SetValue(Canvas.TopProperty, (double)60);
+            //ArrowLineWithText a = new ArrowLineWithText();
+            //a.Text = "hello";
+            //a.StartPoint = new Point(50, 60);
+            //a.EndPoint = new Point(100, 400);
+            //a.Stroke = Brushes.Red;
+            //a.StrokeThickness = 1;
+            //this.GetCanvas.Children.Add(a);
+            //a.SetValue(Canvas.LeftProperty, (double)50);
+            //a.SetValue(Canvas.TopProperty, (double)60);
 
 
 
@@ -149,9 +152,7 @@ namespace NodePanel
             // when mouse move and the _canMove is true ,it will move node panel
             this.NodeCanvas.MouseMove += (s, e) =>
             {
-            
-         
-  
+
                 if (e.LeftButton == MouseButtonState.Pressed && targetElement != null && this._canMove)
                 {
                     var pCanvas = e.GetPosition(this.NodeCanvas);
@@ -159,7 +160,7 @@ namespace NodePanel
                    targetElement.Position = new Point(pCanvas.X-this._nodeMouseDistance.X, pCanvas.Y-this._nodeMouseDistance.Y);
                    //Canvas.SetLeft(targetElement as StoryStartNode.StoryStartNode, (pCanvas.X - captureElementPoint.X));
                    // Canvas.SetTop(targetElement as StoryStartNode.StoryStartNode, (pCanvas.Y - captureElementPoint.Y));
-                    Console.WriteLine("level  " + this._scaleLevel);
+                  //  Console.WriteLine("level  " + this._scaleLevel);
                     return;
                 }
 
@@ -185,6 +186,12 @@ namespace NodePanel
 
                         item.SetValue(Canvas.LeftProperty, newLeft);
                         item.SetValue(Canvas.TopProperty, newTop);
+
+                        if (item is NodeBase.NodeBase)
+                        {
+                            (item as NodeBase.NodeBase).NodeBase_MouseMove(s, e);
+                        }
+                       
                         //if (item is INodeBase)
                         //{
                         //    INodeBase nodeTemp = item as INodeBase;

@@ -31,7 +31,8 @@ namespace NodeBase
 
             //装配组件
             this.RigComponent();
-
+            // 绑定事件
+            this.MouseMove += NodeBase_MouseMove;
             // 显示Nodelabel
             if (this.NodeLable=="")
             {
@@ -58,6 +59,7 @@ namespace NodeBase
                     v.Child = this._inputs[i];
                     this.inputgrid.Children.Add(v);
                     Grid.SetColumn(v, i);
+                    
 
                     //判断Node是否显示string类型组件
                     foreach (var item in this._inputs[i].GetStringAttrSet())
@@ -148,6 +150,18 @@ namespace NodeBase
                     this.outputgrid.Children.Add(v);
                     Grid.SetColumn(v, i);
                 }
+            }
+        }
+
+        public void NodeBase_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
+        {
+            foreach (var item in this._inputs)
+            {
+                item.NotifyMove();
+            }
+            foreach (var item in this._outputs)
+            {
+                item.NotifyMove();
             }
         }
 

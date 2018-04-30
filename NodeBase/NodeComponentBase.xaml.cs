@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BaseTypeEnum;
+using SSLine;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,11 +22,28 @@ namespace NodeBase
     /// </summary>
     public abstract partial class NodeComponentBase : UserControl
     {
+
+        /// <summary>
+        /// 保存线集合
+        /// </summary>
+        private List<ArrowLineWithText> _lines = null;
+
+        /// <summary>
+        /// 获得线集合
+        /// </summary>
+        /// <returns>线集合对象</returns>
+        public List<ArrowLineWithText> GetLines()
+        {
+            return this._lines;
+        }
+
         public NodeComponentBase()
         {
             //InitializeComponent();
             this.LoadViewFromUri("/NodeBase;component/nodecomponentbase.xaml");
-          
+
+            this._lines = new List<ArrowLineWithText>();
+
             // 初始化属性容器
             this._stringAttrs = new List<StringAttr>();
             this._intAttrs = new List<IntAttr>();
@@ -32,6 +51,7 @@ namespace NodeBase
             this._listAttrs = new List<ListAttr>();
             this._floatAttrs = new List<FloatAttr>();
             this._mulitSelectAttrs = new List<MulitSelectAttr>();
+
 
             //添加属性
             this.SetAttributes();
@@ -55,9 +75,19 @@ namespace NodeBase
         /// <param name="e"></param>
         protected abstract void ClickEvent(object sender, RoutedEventArgs e);
   
-
-
-
+        /// <summary>
+        /// 添加一根线到容器中
+        /// </summary>
+        /// <param name="line">线对象</param>
+        protected void AddNewLine(ArrowLineWithText line)
+        {
+            this._lines.Add(line);
+        }
+        /// <summary>
+        /// 通知线集合刷新自己的位置
+        /// </summary>
+        public abstract void NotifyMove();
+ 
         /// <summary>
         /// 组件显示标签
         /// </summary>
@@ -76,7 +106,12 @@ namespace NodeBase
         /// <summary>
         /// 组件类型
         /// </summary>
-        public abstract string Type { get; }
+        public abstract NodeType Type { get; }
+
+        /// <summary>
+        /// 获得组件的端口是输入还是输出或者是其他
+        /// </summary>
+        public abstract IOTypeEnum IOType { get; }
 
         /// <summary>
         /// 存放字符串属性

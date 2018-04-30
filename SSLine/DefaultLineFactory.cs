@@ -8,16 +8,21 @@ namespace SSLine
 {
     public class DefaultLineFactory : SSLineFactoryAbs
     {
+
         public override ArrowLineWithText CreateCharacterLine()
         {
             // todo:添加线的具体描述
-            throw new NotImplementedException();
+            ArrowLineWithText arrowLineWithText = new ArrowLineWithText();
+
+            return arrowLineWithText;
         }
 
         public override ArrowLineWithText CreateEventLine()
         {
             // todo:添加线的具体描述
-            throw new NotImplementedException();
+            ArrowLineWithText arrowLineWithText = new ArrowLineWithText();
+
+            return arrowLineWithText;
         }
     }
 }

@@ -15,7 +15,11 @@ namespace StoryStartNode
 
         public override string LongName => "CharactersInputComponent";
 
-        public override string Type => "input";
+
+
+        public override global::BaseTypeEnum.NodeType Type => BaseTypeEnum.NodeType.characterType;
+
+        public override global::BaseTypeEnum.IOTypeEnum IOType => BaseTypeEnum.IOTypeEnum.input;
 
         protected override bool SetAttributes()
         {
