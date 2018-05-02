@@ -22,6 +22,7 @@
                 EditLIneTextWindow editLIneTextWindow = new EditLIneTextWindow(this);
                 editLIneTextWindow.ShowDialog();
             }
+            e.Handled = true;
         }
 
 

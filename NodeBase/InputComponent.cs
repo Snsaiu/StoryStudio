@@ -57,17 +57,28 @@ namespace NodeBase
                 }
          
                  Point p = Mouse.GetPosition(this.canvas);
-
                 arrowLineWithText.StartPoint = p;
-                arrowLineWithText.EndPoint = new Point(90, 0);
-                arrowLineWithText.StrokeThickness = 1;
+                //线的起始已经链接到组件，进行赋值
+                arrowLineWithText.StartPointConnected = true;
+                arrowLineWithText.StrokeThickness = 0.5;
                 arrowLineWithText.Stroke = Brushes.Red;
                 canvas.Children.Add(arrowLineWithText);
                 //  arrowLineWithText.SetValue(Canvas.LeftProperty, p.X);
                 //   arrowLineWithText.SetValue(Canvas.TopProperty, p.Y);
 
 
-              //  canvas.MouseMove += (s, m) => { arrowLineWithText.EndPoint = m.GetPosition(canvas); };
+                canvas.MouseMove += (s, m) => {
+                    if (arrowLineWithText.EndPointConnected==false)
+                    {
+                        arrowLineWithText.EndPoint = m.GetPosition(canvas);
+                    }
+                };
+
+                canvas.MouseRightButtonDown += (s, m) =>
+                {
+
+                    this.canvas.Children.Remove(arrowLineWithText);
+                };
 
                 this.AddNewLine(arrowLineWithText);
                 //ArrowLineWithText a = new ArrowLineWithText();

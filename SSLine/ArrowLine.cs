@@ -37,6 +37,37 @@ namespace SSLine
             set { this.SetValue(EndPointProperty, value); }
         }
 
+        /// <summary>
+        /// 保存线的起始是否已经链接到组件上
+        /// </summary>
+        private bool _startPointConnected=false;
+
+        /// <summary>
+        /// 设置或者获得线的起始是否已经链接到组件上
+        /// </summary>
+        public bool StartPointConnected
+        {
+            get { return _startPointConnected; }
+            set { _startPointConnected = value; }
+        }
+
+        /// <summary>
+        /// 保存线的终点是否已经链接到组件上
+        /// </summary>
+        private bool _endPointConnected=false;
+
+        /// <summary>
+        /// 设置或者获得线的终点是否已经链接到组件上
+        /// </summary>
+        public bool EndPointConnected
+        {
+            get { return _endPointConnected; }
+            set { _endPointConnected = value; }
+        }
+
+
+
+
         #endregion Properties
 
         #region Protected Methods
