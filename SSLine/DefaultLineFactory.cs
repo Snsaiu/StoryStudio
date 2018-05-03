@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace SSLine
 {
@@ -13,7 +14,9 @@ namespace SSLine
         {
             // todo:添加线的具体描述
             ArrowLineWithText arrowLineWithText = new ArrowLineWithText();
-
+            arrowLineWithText.Stroke = Brushes.CadetBlue;
+            arrowLineWithText.StrokeThickness = 0.3;
+            arrowLineWithText.ArrowLength = 3;
             return arrowLineWithText;
         }
 

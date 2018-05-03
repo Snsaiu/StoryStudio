@@ -1,4 +1,5 @@
-﻿using SSLine;
+﻿using GlobalTracker;
+using SSLine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,12 +31,29 @@ namespace NodeBase
         protected override void ClickEvent(object sender, RoutedEventArgs e)
         {
             // todo:完成输入节点点击事件
+ 
             // 根据条件创建线的起点
 
             //创建线工厂
             SSLineFactoryAbs sSLineFactory = new DefaultLineFactory();
             ArrowLineWithText arrowLineWithText = null;
 
+            //判断当前是否有线需要被连接，如果已经有线正在被连接，那么不创建线
+            if (LineTracker.CanCreateLine==false)
+            {
+
+                //判断 是能否进行连接
+                if (LineTracker.StoreLineObj!=null)
+                {
+                    if (LineTracker.StoreLineObj.StartComponent is NodeComponentBase)
+                    {
+                        NodeComponentBase temp = LineTracker.StoreLineObj.StartComponent as NodeComponentBase;
+                       //todo判断节点类型以确定是否能够连接
+                    } 
+                }
+
+                return;
+            }
 
             if (this.IOType==BaseTypeEnum.IOTypeEnum.input)
             {
@@ -43,25 +61,33 @@ namespace NodeBase
                 if (this.Type == BaseTypeEnum.NodeType.characterType)
                 {
                  arrowLineWithText =  sSLineFactory.CreateCharacterLine();
-
+                    LineTracker.CanCreateLine = false;
+                    LineTracker.StoreLineObj = arrowLineWithText;
+                    arrowLineWithText.EndComponent = this;
                 }
                 //事件
                 else if (this.Type==BaseTypeEnum.NodeType.eventType)
                 {
                     arrowLineWithText = sSLineFactory.CreateEventLine();
+                    LineTracker.CanCreateLine = false;
+                    LineTracker.StoreLineObj = arrowLineWithText;
+                    arrowLineWithText.EndComponent = this;
                 }
                 // note
                 else if(this.Type==BaseTypeEnum.NodeType.noteType)
                 {
-
+                    // todo
+                    LineTracker.CanCreateLine = false;
+                    LineTracker.StoreLineObj = arrowLineWithText;
+                    arrowLineWithText.EndComponent = this;
                 }
          
                  Point p = Mouse.GetPosition(this.canvas);
                 arrowLineWithText.StartPoint = p;
-                //线的起始已经链接到组件，进行赋值
-                arrowLineWithText.StartPointConnected = true;
-                arrowLineWithText.StrokeThickness = 0.5;
-                arrowLineWithText.Stroke = Brushes.Red;
+                //线的末端已经链接到组件，进行赋值
+                arrowLineWithText.EndPointConnected = true;
+                // 忽略线事件
+                arrowLineWithText.IsHitTestVisible = false;
                 canvas.Children.Add(arrowLineWithText);
                 //  arrowLineWithText.SetValue(Canvas.LeftProperty, p.X);
                 //   arrowLineWithText.SetValue(Canvas.TopProperty, p.Y);
@@ -72,12 +98,19 @@ namespace NodeBase
                     {
                         arrowLineWithText.EndPoint = m.GetPosition(canvas);
                     }
+                    else
+                    {
+
+                    }
                 };
 
                 canvas.MouseRightButtonDown += (s, m) =>
                 {
 
+                    //删除线
                     this.canvas.Children.Remove(arrowLineWithText);
+                    //可以重新创建线
+                    LineTracker.CanCreateLine = true;
                 };
 
                 this.AddNewLine(arrowLineWithText);
