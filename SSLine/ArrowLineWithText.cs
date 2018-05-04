@@ -77,6 +77,8 @@
             set { this.SetValue(TextProperty, value); }
         }
 
+ 
+
         /// <summary>
         /// 文本对齐方式
         /// </summary>
@@ -105,6 +107,27 @@
         }
 
         #endregion Properties
+
+
+        #region fields
+
+        private FormattedText formattedText = null;
+        #endregion
+
+
+        #region property
+
+        /// <summary>
+        /// 设置字体大小
+        /// </summary>
+        public double FamilySize { set => this.formattedText.SetFontSize(value); }
+
+        /// <summary>
+        /// 设置字体颜色
+        /// </summary>
+        public Brush FontColor { set => this.formattedText.SetForegroundBrush(value); }
+
+        #endregion
 
         #region Overrides
 
@@ -139,19 +162,21 @@
                         SystemFonts.StatusFontStyle,
                         SystemFonts.StatusFontWeight,
                         new FontStretch());
-                    var formattedText = new FormattedText(
+                     this.formattedText = new FormattedText(
                         txt,
                         CultureInfo.CurrentCulture,
                         FlowDirection.LeftToRight,
                         defaultTypeface,
-                        SystemFonts.StatusFontSize,
-                        Brushes.Black)
+                       3,
+                        Brushes.White)
                         {
                             // 文本最大宽度为线的宽度
                             MaxTextWidth = vec.Length,
 
                             // 设置文本对齐方式
-                            TextAlignment = this.TextAlignment
+                            TextAlignment = this.TextAlignment,
+                         
+                           
                         };
 
                     var offsetY = this.StrokeThickness;

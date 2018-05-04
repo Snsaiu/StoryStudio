@@ -1,6 +1,7 @@
 namespace SSLine
 {
     using System.Windows;
+    using System.Windows.Input;
     using System.Windows.Media;
 
     /// <summary>
@@ -118,6 +119,16 @@ namespace SSLine
         protected override Point GetEndArrowEndPoint()
         {
             return this.EndPoint;
+        }
+
+        public override void MoveStartWithMouse(object sender, MouseEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public override void MoveEndWithMouse(object sender, MouseEventArgs e)
+        {
+            throw new System.NotImplementedException();
         }
 
         #endregion  Protected Methods

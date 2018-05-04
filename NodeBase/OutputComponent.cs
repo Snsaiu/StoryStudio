@@ -35,15 +35,39 @@ namespace NodeBase
             // todo:完成输入节点点击事件
             // 根据条件创建线的起点
 
+            if (LineTracker.CanCreateLine==false)
+            {
+                //判断是否可以进行连接
+                if (LineTracker.StoreLineObj.EndComponent is NodeComponentBase)
+                {
+                    NodeComponentBase temp = LineTracker.StoreLineObj.EndComponent as NodeComponentBase;
+                    // 判断组件类型是否能够连接
+
+                    if (temp.Type==this.Type)
+                    {
+                        if (temp.IOType==BaseTypeEnum.IOTypeEnum.input)
+                        {
+                            this.canvas.MouseMove -= LineTracker.StoreLineObj.MoveStartWithMouse;
+
+                            this.AddNewLine(LineTracker.StoreLineObj);
+
+                            LineTracker.StoreLineObj.IsHitTestVisible = true;
+
+                            LineTracker.CanCreateLine = true;
+                            LineTracker.StoreLineObj = null;
+                        }
+                    }
+
+                }
+                return;
+            }
+
+
+
             //创建线工厂
             SSLineFactoryAbs sSLineFactory = new DefaultLineFactory();
             ArrowLineWithText arrowLineWithText = null;
 
-            //判断当前是否有线需要被连接，如果已经有线正在被连接，那么不创建线
-            if (LineTracker.CanCreateLine == false)
-            {
-                return;
-            }
 
             if (this.IOType == BaseTypeEnum.IOTypeEnum.output)
             {
@@ -83,22 +107,15 @@ namespace NodeBase
                 //   arrowLineWithText.SetValue(Canvas.TopProperty, p.Y);
 
 
-                canvas.MouseMove += (s, m) => {
-                    if (arrowLineWithText.EndPointConnected == false)
-                    {
-                        arrowLineWithText.EndPoint = m.GetPosition(canvas);
-                    }
-                    else
-                    {
-
-                    }
-                };
+                canvas.MouseMove += arrowLineWithText.MoveEndWithMouse;
+               
+      
 
                 canvas.MouseRightButtonDown += (s, m) =>
                 {
 
                     //删除线
-                    this.canvas.Children.Remove(arrowLineWithText);
+                    this.canvas.Children.Remove(LineTracker.StoreLineObj);
                     //可以重新创建线
                     LineTracker.CanCreateLine = true;
                 };

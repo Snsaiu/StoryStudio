@@ -24,7 +24,7 @@ namespace NodeBase
         {
             foreach (var item in this.GetLines())
             {
-                item.StartPoint = this.TranslatePoint(new Point(), this.canvas);
+                item.EndPoint = this.TranslatePoint(new Point(10,0), this.canvas);
             }
         }
 
@@ -42,13 +42,37 @@ namespace NodeBase
             if (LineTracker.CanCreateLine==false)
             {
 
+                // todo:应该要加个判断，判断当前node的类型，
+
                 //判断 是能否进行连接
                 if (LineTracker.StoreLineObj!=null)
                 {
                     if (LineTracker.StoreLineObj.StartComponent is NodeComponentBase)
                     {
                         NodeComponentBase temp = LineTracker.StoreLineObj.StartComponent as NodeComponentBase;
-                       //todo判断节点类型以确定是否能够连接
+                        //todo判断节点类型以确定是否能够连接
+                        //判断节点类型,只有相同类型的才能连接
+                        if (temp.Type==this.Type)
+                        {
+                            //输出段的线才能连接到输入端
+                            if (temp.IOType==BaseTypeEnum.IOTypeEnum.output)
+                            {
+                                //取消事件关注
+                                this.canvas.MouseMove -= LineTracker.StoreLineObj.MoveEndWithMouse;
+
+                                //加入容器中
+                                this.AddNewLine(LineTracker.StoreLineObj);
+
+                                // 恢复线的事件
+                                LineTracker.StoreLineObj.IsHitTestVisible = true;
+
+                                //初始化线追踪器
+                                LineTracker.CanCreateLine = true;
+                                LineTracker.StoreLineObj = null;
+                            }
+
+                        }
+
                     } 
                 }
 
@@ -93,22 +117,13 @@ namespace NodeBase
                 //   arrowLineWithText.SetValue(Canvas.TopProperty, p.Y);
 
 
-                canvas.MouseMove += (s, m) => {
-                    if (arrowLineWithText.EndPointConnected==false)
-                    {
-                        arrowLineWithText.EndPoint = m.GetPosition(canvas);
-                    }
-                    else
-                    {
-
-                    }
-                };
+                canvas.MouseMove += arrowLineWithText.MoveStartWithMouse;
 
                 canvas.MouseRightButtonDown += (s, m) =>
                 {
 
                     //删除线
-                    this.canvas.Children.Remove(arrowLineWithText);
+                    this.canvas.Children.Remove(LineTracker.StoreLineObj);
                     //可以重新创建线
                     LineTracker.CanCreateLine = true;
                 };
@@ -135,5 +150,6 @@ namespace NodeBase
 
 
         }
+
     }
 }

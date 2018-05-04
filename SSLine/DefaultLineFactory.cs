@@ -17,6 +17,7 @@ namespace SSLine
             arrowLineWithText.Stroke = Brushes.CadetBlue;
             arrowLineWithText.StrokeThickness = 0.3;
             arrowLineWithText.ArrowLength = 3;
+            
             return arrowLineWithText;
         }
 

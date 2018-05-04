@@ -1,9 +1,11 @@
 using System;
 using System.Windows;
+using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
 namespace SSLine
-{ 
+{
 
 
     /// <summary>
@@ -91,6 +93,10 @@ namespace SSLine
         /// </summary>
         protected ArrowBase()
         {
+
+
+        
+
             var polyLineSegStart = new PolyLineSegment();
             this.figureStart.Segments.Add(polyLineSegStart);
 
@@ -100,7 +106,7 @@ namespace SSLine
             this.geometryWhole.Figures.Add(this.figureConcrete);
             this.geometryWhole.Figures.Add(this.figureStart);
             this.geometryWhole.Figures.Add(this.figureEnd);
-           
+
         }
 
         #endregion Constructor
@@ -289,6 +295,27 @@ namespace SSLine
 
 
 
-      
+        #region Public Methods
+
+        /// <summary>
+        /// 线的起始端跟随线
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public abstract void MoveStartWithMouse(object sender, MouseEventArgs e);
+
+        /// <summary>
+        /// 线的末端跟随线
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        public abstract void MoveEndWithMouse(object sender, MouseEventArgs e);
+
+        #endregion
+
+
+
+
+
     }
 }

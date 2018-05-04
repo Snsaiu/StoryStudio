@@ -1,6 +1,8 @@
 namespace SSLine
 {
     using System.Windows;
+    using System.Windows.Controls;
+    using System.Windows.Input;
     using System.Windows.Media;
 
     /// <summary>
@@ -105,6 +107,22 @@ namespace SSLine
         protected override Point GetEndArrowEndPoint()
         {
             return this.EndPoint;
+        }
+
+        public override void MoveStartWithMouse(object sender, MouseEventArgs e)
+        {
+            if (this.StartPointConnected==false)
+            {
+                this.StartPoint = e.GetPosition(sender as Canvas);
+            }
+        }
+
+        public override void MoveEndWithMouse(object sender, MouseEventArgs e)
+        {
+            if (this.EndPointConnected==false)
+            {
+                this.EndPoint=e.GetPosition(sender as Canvas);
+            }
         }
 
         #endregion  Protected Methods
