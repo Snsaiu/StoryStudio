@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace CommandSet
+namespace NodeCommandSet
 {
     public class AddNodeCommand : ISSCommand.ISSCommand
     {
@@ -44,18 +44,7 @@ namespace CommandSet
         public void Undo()
         {
 
-            //   this._canvas.Children.Remove(this._lastNode as UIElement);
-            //for (int i = 0; i < this._canvas.Children.Count; i++)
-            //{
-            //    if (this._canvas.Children[i] is NodeBase.NodeBase)
-            //    {
-            //        if (this._lastNode == this._canvas.Children[i] as NodeBase.NodeBase)
-            //        {
 
-            //            this._canvas.Children.RemoveAt(i);
-            //        }
-            //        Console.WriteLine(this._canvas.Children[i].GetType());
-            //    }
             this._canvas.Children.RemoveAt(this._canvas.Children.Count - 1);
 
               

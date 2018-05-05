@@ -6,6 +6,7 @@ using System.Windows.Navigation;
 using System.Reflection;
 using System.IO.Packaging;
 using System.Windows.Markup;
+using NodeComponentSets;
 
 namespace NodeBase
 {

@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="NodeComponentSets.FloatAttrUI"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:NodeComponentSets"
+             mc:Ignorable="d" 
+             d:DesignHeight="500" d:DesignWidth="500">
+    <Grid>
+        <Border BorderBrush="#FF0098D7" BorderThickness="1">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="30*"/>
+                    <ColumnDefinition Width="70*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Name="FloatLabel"  TextAlignment="Center" Background="#FF373737" Foreground="White" FontSize="2"></TextBlock>
+                <TextBox Name="FloatContent" DataObject.Pasting="FloatContent_Pasting" PreviewTextInput="StrContent_PreviewTextInput" BorderThickness="0" Foreground="White" MaxLines="2" TextWrapping="Wrap" Grid.Column="1" VerticalScrollBarVisibility="Auto" Background="#FF676767" >
+                    <TextBox.LayoutTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="0.1" ScaleY="0.1"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </TextBox.LayoutTransform>
+                </TextBox>
+                
+            </Grid>
+        </Border>
+    </Grid>
+</UserControl>

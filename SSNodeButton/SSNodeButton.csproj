@@ -51,9 +51,9 @@
       <Project>{9F724C5E-5126-42D5-8575-6CDEECD8A67E}</Project>
       <Name>CommandManager</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CommandSet\CommandSet.csproj">
+    <ProjectReference Include="..\CommandSet\NodeCommandSet.csproj">
       <Project>{37665FA5-3B08-4998-BB30-56E14C616C59}</Project>
-      <Name>CommandSet</Name>
+      <Name>NodeCommandSet</Name>
     </ProjectReference>
     <ProjectReference Include="..\ISSCommand\ISSCommand.csproj">
       <Project>{A886CB65-6727-4BC4-B567-9CEE0B765608}</Project>
