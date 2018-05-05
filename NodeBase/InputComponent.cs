@@ -52,7 +52,8 @@ namespace NodeBase
                         NodeComponentBase temp = LineTracker.StoreLineObj.StartComponent as NodeComponentBase;
                         //todo判断节点类型以确定是否能够连接
                         //判断节点类型,只有相同类型的才能 连接
-                        if (temp.Type==this.Type)
+
+                        if (temp.Type==this.Type) 
                         {
                             //输出段的线才能连接到输入端
                             if (temp.IOType==BaseTypeEnum.IOTypeEnum.output)
