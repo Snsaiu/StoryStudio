@@ -155,6 +155,7 @@
                         CenterX = this.StartPoint.X,
                         CenterY = this.StartPoint.Y
                     };
+
                     drawingContext.PushTransform(transform);
 
                     var defaultTypeface = new Typeface(
