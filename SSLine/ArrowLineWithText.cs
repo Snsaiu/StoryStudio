@@ -158,6 +158,7 @@
 
                     drawingContext.PushTransform(transform);
 
+
                     var defaultTypeface = new Typeface(
                         SystemFonts.StatusFontFamily,
                         SystemFonts.StatusFontStyle,
