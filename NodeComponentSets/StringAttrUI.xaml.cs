@@ -24,7 +24,7 @@ namespace NodeComponentSets
         {
             //InitializeComponent();
             this.LoadViewFromUri("/NodeComponentSets;component/stringattrui.xaml");
-            
+           
         }
 
         /// <summary>

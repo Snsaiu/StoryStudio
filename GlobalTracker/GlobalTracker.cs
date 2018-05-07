@@ -243,5 +243,17 @@ namespace GlobalTracker
             _canvas = canvas;
         }
 
+        private object _lastNode;
+
+        /// <summary>
+        /// 设置或者获得一个最新的node实例
+        /// </summary>
+        public object LastNode
+        {
+            get { return _lastNode; }
+            set { _lastNode = value; }
+        }
+
+
     }
 }

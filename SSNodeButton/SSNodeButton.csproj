@@ -43,6 +43,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AddNodeCommand.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SSNodeButton.cs" />
   </ItemGroup>
@@ -54,6 +55,10 @@
     <ProjectReference Include="..\CommandSet\NodeCommandSet.csproj">
       <Project>{37665FA5-3B08-4998-BB30-56E14C616C59}</Project>
       <Name>NodeCommandSet</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GlobalTracker\GlobalTracker.csproj">
+      <Project>{802AEC58-DB62-4352-99B2-1B5A7CDF9120}</Project>
+      <Name>GlobalTracker</Name>
     </ProjectReference>
     <ProjectReference Include="..\ISSCommand\ISSCommand.csproj">
       <Project>{A886CB65-6727-4BC4-B567-9CEE0B765608}</Project>

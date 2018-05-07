@@ -1,17 +1,9 @@
-﻿using CommandManager;
-using CommandSet;
-using NodeBase;
-using NodeCommandSet;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Controls;
 
 namespace SSNodeButton
 {
-   public class SSNodeButton:Button
+    public class SSNodeButton:Button
     {
 
         /// <summary>
@@ -81,7 +73,9 @@ namespace SSNodeButton
         {
 
             //todo :添加命令逻辑
-            AddNodeCommand addNodeCommand = new AddNodeCommand(this._actionNode, this._lastNode, this._canvas);
+            this._actionNode(this._lastNode, this._canvas);
+            GlobalTracker.GlobalTracker globalTracker = GlobalTracker.GlobalTracker.GetInstance();
+            AddNodeCommand addNodeCommand = new AddNodeCommand( globalTracker.LastNode as NodeBase.NodeBase, this._canvas);
             this._cmdmanager.ExecuteCommand(addNodeCommand);
 
         }

@@ -1,5 +1,4 @@
 ﻿using GlobalTracker;
-using LineCommandSet;
 using SSLine;
 using System.Windows;
 using System.Windows.Controls;

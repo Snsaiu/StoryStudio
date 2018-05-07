@@ -1,4 +1,5 @@
-﻿using ISSCommand;
+﻿using GlobalTracker;
+using ISSCommand;
 using NodeBase;
 using System;
 using System.Collections.Generic;
@@ -8,14 +9,10 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace NodeCommandSet
+namespace SSNodeButton
 {
     public class AddNodeCommand : ISSCommand.ISSCommand
     {
-
-
-        private Action<NodeBase.NodeBase, Canvas> _actionNode;
-
         /// <summary>
         /// 节点实例
         /// </summary>
@@ -26,9 +23,13 @@ namespace NodeCommandSet
         /// </summary>
         private Canvas _canvas = null;
 
-        public AddNodeCommand(Action<NodeBase.NodeBase,Canvas> func,NodeBase.NodeBase node,Canvas canvas)
+        /// <summary>
+        /// 存储已经删除的node
+        /// </summary>
+
+        public AddNodeCommand(NodeBase.NodeBase node,Canvas canvas)
         {
-            this._actionNode = func;
+   
             this._lastNode = node;
             this._canvas = canvas;
         }
@@ -37,19 +38,17 @@ namespace NodeCommandSet
 
         public void Execute()
         {
-            this._actionNode(this._lastNode, this._canvas);
+            //在执行之前，应该已经创建好node，Execture做的只是把node显示到画布上    
 
+             this._canvas.Children.Add(this._lastNode);
+            Canvas.SetLeft(this._lastNode, this._lastNode.Position.X);
+            Canvas.SetTop(this._lastNode, this._lastNode.Position.Y);
+          
         }
 
         public void Undo()
         {
-
-
             this._canvas.Children.RemoveAt(this._canvas.Children.Count - 1);
-
-              
-              
-            
 
             //this._canvas.Children.Clear();
         }

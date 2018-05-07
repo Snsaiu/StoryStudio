@@ -8,33 +8,30 @@ using NodeComponentSets;
 
 namespace StoryStartNode
 {
-    public class StoryStartNode : NodeBase.NodeBase
+    public class CharacterNode : NodeBase.NodeBase
     {
+        public override string NodeLable =>"角色";
 
-        public override string ShortTag => "SS";
+        public override string ShortTag => "CC";
 
-        public override string LongTag =>"StoryStartNode";
-
-        public override string NodeLable => "序幕";
+        public override string LongTag => "CharacterNode";
 
         public override NodeBase.NodeBase CreateSelf()
         {
-            StoryStartNode s = new StoryStartNode();
-            return s;
+            CharacterNode node = new CharacterNode();
+            return node;
         }
 
         protected override List<InputComponent> AddInputComponent()
         {
-            List<InputComponent> temp = new List<InputComponent>();
-            temp.Add(new CharactersInputComponent());
-            return temp;
+            //角色节点没有输入端
+            return null;
         }
 
         protected override List<OutputComponent> AddOutputComponent()
         {
             List<OutputComponent> temp = new List<OutputComponent>();
-            temp.Add(new EventCharacterOutputComponent());
-            temp.Add(new EventEventOutputComponent());
+            temp.Add(new CharactersOutputComponent());
             return temp;
         }
     }

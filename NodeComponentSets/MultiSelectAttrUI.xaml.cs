@@ -44,10 +44,12 @@ namespace NodeComponentSets
             }
             set {
 
-
-                foreach (var item in value)
+                if (value!=null)
                 {
-                    this.MultiSelectContent.SelectedItems.Add(item);
+                    foreach (var item in value)
+                    {
+                        this.MultiSelectContent.SelectedItems.Add(item);
+                    }
                 }
 
             } }

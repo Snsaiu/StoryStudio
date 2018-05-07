@@ -61,6 +61,7 @@ namespace NodeBase
                     this.inputgrid.Children.Add(v);
                     Grid.SetColumn(v, i);
                     
+                    //输入组件 显示
 
                     //判断Node是否显示string类型组件
                     foreach (var item in this._inputs[i].GetStringAttrSet())
@@ -136,7 +137,6 @@ namespace NodeBase
                         }
                     }
 
-
                 }
             }
 
@@ -150,20 +150,105 @@ namespace NodeBase
                     v.Child = this._outputs[i];
                     this.outputgrid.Children.Add(v);
                     Grid.SetColumn(v, i);
+
+                    // 输出组件显示
+                    //判断Node是否显示string类型组件
+                    foreach (var item in this._outputs[i].GetStringAttrSet())
+                    {
+                        if (item.DisplayOnNode)
+                        {
+                            StringAttrUI stringAttrUI = new StringAttrUI();
+                            stringAttrUI.StrUILabel = item.DisplayName;
+                            stringAttrUI.StrUIContent = item.DefaultValue;
+                            this.componentstack.Children.Add(stringAttrUI);
+                        }
+                    }
+                    // 判断node是否显示int类型组件
+                    foreach (var item in this._outputs[i].GetIntAttrSet())
+                    {
+                        if (item.DisplayOnNode)
+                        {
+
+                            IntAttrUI intAttr = new IntAttrUI();
+                            intAttr.IntUILabel = item.DisplayName;
+                            intAttr.IntUIContent = item.DefaultValue.ToString();
+                            this.componentstack.Children.Add(intAttr);
+                        }
+                    }
+                    // 判断node是否显示float类型组件
+                    foreach (var item in this._outputs[i].GetFloatAttrSet())
+                    {
+                        if (item.DisplayOnNode)
+                        {
+                            FloatAttrUI floatAttrUI = new FloatAttrUI();
+                            floatAttrUI.FloatUILabel = item.DisplayName;
+                            floatAttrUI.FloatUIContent = item.DefaultValue.ToString();
+                            this.componentstack.Children.Add(floatAttrUI);
+                        }
+                    }
+
+                    // 判断node是否显示单选类型组件
+                    foreach (var item in this._outputs[i].GetListAttrSet())
+                    {
+                        if (item.DisplayOnNode)
+                        {
+                            ListAttrUI listAttrUI = new ListAttrUI();
+                            listAttrUI.ListUILabel = item.DisplayName;
+                            listAttrUI.ListUIContent = item.Value;
+                            listAttrUI.DefaultIndex = item.DefaultIndex;
+                            this.componentstack.Children.Add(listAttrUI);
+                        }
+                    }
+
+                    // 判断Node是否显示多选类型组件
+                    foreach (var item in this._outputs[i].GetMulitSelectAttrSet())
+                    {
+                        if (item.DisplayOnNode)
+                        {
+                            MultiSelectAttrUI multiSelectAttrUI = new MultiSelectAttrUI();
+                            multiSelectAttrUI.MultiSelectUILabel = item.DisplayName;
+                            multiSelectAttrUI.MulitListUIContent = item.Value;
+                            // todo 添加默认值
+                            multiSelectAttrUI.DefaultIndexs = item.DefaultItems;
+                            this.componentstack.Children.Add(multiSelectAttrUI);
+                        }
+                    }
+
+                    //判断是否显示Bool类型组件
+                    foreach (var item in this._outputs[i].GetBoolAttrSet())
+                    {
+                        if (item.DisplayOnNode)
+                        {
+                            BoolAttrUI boolAttrUI = new BoolAttrUI();
+                            boolAttrUI.BoolUILabel = item.DisplayName;
+                            boolAttrUI.BoolUIContent = item.DefaultValue;
+                            this.componentstack.Children.Add(boolAttrUI);
+                        }
+                    }
                 }
             }
         }
 
         public void NodeBase_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
-            foreach (var item in this._inputs)
+            //判断一下是否有输入组件
+
+            if (this._inputs!=null)
             {
-                item.NotifyMove();
+                foreach (var item in this._inputs)
+                {
+                    item.NotifyMove();
+                }
             }
-            foreach (var item in this._outputs)
+
+            if (this._outputs!=null)
             {
-                item.NotifyMove();
+                foreach (var item in this._outputs)
+                {
+                    item.NotifyMove();
+                }
             }
+
         }
 
 
@@ -180,18 +265,15 @@ namespace NodeBase
         protected abstract List<OutputComponent> AddOutputComponent();
 
 
+        private Point _position;
+
         /// <summary>
         /// 设置节点的位置，获得节点的当前位置
         /// </summary>
         public Point Position
         {
-            set
-            {
-                Canvas.SetLeft(this, value.X);
-                Canvas.SetTop(this, value.Y);
-            }
-
-            get { return new Point(Canvas.GetLeft(this),Canvas.GetTop(this)); }
+            get => this._position;
+            set => this._position = value;
         }
 
         /// <summary>
@@ -261,10 +343,16 @@ namespace NodeBase
         public void SetMyInitialPositon(Canvas canvas)
         {
             NodeBase temp = CreateSelf();
-            canvas.Children.Add(temp);
+          //  canvas.Children.Add(temp);
             Random r = new Random();
-            Canvas.SetLeft(temp, 500 + r.Next(50, 100));
-            Canvas.SetTop(temp, 300 + r.Next(50, 100));
+            double _left =500+r.Next(0,100);
+            double _top = 300 + r.Next(0, 100);
+            //Canvas.SetLeft(temp, 500 + _left);
+            //Canvas.SetTop(temp, 300 + _top);
+            GlobalTracker.GlobalTracker.GetInstance().LastNode = temp;
+            //存储位置到自己本身
+            temp.Position = new Point(_left, _top);
+           
         }
 
     

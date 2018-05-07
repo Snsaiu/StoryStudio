@@ -293,8 +293,6 @@ namespace SSLine
 
         #endregion Private Methods
 
-
-
         #region Public Methods
 
         /// <summary>

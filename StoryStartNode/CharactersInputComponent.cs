@@ -12,7 +12,7 @@ namespace StoryStartNode
     {
         public override string Label => "角色";
 
-        public override string ShortName => "CIC";
+        public override string ShortName => "CC";
 
         public override string LongName => "CharactersInputComponent";
 
@@ -26,11 +26,7 @@ namespace StoryStartNode
         {
             try
             {
-                this.AddStringAttr("ccinputname", "角色姓名", "", false,true);
-                this.AddFloatAttr("ccinputheight", "角色身高", 1.8f, true);
-                this.AddBoolAttr("ccbool", "bool类型", true, true);
-                this.AddListAttr("cclist", "单选框", new List<string>() { "heloo", "fdhkfh", "fhjdhf" }, 2, true);
-                this.AddMultiSelectAttr("ccmultilist", "多选", new List<string>() { "dfd", "fdfdfd", "ssss" }, new List<string>() { "dfd", "fdfdfd" }, true);
+                this.AddMultiSelectAttr("ccinputlist", "输入角色", new List<string>() , null, true);
                 return true;
             }
             catch (Exception)

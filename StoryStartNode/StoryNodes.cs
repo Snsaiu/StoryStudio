@@ -22,7 +22,7 @@ namespace StoryStartNode
         public List<NodeBase.NodeBase> Draw()
         {
             this.nodelist.Add(new StoryStartNode());
-
+            this.nodelist.Add(new CharacterNode());
             //todo:以后新增加的node都在这里添加
 
             return this.nodelist;

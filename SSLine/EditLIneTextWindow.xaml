@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SSLine"
         mc:Ignorable="d"
-        WindowStyle="None"
-        Title="编辑" Height="300" Width="400" Topmost="True" WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
+        WindowStyle="ToolWindow"
+        Title="编辑" Height="300" Width="400" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="50*"/>
@@ -16,7 +16,7 @@
             <RowDefinition Height="72*"/>
             <RowDefinition Height="19*"/>
         </Grid.RowDefinitions>
-        <TextBox Name="contentTxt" VerticalScrollBarVisibility="Auto" Grid.Column="0" Grid.ColumnSpan="2" Background="Gray"></TextBox>
+        <TextBox Name="contentTxt" VerticalScrollBarVisibility="Auto" Grid.Column="0" Grid.ColumnSpan="2" Background="Gray" Cursor="Pen"></TextBox>
         <Button Name="cancelBtn" Click="cancelBtn_Click" Grid.Row="1" Background="Red" Foreground="White" FontSize="30px">取消</Button>
         <Button Name="OkBtn" Click="OkBtn_Click" Grid.Column="1" Grid.Row="1" Foreground="White" FontSize="30px" Background="Green">确定</Button>
     </Grid>

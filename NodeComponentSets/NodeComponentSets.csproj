@@ -125,10 +125,6 @@
       <Project>{a886cb65-6727-4bc4-b567-9cee0b765608}</Project>
       <Name>ISSCommand</Name>
     </ProjectReference>
-    <ProjectReference Include="..\lineCommandSet\LineCommandSet.csproj">
-      <Project>{056d070f-a774-44e9-b39a-d1df0a56045f}</Project>
-      <Name>LineCommandSet</Name>
-    </ProjectReference>
     <ProjectReference Include="..\SSLine\SSLine.csproj">
       <Project>{517F1B3F-E555-4BBA-8385-86483FA947C2}</Project>
       <Name>SSLine</Name>

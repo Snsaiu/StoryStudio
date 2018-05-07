@@ -125,8 +125,10 @@ namespace NodePanel
                     targetElement.CaptureMe();
                     // 计算鼠标与节点右上角距离差值
                     var pCanvas = e.GetPosition(this.NodeCanvas);
-                    this._nodeMouseDistance.X = pCanvas.X - targetElement.Position.X;
-                    this._nodeMouseDistance.Y = pCanvas.Y - targetElement.Position.Y;
+                    //   this._nodeMouseDistance.X = pCanvas.X - targetElement.Position.X;
+                    //  this._nodeMouseDistance.Y = pCanvas.Y - targetElement.Position.Y;
+                    this._nodeMouseDistance.X = pCanvas.X - Canvas.GetLeft(targetElement);
+                    this._nodeMouseDistance.Y = pCanvas.Y - Canvas.GetTop(targetElement);
                 }
                 else
                 {
@@ -158,6 +160,8 @@ namespace NodePanel
                     var pCanvas = e.GetPosition(this.NodeCanvas);
                     // set finall position
                    targetElement.Position = new Point(pCanvas.X-this._nodeMouseDistance.X, pCanvas.Y-this._nodeMouseDistance.Y);
+                    Canvas.SetLeft(targetElement, targetElement.Position.X);
+                    Canvas.SetTop(targetElement, targetElement.Position.Y);
                    //Canvas.SetLeft(targetElement as StoryStartNode.StoryStartNode, (pCanvas.X - captureElementPoint.X));
                    // Canvas.SetTop(targetElement as StoryStartNode.StoryStartNode, (pCanvas.Y - captureElementPoint.Y));
                   //  Console.WriteLine("level  " + this._scaleLevel);
