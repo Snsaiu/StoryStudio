@@ -22,6 +22,11 @@ namespace StoryStartNode
 
         public override global::BaseTypeEnum.IOTypeEnum IOType => BaseTypeEnum.IOTypeEnum.input;
 
+        public override void Process(NodeComponentBase component)
+        {
+            Console.WriteLine(component.GetStringAttrSet());
+        }
+
         protected override bool SetAttributes()
         {
             try

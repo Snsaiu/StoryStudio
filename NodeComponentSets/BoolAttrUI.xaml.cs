@@ -20,9 +20,11 @@ namespace NodeComponentSets
     /// </summary>
     public partial class BoolAttrUI : UserControl
     {
-        public BoolAttrUI()
+        public BoolAttrUI(NodeComponentBase nodeComponentBase)
         {
             InitializeComponent();
+
+            this.BoolContent.Click += (s, e) => { nodeComponentBase.NotifyUpdate(); };
         }
 
         /// <summary>

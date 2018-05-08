@@ -11,9 +11,11 @@ namespace NodeComponentSets
     /// </summary>
     public partial class FloatAttrUI : UserControl
     {
-        public FloatAttrUI()
+        public FloatAttrUI(NodeComponentBase Component)
         {
             InitializeComponent();
+
+            this.FloatContent.LostFocus += (s, e) => { Component.NotifyUpdate(); };
         }
 
         /// <summary>

@@ -68,7 +68,7 @@ namespace NodeBase
                     {
                         if (item.DisplayOnNode)
                         {
-                            StringAttrUI stringAttrUI = new StringAttrUI();
+                            StringAttrUI stringAttrUI = new StringAttrUI(this._inputs[i]);
                             stringAttrUI.StrUILabel = item.DisplayName;
                             stringAttrUI.StrUIContent = item.DefaultValue;
                             this.componentstack.Children.Add(stringAttrUI);
@@ -80,7 +80,7 @@ namespace NodeBase
                         if (item.DisplayOnNode)
                         {
                           
-                            IntAttrUI intAttr = new IntAttrUI();
+                            IntAttrUI intAttr = new IntAttrUI(this._inputs[i]);
                             intAttr.IntUILabel = item.DisplayName;
                             intAttr.IntUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(intAttr);
@@ -91,7 +91,7 @@ namespace NodeBase
                     {
                         if (item.DisplayOnNode)
                         {
-                            FloatAttrUI floatAttrUI = new FloatAttrUI();
+                            FloatAttrUI floatAttrUI = new FloatAttrUI(this._inputs[i]);
                             floatAttrUI.FloatUILabel = item.DisplayName;
                             floatAttrUI.FloatUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(floatAttrUI);
@@ -103,7 +103,7 @@ namespace NodeBase
                     {
                         if (item.DisplayOnNode)
                         {
-                            ListAttrUI listAttrUI = new ListAttrUI();
+                            ListAttrUI listAttrUI = new ListAttrUI(this._inputs[i]);
                             listAttrUI.ListUILabel = item.DisplayName;
                             listAttrUI.ListUIContent = item.Value;
                             listAttrUI.DefaultIndex = item.DefaultIndex;
@@ -116,7 +116,7 @@ namespace NodeBase
                     {
                         if (item.DisplayOnNode)
                         {
-                            MultiSelectAttrUI multiSelectAttrUI = new MultiSelectAttrUI();
+                            MultiSelectAttrUI multiSelectAttrUI = new MultiSelectAttrUI(this._inputs[i]);
                             multiSelectAttrUI.MultiSelectUILabel = item.DisplayName;
                             multiSelectAttrUI.MulitListUIContent = item.Value;
                             // todo 添加默认值
@@ -130,7 +130,7 @@ namespace NodeBase
                     {
                         if (item.DisplayOnNode)
                         {
-                            BoolAttrUI boolAttrUI = new BoolAttrUI();
+                            BoolAttrUI boolAttrUI = new BoolAttrUI(this._inputs[i]);
                             boolAttrUI.BoolUILabel = item.DisplayName;
                             boolAttrUI.BoolUIContent = item.DefaultValue;
                             this.componentstack.Children.Add(boolAttrUI);
@@ -157,7 +157,7 @@ namespace NodeBase
                     {
                         if (item.DisplayOnNode)
                         {
-                            StringAttrUI stringAttrUI = new StringAttrUI();
+                            StringAttrUI stringAttrUI = new StringAttrUI(this._outputs[i]);
                             stringAttrUI.StrUILabel = item.DisplayName;
                             stringAttrUI.StrUIContent = item.DefaultValue;
                             this.componentstack.Children.Add(stringAttrUI);
@@ -169,7 +169,7 @@ namespace NodeBase
                         if (item.DisplayOnNode)
                         {
 
-                            IntAttrUI intAttr = new IntAttrUI();
+                            IntAttrUI intAttr = new IntAttrUI(this._outputs[i]);
                             intAttr.IntUILabel = item.DisplayName;
                             intAttr.IntUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(intAttr);
@@ -180,7 +180,7 @@ namespace NodeBase
                     {
                         if (item.DisplayOnNode)
                         {
-                            FloatAttrUI floatAttrUI = new FloatAttrUI();
+                            FloatAttrUI floatAttrUI = new FloatAttrUI(this._outputs[i]);
                             floatAttrUI.FloatUILabel = item.DisplayName;
                             floatAttrUI.FloatUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(floatAttrUI);
@@ -192,7 +192,7 @@ namespace NodeBase
                     {
                         if (item.DisplayOnNode)
                         {
-                            ListAttrUI listAttrUI = new ListAttrUI();
+                            ListAttrUI listAttrUI = new ListAttrUI(this._outputs[i]);
                             listAttrUI.ListUILabel = item.DisplayName;
                             listAttrUI.ListUIContent = item.Value;
                             listAttrUI.DefaultIndex = item.DefaultIndex;
@@ -205,7 +205,7 @@ namespace NodeBase
                     {
                         if (item.DisplayOnNode)
                         {
-                            MultiSelectAttrUI multiSelectAttrUI = new MultiSelectAttrUI();
+                            MultiSelectAttrUI multiSelectAttrUI = new MultiSelectAttrUI(this._outputs[i]);
                             multiSelectAttrUI.MultiSelectUILabel = item.DisplayName;
                             multiSelectAttrUI.MulitListUIContent = item.Value;
                             // todo 添加默认值
@@ -219,7 +219,7 @@ namespace NodeBase
                     {
                         if (item.DisplayOnNode)
                         {
-                            BoolAttrUI boolAttrUI = new BoolAttrUI();
+                            BoolAttrUI boolAttrUI = new BoolAttrUI(this._outputs[i]);
                             boolAttrUI.BoolUILabel = item.DisplayName;
                             boolAttrUI.BoolUIContent = item.DefaultValue;
                             this.componentstack.Children.Add(boolAttrUI);

@@ -20,9 +20,10 @@ namespace NodeComponentSets
     /// </summary>
     public partial class MultiSelectAttrUI : UserControl
     {
-        public MultiSelectAttrUI()
+        public MultiSelectAttrUI(NodeComponentBase Component)
         {
             InitializeComponent();
+            this.MultiSelectContent.SelectionChanged += (s, e) => { Component.NotifyUpdate(); };
         }
 
         /// <summary>

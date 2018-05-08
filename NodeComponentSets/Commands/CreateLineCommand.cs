@@ -57,6 +57,14 @@ namespace NodeComponentSets
             {
                 this._out.AddNewLine(this._arrowLineWithText);
             }
+
+            //output组件要注册到input组件中，以获得通知
+            //todo:注册之前是否要进行某些判断呢？
+
+            this._out.RegiseterComponent(this._input);
+            //进行通知
+            this._out.NotifyUpdate();
+
             //判断是否在画布中已经存在
             bool hasInCanvas = false;
             foreach (var item in this._canvas.Children)
@@ -78,6 +86,9 @@ namespace NodeComponentSets
 
         public void Undo()
         {
+            //组件取消通知
+            this._out.LogoutComponent(this._input);
+        
             this._input.DeleteLineByInstance(this._arrowLineWithText);
             this._out.DeleteLineByInstance(this._arrowLineWithText);
             this._canvas.Children.Remove(this._arrowLineWithText);

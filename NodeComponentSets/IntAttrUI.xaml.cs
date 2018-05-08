@@ -21,9 +21,11 @@ namespace NodeComponentSets
     /// </summary>
     public partial class IntAttrUI : UserControl
     {
-        public IntAttrUI()
+        public IntAttrUI(NodeComponentBase Component)
         {
             InitializeComponent();
+
+            this.IntContent.LostFocus += (s, e) => { Component.NotifyUpdate(); };
         }
 
 

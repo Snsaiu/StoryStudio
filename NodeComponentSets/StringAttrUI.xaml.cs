@@ -20,11 +20,12 @@ namespace NodeComponentSets
     /// </summary>
     public partial class StringAttrUI : UserControl
     {
-        public StringAttrUI()
+        public StringAttrUI(NodeComponentBase Component)
         {
             //InitializeComponent();
             this.LoadViewFromUri("/NodeComponentSets;component/stringattrui.xaml");
-           
+
+            this.StrContent.LostFocus += (s, e) => { Component.NotifyUpdate(); };
         }
 
         /// <summary>
