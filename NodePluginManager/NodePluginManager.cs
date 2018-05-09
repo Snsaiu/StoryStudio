@@ -1,20 +1,9 @@
-﻿using GlobalTracker;
-using IFillNode;
-using IPanelContainer;
-using IPluginManager;
-using MefExport;
+﻿using MefExport;
 using NodeBase;
-using NodeListPanel;
-using NodePanel;
-using StoryStartNode;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
 
 namespace NodePluginManager

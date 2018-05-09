@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{4B0F4665-7813-4E1E-A0F3-E04D0576521B}</ProjectGuid>
+    <ProjectGuid>{BEDD5D0A-28C5-4FD9-902C-8EF241F48D3B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NodeComponentSets</RootNamespace>
-    <AssemblyName>NodeComponentSets</AssemblyName>
+    <RootNamespace>NodeBase</RootNamespace>
+    <AssemblyName>NodeBase</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -44,91 +44,51 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BoolAttrUI.xaml.cs">
-      <DependentUpon>BoolAttrUI.xaml</DependentUpon>
+    <Compile Include="NodeBase.xaml.cs">
+      <DependentUpon>NodeBase.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Commands\CreateLineCommand.cs" />
-    <Compile Include="Commands\EditLineTextCommand.cs" />
-    <Compile Include="Commands\RemoveLineCommand.cs" />
-    <Compile Include="ComponentAttributes\BoolAttr.cs" />
-    <Compile Include="ComponentAttributes\FloatAttr.cs" />
-    <Compile Include="ComponentAttributes\IntAttr.cs" />
-    <Compile Include="ComponentAttributes\ListAttr.cs" />
-    <Compile Include="ComponentAttributes\MulitSelectAttr.cs" />
-    <Compile Include="ComponentAttributes\StringAttr.cs" />
-    <Compile Include="FloatAttrUI.xaml.cs">
-      <DependentUpon>FloatAttrUI.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="InputComponent.cs" />
-    <Compile Include="IntAttrUI.xaml.cs">
-      <DependentUpon>IntAttrUI.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ListAttrUI.xaml.cs">
-      <DependentUpon>ListAttrUI.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="MultiSelectAttrUI.xaml.cs">
-      <DependentUpon>MultiSelectAttrUI.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="NodeComponentBase.xaml.cs">
-      <DependentUpon>NodeComponentBase.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="OutputComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StringAttrUI.xaml.cs">
-      <DependentUpon>StringAttrUI.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Page Include="BoolAttrUI.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="FloatAttrUI.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="IntAttrUI.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="ListAttrUI.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="MultiSelectAttrUI.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="NodeComponentBase.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Include="StringAttrUI.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BaseTypeEnum\BaseTypeEnum.csproj">
       <Project>{337E92F4-FA82-4519-B488-8E73E80B56DE}</Project>
       <Name>BaseTypeEnum</Name>
     </ProjectReference>
-    <ProjectReference Include="..\CommandManager\CommandManager.csproj">
-      <Project>{9f724c5e-5126-42d5-8575-6cdeecd8a67e}</Project>
-      <Name>CommandManager</Name>
-    </ProjectReference>
     <ProjectReference Include="..\GlobalTracker\GlobalTracker.csproj">
       <Project>{802AEC58-DB62-4352-99B2-1B5A7CDF9120}</Project>
       <Name>GlobalTracker</Name>
     </ProjectReference>
+    <ProjectReference Include="..\IJoinGlobalTracker\IJoinGlobalTracker.csproj">
+      <Project>{f10979c6-5553-4985-bf0d-eefe23e391d2}</Project>
+      <Name>IJoinGlobalTracker</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IPanelBase\IPanelBase.csproj">
+      <Project>{F8085D51-BC3C-44A5-8BAB-232C83E51942}</Project>
+      <Name>IPanelBase</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ISSCommand\ISSCommand.csproj">
       <Project>{a886cb65-6727-4bc4-b567-9cee0b765608}</Project>
       <Name>ISSCommand</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NodeComponentSets\NodeBase.csproj">
+      <Project>{4B0F4665-7813-4E1E-A0F3-E04D0576521B}</Project>
+      <Name>NodeBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SSBase\ISSBase.csproj">
+      <Project>{C5E0AFC7-BC71-4621-BF29-E30FA06A2BD5}</Project>
+      <Name>ISSBase</Name>
     </ProjectReference>
     <ProjectReference Include="..\SSLine\SSLine.csproj">
       <Project>{517F1B3F-E555-4BBA-8385-86483FA947C2}</Project>
       <Name>SSLine</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Page Include="NodeBase.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

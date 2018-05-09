@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NodeBase;
+using System;
 using System.Windows.Controls;
 
 namespace SSNodeButton

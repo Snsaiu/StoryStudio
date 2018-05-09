@@ -44,8 +44,8 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\NodeBase\NodeBase.csproj">
-      <Project>{BEDD5D0A-28C5-4FD9-902C-8EF241F48D3B}</Project>
+    <ProjectReference Include="..\NodeComponentSets\NodeBase.csproj">
+      <Project>{4B0F4665-7813-4E1E-A0F3-E04D0576521B}</Project>
       <Name>NodeBase</Name>
     </ProjectReference>
   </ItemGroup>

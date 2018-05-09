@@ -52,10 +52,6 @@
       <Project>{A886CB65-6727-4BC4-B567-9CEE0B765608}</Project>
       <Name>ISSCommand</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NodeBase\NodeBase.csproj">
-      <Project>{BEDD5D0A-28C5-4FD9-902C-8EF241F48D3B}</Project>
-      <Name>NodeBase</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

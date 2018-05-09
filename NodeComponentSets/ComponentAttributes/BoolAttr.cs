@@ -1,4 +1,4 @@
-﻿namespace NodeComponentSets
+﻿namespace NodeBase
 {
     /// <summary>
     /// bool 属性类

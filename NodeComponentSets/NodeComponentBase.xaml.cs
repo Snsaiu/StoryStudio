@@ -9,7 +9,7 @@ using System.Windows.Controls;
 using System.Windows.Markup;
 using System.Windows.Navigation;
 
-namespace NodeComponentSets
+namespace NodeBase
 {
     /// <summary>
     /// Interaction logic for NodeComponentBase.xaml
@@ -23,6 +23,11 @@ namespace NodeComponentSets
         /// 存放已经被注册的组件
         /// </summary>
         private List<NodeComponentBase> _componentList = null;
+
+        /// <summary>
+        /// 保存组件所处的节点实例
+        /// </summary>
+        private NodeBase _node = null;
 
         /// <summary>
         /// 保存线集合
@@ -100,11 +105,12 @@ namespace NodeComponentSets
             return null;
         }
 
-        public NodeComponentBase()
+        public NodeComponentBase(NodeBase node)
         {
             //InitializeComponent();
             this.LoadViewFromUri("/NodeComponentSets;component/nodecomponentbase.xaml");
 
+            this._node = node;
             this._lines = new List<ArrowLineWithText>();
 
             // 初始化属性容器
@@ -493,6 +499,12 @@ namespace NodeComponentSets
                     item.Process(this);
                 }
             }
+
+            //更新节点 
+            if (this._node!=null)
+            {
+                this._node.Process();
+            }
         }
 
 
@@ -503,27 +515,6 @@ namespace NodeComponentSets
 
     }
 
-    static class Extension
-    {
-        public static void LoadViewFromUri(this UserControl userControl, string baseUri)
-        {
-            try
-            {
-                var resourceLocater = new Uri(baseUri, UriKind.Relative);
-                var exprCa = (PackagePart)typeof(Application).GetMethod("GetResourceOrContentPart", BindingFlags.NonPublic | BindingFlags.Static).Invoke(null, new object[] { resourceLocater });
-                var stream = exprCa.GetStream();
-                var uri = new Uri((Uri)typeof(BaseUriHelper).GetProperty("PackAppBaseUri", BindingFlags.Static | BindingFlags.NonPublic).GetValue(null, null), resourceLocater);
-                var parserContext = new ParserContext
-                {
-                    BaseUri = uri
-                };
-                typeof(XamlReader).GetMethod("LoadBaml", BindingFlags.NonPublic | BindingFlags.Static).Invoke(null, new object[] { stream, parserContext, userControl, true });
-            }
-            catch (Exception)
-            {
-                //log
-            }
-        }
-    }
+
 
 }

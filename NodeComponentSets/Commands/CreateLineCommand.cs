@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 
-namespace NodeComponentSets
+namespace NodeBase
 {
     public class CreateLineCommand : ISSCommand.ISSCommand
     {
@@ -63,6 +63,7 @@ namespace NodeComponentSets
 
             this._out.RegiseterComponent(this._input);
             //进行通知
+            this._input.NotifyUpdate();
             this._out.NotifyUpdate();
 
             //判断是否在画布中已经存在

@@ -69,7 +69,7 @@ namespace NodeBase
                         {
                             StringAttrUI stringAttrUI = new StringAttrUI(this._inputs[i]);
                             stringAttrUI.StrUILabel = item.DisplayName;
-                            stringAttrUI.StrUIContent = item.DefaultValue;
+                            stringAttrUI.StrUIContent = item.DefaultValue;          
                             this.componentstack.Children.Add(stringAttrUI);
                         }
                     }
@@ -372,9 +372,12 @@ namespace NodeBase
             return this._outputs;
         }
 
-    
+        /// <summary>
+        /// 节点处理事务
+        /// </summary>
+        public abstract void Process();
 
-    
+
     }
 
     static class Extension

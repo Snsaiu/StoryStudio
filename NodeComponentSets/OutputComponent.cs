@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace NodeComponentSets
+namespace NodeBase
 {
     public abstract class OutputComponent : NodeComponentBase
     {
@@ -12,7 +12,7 @@ namespace NodeComponentSets
         private Canvas canvas = null;
 
   
-        public OutputComponent()
+        public OutputComponent(NodeBase node):base(node)
         {
             GlobalTracker.GlobalTracker globalTracker = GlobalTracker.GlobalTracker.GetInstance();
             this.canvas = globalTracker.GetNodeCanvas();

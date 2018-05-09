@@ -1,10 +1,23 @@
-﻿namespace NodeComponentSets
+﻿namespace NodeBase
 {
     /// <summary>
     /// 字符串属性类
     /// </summary>
     public class StringAttr
     {
+
+
+        #region Fields
+
+        private StringAttrUI _attrui = null;
+        #endregion
+
+        #region Properties
+
+        public StringAttrUI AttrUI { get=>this._attrui; set=>this._attrui=value; }
+
+
+
         /// <summary>
         /// 唯一标识名
         /// </summary>
@@ -26,5 +39,7 @@
         /// 属性是否要显示在Node面板中
         /// </summary>
         public bool DisplayOnNode { get; set; }
+
+        #endregion
     }
 }

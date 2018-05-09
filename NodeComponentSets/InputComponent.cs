@@ -10,16 +10,17 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 
-namespace NodeComponentSets
+namespace NodeBase
 {
     public abstract class InputComponent:NodeComponentBase
     {
         private Canvas canvas = null;
-        public InputComponent()
+        public InputComponent(NodeBase node):base(node)
         {
             GlobalTracker.GlobalTracker globalTracker = GlobalTracker.GlobalTracker.GetInstance();
            this.canvas= globalTracker.GetNodeCanvas();
         }
+
         public override void NotifyMove()
         {
             foreach (var item in this.GetLines())

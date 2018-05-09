@@ -1,14 +1,9 @@
-﻿using System;
+﻿using NodeBase;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using NodeBase;
-using NodeComponentSets;
 
 namespace StoryStartNode
 {
-    public class CharacterNode : NodeBase.NodeBase
+    public class CharacterNode :NodeBase.NodeBase
     {
         public override string NodeLable =>"角色";
 
@@ -22,6 +17,11 @@ namespace StoryStartNode
             return node;
         }
 
+        public override void Process()
+        {
+          
+        }
+
         protected override List<InputComponent> AddInputComponent()
         {
             //角色节点没有输入端
@@ -31,7 +31,7 @@ namespace StoryStartNode
         protected override List<OutputComponent> AddOutputComponent()
         {
             List<OutputComponent> temp = new List<OutputComponent>();
-            temp.Add(new CharactersOutputComponent());
+            temp.Add(new CharactersOutputComponent(this));
             return temp;
         }
     }

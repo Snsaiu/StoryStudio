@@ -1,22 +1,22 @@
 ﻿using NodeBase;
-using NodeComponentSets;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StoryStartNode
 {
     public class CharactersInputComponent : InputComponent
     {
+        public CharactersInputComponent(NodeBase.NodeBase node) : base(node)
+        {
+        }
+
         public override string Label => "角色";
 
         public override string ShortName => "CC";
 
         public override string LongName => "CharactersInputComponent";
 
-
+       
 
         public override global::BaseTypeEnum.NodeType Type => BaseTypeEnum.NodeType.characterType;
 
@@ -24,7 +24,17 @@ namespace StoryStartNode
 
         public override void Process(NodeComponentBase component)
         {
-            Console.WriteLine(component.GetStringAttrSet());
+            if (component!=null)
+            {
+                foreach (var item in component.GetStringAttrSet())
+                {
+                    if (item.Name== "ccname")
+                    {
+                        Console.WriteLine(item.AttrUI.StrUIContent);
+                    }
+                }  
+            }
+            
         }
 
         protected override bool SetAttributes()

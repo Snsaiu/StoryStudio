@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using NodeBase;
-using NodeComponentSets;
 
 namespace StoryStartNode
 {
@@ -23,18 +18,42 @@ namespace StoryStartNode
             return s;
         }
 
+        public override void Process()
+        {
+
+            //两个都要判断，因为数据需要传到必须要有两个端点
+
+            if (this.GetInputComponents()!=null && this.GetOutputComponents()!=null)
+            {
+                foreach (var item in this.GetInputComponents())
+                {
+                    if (item.ShortName=="CC")
+                    {
+                        foreach (var attr in item.GetMulitSelectAttrSet())
+                        {
+                            if (attr.Name== "ccinputlist")
+                            {
+                                System.Console.WriteLine(attr.DefaultItems);
+                            }
+                        } 
+                    }
+
+                }
+            }
+        }
+
         protected override List<InputComponent> AddInputComponent()
         {
             List<InputComponent> temp = new List<InputComponent>();
-            temp.Add(new CharactersInputComponent());
+            temp.Add(new CharactersInputComponent(this));
             return temp;
         }
 
         protected override List<OutputComponent> AddOutputComponent()
         {
             List<OutputComponent> temp = new List<OutputComponent>();
-            temp.Add(new EventCharacterOutputComponent());
-            temp.Add(new EventEventOutputComponent());
+            temp.Add(new EventCharacterOutputComponent(this));
+            temp.Add(new EventEventOutputComponent(this));
             return temp;
         }
     }

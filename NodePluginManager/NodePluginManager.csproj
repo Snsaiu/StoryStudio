@@ -72,8 +72,8 @@
       <Project>{24BB0335-5A8C-418F-88C9-0761F3A7CAA3}</Project>
       <Name>MefExport</Name>
     </ProjectReference>
-    <ProjectReference Include="..\NodeBase\NodeBase.csproj">
-      <Project>{BEDD5D0A-28C5-4FD9-902C-8EF241F48D3B}</Project>
+    <ProjectReference Include="..\NodeComponentSets\NodeBase.csproj">
+      <Project>{4B0F4665-7813-4E1E-A0F3-E04D0576521B}</Project>
       <Name>NodeBase</Name>
     </ProjectReference>
     <ProjectReference Include="..\NodeListPanel\NodeListPanel.csproj">

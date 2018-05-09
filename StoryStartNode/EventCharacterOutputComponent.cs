@@ -1,15 +1,16 @@
 ﻿using BaseTypeEnum;
-using NodeComponentSets;
+using NodeBase;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace StoryStartNode
 {
     public class EventCharacterOutputComponent : OutputComponent
     {
+        public EventCharacterOutputComponent(NodeBase.NodeBase node) : base(node)
+        {
+        }
+
         public override string Label => "角色";
 
         public override string ShortName => "SCCO";

@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace NodeComponentSets
+namespace NodeBase
 {
     /// <summary>
     /// Interaction logic for FloatAttrUI.xaml

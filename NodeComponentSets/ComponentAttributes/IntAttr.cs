@@ -1,4 +1,4 @@
-﻿namespace NodeComponentSets
+﻿namespace NodeBase
 {
     public class IntAttr
     {

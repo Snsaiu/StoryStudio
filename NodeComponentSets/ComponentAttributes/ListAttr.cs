@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace NodeComponentSets
+namespace NodeBase
 {
     public class ListAttr
     {
