@@ -13,11 +13,7 @@
         #endregion
 
         #region Properties
-
-        public StringAttrUI AttrUI { get=>this._attrui; set=>this._attrui=value; }
-
-
-
+     
         /// <summary>
         /// 唯一标识名
         /// </summary>
@@ -39,6 +35,34 @@
         /// 属性是否要显示在Node面板中
         /// </summary>
         public bool DisplayOnNode { get; set; }
+
+        #endregion
+
+
+        #region Methods
+
+        /// <summary>
+        /// 组件属性设置显示ui
+        /// </summary>
+        /// <param name="stringAttrUI">匹配的ui控件</param>
+        public void SetUi(StringAttrUI stringAttrUI)
+        {
+            this._attrui = stringAttrUI;
+        }
+
+        /// <summary>
+        /// 通知Ui组件更新空间内容
+        /// </summary>
+        /// <param name="content"></param>
+        public void UpdateUiContent(string content)
+        {
+            this.DefaultValue = content;
+
+            if (this._attrui!=null)
+            {
+                this._attrui.StrUIContent = content;
+            }
+        }
 
         #endregion
     }

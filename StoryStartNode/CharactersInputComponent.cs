@@ -26,13 +26,39 @@ namespace StoryStartNode
         {
             if (component!=null)
             {
+
+                List<string> _nameset = new List<string>();
+
                 foreach (var item in component.GetStringAttrSet())
                 {
+                    //获取姓名
                     if (item.Name== "ccname")
                     {
-                        Console.WriteLine(item.AttrUI.StrUIContent);
+                        _nameset.Add(item.DefaultValue);
                     }
-                }  
+                    // todo 添加新的内容
+                }
+
+                foreach (var item in this.GetMulitSelectAttrSet())
+                {
+                    if (item.Name== "ccinputlist")
+                    {
+                        List<string> orinameset = item.DefaultItems;
+
+                        //初始化的时候可能没有赋初值，所以要进行判断
+                        if (orinameset==null)
+                        {
+                            item.UpdateUiContent(_nameset);
+                        }
+                        else
+                        {
+                            orinameset.AddRange(_nameset);
+
+                            item.UpdateUiContent(orinameset);
+                        }
+
+                    }
+                }
             }
             
         }

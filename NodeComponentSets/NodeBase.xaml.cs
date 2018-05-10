@@ -69,7 +69,9 @@ namespace NodeBase
                         {
                             StringAttrUI stringAttrUI = new StringAttrUI(this._inputs[i]);
                             stringAttrUI.StrUILabel = item.DisplayName;
-                            stringAttrUI.StrUIContent = item.DefaultValue;          
+                            stringAttrUI.StrUIContent = item.DefaultValue;
+                            item.SetUi(stringAttrUI);
+                            stringAttrUI.LostFocus += (s, e) => { item.DefaultValue = stringAttrUI.StrUIContent; };
                             this.componentstack.Children.Add(stringAttrUI);
                         }
                     }
@@ -115,12 +117,13 @@ namespace NodeBase
                     {
                         if (item.DisplayOnNode)
                         {
-                            MultiSelectAttrUI multiSelectAttrUI = new MultiSelectAttrUI(this._inputs[i]);
-                            multiSelectAttrUI.MultiSelectUILabel = item.DisplayName;
-                            multiSelectAttrUI.MulitListUIContent = item.Value;
-                            // todo 添加默认值
-                            multiSelectAttrUI.DefaultIndexs = item.DefaultItems;
-                            this.componentstack.Children.Add(multiSelectAttrUI);
+                            MulitSelectAttrUI MulitSelectAttrUI = new MulitSelectAttrUI(this._inputs[i]);
+                            MulitSelectAttrUI.MultiSelectUILabel = item.DisplayName;
+                            MulitSelectAttrUI.MulitListUIContent = item.Value;
+                            MulitSelectAttrUI.DefaultIndexs = item.DefaultItems;
+                            item.SetUi(MulitSelectAttrUI);
+                            MulitSelectAttrUI.MultiSelectContent.SelectionChanged += (s, e) => {  item.DefaultItems = MulitSelectAttrUI.DefaultIndexs; };
+                            this.componentstack.Children.Add(MulitSelectAttrUI);
                         }
                     }
 
@@ -159,6 +162,8 @@ namespace NodeBase
                             StringAttrUI stringAttrUI = new StringAttrUI(this._outputs[i]);
                             stringAttrUI.StrUILabel = item.DisplayName;
                             stringAttrUI.StrUIContent = item.DefaultValue;
+                            item.SetUi(stringAttrUI);
+                            stringAttrUI.LostFocus += (s, e) => { item.DefaultValue = stringAttrUI.StrUIContent;};
                             this.componentstack.Children.Add(stringAttrUI);
                         }
                     }
@@ -204,12 +209,14 @@ namespace NodeBase
                     {
                         if (item.DisplayOnNode)
                         {
-                            MultiSelectAttrUI multiSelectAttrUI = new MultiSelectAttrUI(this._outputs[i]);
-                            multiSelectAttrUI.MultiSelectUILabel = item.DisplayName;
-                            multiSelectAttrUI.MulitListUIContent = item.Value;
-                            // todo 添加默认值
-                            multiSelectAttrUI.DefaultIndexs = item.DefaultItems;
-                            this.componentstack.Children.Add(multiSelectAttrUI);
+                            MulitSelectAttrUI MulitSelectAttrUI = new MulitSelectAttrUI(this._outputs[i]);
+                            MulitSelectAttrUI.MultiSelectUILabel = item.DisplayName;
+                            MulitSelectAttrUI.MulitListUIContent = item.Value;
+                            MulitSelectAttrUI.DefaultIndexs = item.DefaultItems;
+                            item.SetUi(MulitSelectAttrUI);
+                            MulitSelectAttrUI.MultiSelectContent.SelectionChanged += (s, e) => {  item.DefaultItems = MulitSelectAttrUI.DefaultIndexs; };
+
+                            this.componentstack.Children.Add(MulitSelectAttrUI);
                         }
                     }
 

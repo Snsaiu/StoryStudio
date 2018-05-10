@@ -66,8 +66,8 @@
     <Compile Include="ListAttrUI.xaml.cs">
       <DependentUpon>ListAttrUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="MultiSelectAttrUI.xaml.cs">
-      <DependentUpon>MultiSelectAttrUI.xaml</DependentUpon>
+    <Compile Include="MulitSelectAttrUI.xaml.cs">
+      <DependentUpon>MulitSelectAttrUI.xaml</DependentUpon>
     </Compile>
     <Compile Include="NodeBase.xaml.cs">
       <DependentUpon>NodeBase.xaml</DependentUpon>
@@ -98,7 +98,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="MultiSelectAttrUI.xaml">
+    <Page Include="MulitSelectAttrUI.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

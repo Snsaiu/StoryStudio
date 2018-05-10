@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace NodeBase
 {
     /// <summary>
-    /// Interaction logic for MultiSelectAttrUI.xaml
+    /// Interaction logic for MulitSelectAttrUI.xaml
     /// </summary>
-    public partial class MultiSelectAttrUI : UserControl
+    public partial class MulitSelectAttrUI : UserControl
     {
-        public MultiSelectAttrUI(NodeComponentBase Component)
+        public MulitSelectAttrUI(NodeComponentBase Component)
         {
             InitializeComponent();
             this.MultiSelectContent.SelectionChanged += (s, e) => { Component.NotifyUpdate(); };
