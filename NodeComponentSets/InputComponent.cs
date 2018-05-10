@@ -45,6 +45,8 @@ namespace NodeBase
 
                 // todo:应该要加个判断，判断当前node的类型，
 
+
+
                 //判断 是能否进行连接
                 if (LineTracker.StoreLineObj!=null)
                 {
@@ -53,6 +55,19 @@ namespace NodeBase
                         NodeComponentBase temp = LineTracker.StoreLineObj.StartComponent as NodeComponentBase;
                         //todo判断节点类型以确定是否能够连接
                         //判断节点类型,只有相同类型的才能 连接
+
+                        //判断当前两个组件是否已经存在链接
+
+                        if (this.MyNotifiers != null)
+                        {
+                            foreach (var item in this.MyNotifiers)
+                            {
+                                if (item == temp)
+                                {
+                                    return;
+                                }
+                            }
+                        }
 
                         if (temp.Type==this.Type) 
                         {

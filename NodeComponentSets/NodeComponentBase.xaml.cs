@@ -19,6 +19,12 @@ namespace NodeBase
 
 
         #region Fields
+
+        /// <summary>
+        /// 存放字符串属性
+        /// </summary>
+        private List<StringAttr> _stringAttrs = null;
+
         /// <summary>
         /// 存放已经被注册的组件
         /// </summary>
@@ -57,6 +63,11 @@ namespace NodeBase
         /// </summary>
         private List<IntAttr> _intAttrs = null;
 
+        /// <summary>
+        /// 存放上游组件集
+        /// </summary>
+        private List<NodeComponentBase> _mynotifiers = null;
+
         #endregion
 
         #region Properties
@@ -86,10 +97,22 @@ namespace NodeBase
         public abstract IOTypeEnum IOType { get; }
 
         /// <summary>
-        /// 存放字符串属性
+        /// 获得已经被注册的组件集
         /// </summary>
-        private List<StringAttr> _stringAttrs = null;
+        public List<NodeComponentBase> RegistedComponents { get => this._componentList; }
+
+        /// <summary>
+        /// 获得上游组件集合
+        /// </summary>
+        public List<NodeComponentBase> MyNotifiers { get => this._mynotifiers; }
+
+
+        /// <summary>
+        /// 获得当前组件的依赖的节点
+        /// </summary>
+        public NodeBase MyShell { get => this._node; }
         #endregion
+
 
         #region Methods
         /// <summary>
@@ -120,6 +143,8 @@ namespace NodeBase
             this._listAttrs = new List<ListAttr>();
             this._floatAttrs = new List<FloatAttr>();
             this._mulitSelectAttrs = new List<MulitSelectAttr>();
+
+            this._mynotifiers = new List<NodeComponentBase>();
 
             //初始化注册组件容器对象
             this._componentList = new List<NodeComponentBase>();
@@ -497,6 +522,7 @@ namespace NodeBase
                 foreach (var item in this._componentList)
                 {
                     item.Process(this);
+                
                 }
             }
 
@@ -505,8 +531,36 @@ namespace NodeBase
             {
                 this._node.Process();
             }
+
+            //更新下游节点
+            if (this._componentList != null)
+            {
+                foreach (var item in this._componentList)
+                {
+                    item.MyShell.Process();
+
+                }
+            }
         }
 
+        /// <summary>
+        /// 添加一个组件通知者
+        /// </summary>
+        /// <param name="comp">上游组件实例</param>
+        public void AddNotifier(NodeComponentBase comp)
+        {
+            this._mynotifiers.Add(comp);
+        }
+
+        /// <summary>
+        /// 移除一个组件通知者
+        /// </summary>
+        /// <param name="comp">上游组件实例</param>
+        public void RemoveNotifier(NodeComponentBase comp)
+        {
+            this._mynotifiers.Remove(comp);
+        }
+       
 
         #endregion
 

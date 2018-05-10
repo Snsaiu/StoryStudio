@@ -29,6 +29,7 @@ namespace StoryStartNode
         /// <param name="component"></param>
         public override void Process(NodeComponentBase component)
         {
+            System.Console.WriteLine("ccout" +this.RegistedComponents.Count );
             return;
         }
 
@@ -36,7 +37,7 @@ namespace StoryStartNode
         {
             try
             {
-                this.AddStringAttr("ccname", "姓名", "hkhjhk", false, true);
+                this.AddStringAttr("ccname", "姓名", "", false, true);
                 this.AddIntAttr("ccage", "年龄", 18, true);
                 this.AddBoolAttr("ccmain", "主角色彩", true, true);
                 this.AddListAttr("ccsex", "性别", new List<string>() { "男", "女", "其他" }, 0, true);

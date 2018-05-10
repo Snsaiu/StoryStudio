@@ -30,6 +30,8 @@ namespace NodeBase
         {
             // 只要把线添加到容器中就可以了
 
+            //判断当前两个组件是否已经存在链接
+
             // 判断组件中是否已经存在该线实例，如果有，那么忽略
             bool haslineInInput = false;
             foreach (var item in this._input.GetLines())
@@ -62,6 +64,8 @@ namespace NodeBase
             //todo:注册之前是否要进行某些判断呢？
 
             this._out.RegiseterComponent(this._input);
+            this._input.AddNotifier(this._out);
+
             //进行通知
             this._input.NotifyUpdate();
             this._out.NotifyUpdate();
@@ -89,7 +93,11 @@ namespace NodeBase
         {
             //组件取消通知
             this._out.LogoutComponent(this._input);
-        
+            this._input.RemoveNotifier(this._out);
+            //更新
+           
+            this._input.MyShell.Process();
+
             this._input.DeleteLineByInstance(this._arrowLineWithText);
             this._out.DeleteLineByInstance(this._arrowLineWithText);
             this._canvas.Children.Remove(this._arrowLineWithText);

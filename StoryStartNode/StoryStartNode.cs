@@ -29,13 +29,32 @@ namespace StoryStartNode
                 {
                     if (item.ShortName=="CC")
                     {
+
+                        //循环多选列表
                         foreach (var attr in item.GetMulitSelectAttrSet())
                         {
                             if (attr.Name== "ccinputlist")
                             {
-                                System.Console.WriteLine(attr.DefaultItems);
+                                if (this.GetOutputComponents()!=null)
+                                {
+                                    foreach (var outitem in this.GetOutputComponents())
+                                    {
+                                        if (outitem.ShortName== "SCCO" && outitem.GetMulitSelectAttrSet()!=null)
+                                        {
+                                            foreach (var outdata in outitem.GetMulitSelectAttrSet())
+                                            {
+                                                if (outdata.Name== "ccoutputlist")
+                                                {
+                                                    outdata.UpdateUiContent(attr.Value);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         } 
+
+                        //todo
                     }
 
                 }

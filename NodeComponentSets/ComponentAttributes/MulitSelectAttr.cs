@@ -42,7 +42,7 @@ namespace NodeBase
         /// <summary>
         /// 属性列表索引列表
         /// </summary>
-        public List<string> DefaultItems { get=>this._ui.MulitListUIContent; set; }
+        public List<string> DefaultItems { get; set; }
 
         /// <summary>
         /// 属性是否要显示在Node面板中
@@ -68,7 +68,7 @@ namespace NodeBase
         /// <param name="content">更新内容</param>
         public void UpdateUiContent(List<string> content)
         {
-            this.DefaultItems = content;
+            this.Value = content;
             if (this._ui != null)
             {
                 this._ui.MulitListUIContent = content;

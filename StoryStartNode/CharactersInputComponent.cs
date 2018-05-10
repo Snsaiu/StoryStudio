@@ -24,39 +24,35 @@ namespace StoryStartNode
 
         public override void Process(NodeComponentBase component)
         {
-            if (component!=null)
+            Console.WriteLine(this.MyNotifiers.Count);
+
+            List<string> _names = new List<string>();
+
+            foreach (var item in this.MyNotifiers)
             {
-
-                List<string> _nameset = new List<string>();
-
-                foreach (var item in component.GetStringAttrSet())
+                if (item.GetStringAttrSet()!=null)
                 {
-                    //获取姓名
-                    if (item.Name== "ccname")
+                    foreach (var data in item.GetStringAttrSet())
                     {
-                        _nameset.Add(item.DefaultValue);
+                        if (data.Name=="ccname")
+                        {
+                            _names.Add(data.DefaultValue);
+                        }
                     }
-                    // todo 添加新的内容
+
                 }
 
+            }
+
+            //
+
+            if (this.GetMulitSelectAttrSet()!=null)
+            {
                 foreach (var item in this.GetMulitSelectAttrSet())
                 {
                     if (item.Name== "ccinputlist")
                     {
-                        List<string> orinameset = item.DefaultItems;
-
-                        //初始化的时候可能没有赋初值，所以要进行判断
-                        if (orinameset==null)
-                        {
-                            item.UpdateUiContent(_nameset);
-                        }
-                        else
-                        {
-                            orinameset.AddRange(_nameset);
-
-                            item.UpdateUiContent(orinameset);
-                        }
-
+                        item.UpdateUiContent (_names);
                     }
                 }
             }

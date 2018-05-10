@@ -40,6 +40,20 @@ namespace NodeBase
                     NodeComponentBase temp = LineTracker.StoreLineObj.EndComponent as NodeComponentBase;
                     // 判断组件类型是否能够连接
 
+                    //判断当前两个组件是否已经存在链接
+
+                    if (this.RegistedComponents!=null)
+                    {
+                        foreach (var item in this.RegistedComponents)
+                        {
+                            if (item==temp)
+                            {
+                                return;
+                            }
+                        }
+                    }
+
+
                     if (temp.Type==this.Type)
                     {
                         if (temp.IOType==BaseTypeEnum.IOTypeEnum.input)
