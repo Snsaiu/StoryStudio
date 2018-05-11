@@ -511,12 +511,16 @@ namespace NodeBase
         /// </summary>
         /// <param name="component">上层组件实例</param>
         public abstract void Process(NodeComponentBase component);
+  
  
         /// <summary>
         /// 通知被注册的节点进行更新
         /// </summary>
         public void NotifyUpdate()
         {
+            //更新自己
+            this.Process(this);
+
             if (this._componentList!=null)
             {
                 foreach (var item in this._componentList)

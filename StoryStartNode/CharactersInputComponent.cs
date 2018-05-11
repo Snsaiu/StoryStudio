@@ -25,11 +25,7 @@ namespace StoryStartNode
 
         public override void Process(NodeComponentBase component)
         {
-            if (component==null)
-            {
-                MessageBox.Show("ddd");
-            }
-            Console.WriteLine(this.MyNotifiers.Count);
+            // 该组件是输入节点，可以获得上游组件
 
             List<string> _names = new List<string>();
        

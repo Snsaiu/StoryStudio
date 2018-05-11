@@ -94,13 +94,16 @@ namespace NodeBase
         {
             //组件取消通知
             this._out.LogoutComponent(this._input);
-           
-            this._input.MyShell.Process();
-            this._input.RemoveNotifier(this._out);
-            //更新
-         
-    
+
             this._out.MyShell.Process();
+
+            this._input.RemoveNotifier(this._out);
+
+            this._input.MyShell.Process();
+            //更新
+
+
+           
            
 
             this._input.DeleteLineByInstance(this._arrowLineWithText);

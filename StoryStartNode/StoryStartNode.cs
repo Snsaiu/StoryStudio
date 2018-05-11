@@ -39,8 +39,6 @@ namespace StoryStartNode
                             if (attr.Name == "ccinputlist")
                             {
 
-
-
                                 if (this.GetOutputComponents() != null)
                                 {
                                     foreach (var outitem in this.GetOutputComponents())
