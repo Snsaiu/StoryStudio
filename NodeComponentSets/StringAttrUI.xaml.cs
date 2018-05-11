@@ -30,6 +30,11 @@ namespace NodeBase
         }
 
         /// <summary>
+        /// 设置或者获得属性ui是否可编辑
+        /// </summary>
+        public bool CanEdit { get=>this.StrContent.IsEnabled; set=>this.StrContent.IsEnabled=value; }
+
+        /// <summary>
         /// 设置或者获得字符串组件Ui的显示标签
         /// </summary>
         public string StrUILabel { get=>this.StrLabel.Text; set=> this.StrLabel.Text=value; }

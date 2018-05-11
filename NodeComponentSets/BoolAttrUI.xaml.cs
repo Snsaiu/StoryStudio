@@ -28,6 +28,10 @@ namespace NodeBase
         }
 
         /// <summary>
+        /// 设置或者获得属性ui是否可用
+        /// </summary>
+        public bool CanEdit { get=>this.BoolContent.IsEnabled; set=>this.BoolContent.IsEnabled=value; }
+        /// <summary>
         /// 设置或者获得bool组件Ui的显示标签
         /// </summary>
         public string BoolUILabel { get => this.BoolLabel.Text; set => this.BoolLabel.Text = value; }

@@ -27,6 +27,10 @@ namespace NodeBase
         }
 
         /// <summary>
+        /// 设置或者获得属性ui是否可用
+        /// </summary>
+        public bool CanEdit { get=>this.ListContent.IsEnabled; set=>this.ListContent.IsEnabled=value; }
+        /// <summary>
         /// 设置或者获得整型组件Ui的显示标签
         /// </summary>
         public string ListUILabel { get => this.ListLabel.Text; set => this.ListLabel.Text = value; }

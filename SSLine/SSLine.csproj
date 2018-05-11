@@ -72,5 +72,11 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\DisplayLabelEnum\DisplayLabelEnum.csproj">
+      <Project>{D4FF5E98-64D3-4766-9E9D-D04F75466D87}</Project>
+      <Name>DisplayLabelEnum</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -6,6 +6,7 @@ using System.Windows.Navigation;
 using System.Reflection;
 using System.IO.Packaging;
 using System.Windows.Markup;
+using DisplayLabelEnum;
 
 namespace NodeBase
 {
@@ -31,6 +32,9 @@ namespace NodeBase
 
             //装配组件
             this.RigComponent();
+
+            //右键菜单
+            this.CreateContextMenu();
             // 绑定事件
             this.MouseMove += NodeBase_MouseMove;
             // 显示Nodelabel
@@ -45,6 +49,31 @@ namespace NodeBase
             }
         }
 
+        private void CreateContextMenu()
+        {
+            ContextMenu contextMenu = new ContextMenu();
+            MenuItem editmenu = new MenuItem();
+            editmenu.Header = ContextMenuLabelEnum.编辑;
+            MenuItem deletemenu = new MenuItem();
+            deletemenu.Header = ContextMenuLabelEnum.删除;
+            MenuItem focusmenu = new MenuItem();
+            focusmenu.Header = ContextMenuLabelEnum.聚焦;
+            contextMenu.Items.Add(editmenu);
+            contextMenu.Items.Add(deletemenu);
+            contextMenu.Items.Add(focusmenu);
+
+            //todo:这里可以添加一个扩张
+
+            this.ContextMenu = contextMenu;
+
+            
+            
+
+        }
+
+        /// <summary>
+        /// 组装组件
+        /// </summary>
         private void RigComponent()
         {
             this._inputs = this.AddInputComponent();
@@ -71,6 +100,7 @@ namespace NodeBase
                             stringAttrUI.StrUILabel = item.DisplayName;
                             stringAttrUI.StrUIContent = item.DefaultValue;
                             item.SetUi(stringAttrUI);
+                            stringAttrUI.CanEdit = false;
                             stringAttrUI.StrContent.PreviewKeyDown += (s, e) => { item.DefaultValue = stringAttrUI.StrUIContent; };
                             stringAttrUI.StrContent.TextChanged += (s, e) => { item.DefaultValue = stringAttrUI.StrUIContent; };
                             this.componentstack.Children.Add(stringAttrUI);
@@ -84,6 +114,7 @@ namespace NodeBase
                           
                             IntAttrUI intAttr = new IntAttrUI(this._inputs[i]);
                             intAttr.IntUILabel = item.DisplayName;
+                            intAttr.CanEdit = false;
                             intAttr.IntUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(intAttr);
                         }
@@ -95,6 +126,7 @@ namespace NodeBase
                         {
                             FloatAttrUI floatAttrUI = new FloatAttrUI(this._inputs[i]);
                             floatAttrUI.FloatUILabel = item.DisplayName;
+                            floatAttrUI.CanEdit = false;
                             floatAttrUI.FloatUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(floatAttrUI);
                         }
@@ -107,6 +139,7 @@ namespace NodeBase
                         {
                             ListAttrUI listAttrUI = new ListAttrUI(this._inputs[i]);
                             listAttrUI.ListUILabel = item.DisplayName;
+                            listAttrUI.CanEdit = true;
                             listAttrUI.ListUIContent = item.Value;
                             listAttrUI.DefaultIndex = item.DefaultIndex;
                             this.componentstack.Children.Add(listAttrUI);
@@ -123,6 +156,7 @@ namespace NodeBase
                             MulitSelectAttrUI.MulitListUIContent = item.Value;
                             MulitSelectAttrUI.DefaultIndexs = item.DefaultItems;
                             item.SetUi(MulitSelectAttrUI);
+                            MulitSelectAttrUI.CanEdit = false;
                             MulitSelectAttrUI.MultiSelectContent.SelectionChanged += (s, e) => {  item.DefaultItems = MulitSelectAttrUI.DefaultIndexs; };
                             this.componentstack.Children.Add(MulitSelectAttrUI);
                         }
@@ -135,6 +169,7 @@ namespace NodeBase
                         {
                             BoolAttrUI boolAttrUI = new BoolAttrUI(this._inputs[i]);
                             boolAttrUI.BoolUILabel = item.DisplayName;
+                            boolAttrUI.CanEdit = true;
                             boolAttrUI.BoolUIContent = item.DefaultValue;
                             this.componentstack.Children.Add(boolAttrUI);
                         }
@@ -214,6 +249,7 @@ namespace NodeBase
                             MulitSelectAttrUI MulitSelectAttrUI = new MulitSelectAttrUI(this._outputs[i]);
                             MulitSelectAttrUI.MultiSelectUILabel = item.DisplayName;
                             MulitSelectAttrUI.MulitListUIContent = item.Value;
+                         
                             MulitSelectAttrUI.DefaultIndexs = item.DefaultItems;
                             item.SetUi(MulitSelectAttrUI);
                             MulitSelectAttrUI.MultiSelectContent.SelectionChanged += (s, e) => {  item.DefaultItems = MulitSelectAttrUI.DefaultIndexs; };

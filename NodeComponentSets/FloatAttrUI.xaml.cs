@@ -15,8 +15,14 @@ namespace NodeBase
         {
             InitializeComponent();
 
-            this.FloatContent.LostFocus += (s, e) => { Component.NotifyUpdate(); };
+            this.FloatContent.PreviewKeyDown += (s, e) => { Component.NotifyUpdate(); };
+            this.FloatContent.TextChanged += (s, e) => { Component.NotifyUpdate(); };
         }
+
+        /// <summary>
+        /// 设置或者获得属性ui是否可编辑
+        /// </summary>
+        public bool CanEdit { get=>this.FloatContent.IsEnabled; set=>this.FloatContent.IsEnabled=value; }
 
         /// <summary>
         /// 设置或者获得浮点型组件Ui的显示标签

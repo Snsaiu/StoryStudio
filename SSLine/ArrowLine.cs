@@ -1,5 +1,6 @@
 namespace SSLine
 {
+    using DisplayLabelEnum;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
@@ -126,6 +127,29 @@ namespace SSLine
         }
 
         #endregion  Protected Methods
+
+
+        #region Public Method
+        public ArrowLine()
+        {
+            //右键菜单
+
+            ContextMenu contextMenu = new ContextMenu();
+            MenuItem changelinecolor = new MenuItem();
+            changelinecolor.Header = ContextMenuLabelEnum.改变颜色;
+            MenuItem changelinestroke = new MenuItem();
+            changelinestroke.Header = ContextMenuLabelEnum.改变线宽;
+            MenuItem deleteline = new MenuItem(); 
+             deleteline.Header = ContextMenuLabelEnum.删除;
+
+            contextMenu.Items.Add(changelinecolor);
+            contextMenu.Items.Add(changelinestroke);
+            contextMenu.Items.Add(deleteline);
+
+            this.ContextMenu = contextMenu;
+        }
+
+        #endregion
 
     }
 }

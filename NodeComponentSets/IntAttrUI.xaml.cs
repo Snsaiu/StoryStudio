@@ -25,9 +25,15 @@ namespace NodeBase
         {
             InitializeComponent();
 
-            this.IntContent.LostFocus += (s, e) => { Component.NotifyUpdate(); };
+            this.IntContent.PreviewKeyDown += (s, e) => { Component.NotifyUpdate(); };
+            this.IntContent.TextChanged += (s, e) => { Component.NotifyUpdate(); };
+
         }
 
+        /// <summary>
+        /// 设置或者获得属性ui是否可编辑
+        /// </summary>
+        public bool CanEdit { get=>this.IntContent.IsEnabled; set=>this.IntContent.IsEnabled=value; }
 
         /// <summary>
         /// 设置或者获得整型组件Ui的显示标签

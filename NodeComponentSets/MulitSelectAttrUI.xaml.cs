@@ -27,6 +27,11 @@ namespace NodeBase
         }
 
         /// <summary>
+        /// 设置或者获得属性ui是否能被编辑，通常输入属性不应该可编辑，输出组件可以编辑
+        /// </summary>
+        public bool CanEdit { get=>this.MultiSelectContent.IsEnabled; set=>this.MultiSelectContent.IsEnabled=value; }
+
+        /// <summary>
         /// 设置或者获得多选组件Ui的显示标签
         /// </summary>
         public string MultiSelectUILabel { get => this.MultiSelectLabel.Text; set => this.MultiSelectLabel.Text = value; }
