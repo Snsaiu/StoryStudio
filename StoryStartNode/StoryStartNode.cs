@@ -20,30 +20,36 @@ namespace StoryStartNode
 
         public override void Process()
         {
-
+            base.Process();
             //两个都要判断，因为数据需要传到必须要有两个端点
 
-            if (this.GetInputComponents()!=null && this.GetOutputComponents()!=null)
+            if (this.GetInputComponents() != null && this.GetOutputComponents() != null)
             {
+                //更新节点组件上游
+
                 foreach (var item in this.GetInputComponents())
                 {
-                    if (item.ShortName=="CC")
+
+                    if (item.ShortName == "CC")
                     {
 
                         //循环多选列表
                         foreach (var attr in item.GetMulitSelectAttrSet())
                         {
-                            if (attr.Name== "ccinputlist")
+                            if (attr.Name == "ccinputlist")
                             {
-                                if (this.GetOutputComponents()!=null)
+
+
+
+                                if (this.GetOutputComponents() != null)
                                 {
                                     foreach (var outitem in this.GetOutputComponents())
                                     {
-                                        if (outitem.ShortName== "SCCO" && outitem.GetMulitSelectAttrSet()!=null)
+                                        if (outitem.ShortName == "SCCO" && outitem.GetMulitSelectAttrSet() != null)
                                         {
                                             foreach (var outdata in outitem.GetMulitSelectAttrSet())
                                             {
-                                                if (outdata.Name== "ccoutputlist")
+                                                if (outdata.Name == "ccoutputlist")
                                                 {
                                                     outdata.UpdateUiContent(attr.Value);
                                                 }
@@ -52,7 +58,7 @@ namespace StoryStartNode
                                     }
                                 }
                             }
-                        } 
+                        }
 
                         //todo
                     }

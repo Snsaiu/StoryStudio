@@ -527,10 +527,10 @@ namespace NodeBase
             }
 
             //更新节点 
-            if (this._node!=null)
-            {
-                this._node.Process();
-            }
+            //if (this._node!=null)
+            //{
+            //    this._node.Process();
+            //}
 
             //更新下游节点
             if (this._componentList != null)

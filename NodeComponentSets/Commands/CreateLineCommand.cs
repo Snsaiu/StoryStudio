@@ -67,8 +67,9 @@ namespace NodeBase
             this._input.AddNotifier(this._out);
 
             //进行通知
-            this._input.NotifyUpdate();
-            this._out.NotifyUpdate();
+            this._out.MyShell.Process(); 
+            this._input.MyShell.Process();
+           
 
             //判断是否在画布中已经存在
             bool hasInCanvas = false;
@@ -93,10 +94,14 @@ namespace NodeBase
         {
             //组件取消通知
             this._out.LogoutComponent(this._input);
-            this._input.RemoveNotifier(this._out);
-            //更新
            
             this._input.MyShell.Process();
+            this._input.RemoveNotifier(this._out);
+            //更新
+         
+    
+            this._out.MyShell.Process();
+           
 
             this._input.DeleteLineByInstance(this._arrowLineWithText);
             this._out.DeleteLineByInstance(this._arrowLineWithText);

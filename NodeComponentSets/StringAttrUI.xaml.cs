@@ -25,7 +25,8 @@ namespace NodeBase
             //InitializeComponent();
             this.LoadViewFromUri("/NodeComponentSets;component/stringattrui.xaml");
 
-            this.StrContent.LostFocus += (s, e) => { Component.NotifyUpdate(); };
+            this.StrContent.PreviewKeyDown += (s, e) => { Component.NotifyUpdate(); };
+            this.StrContent.TextChanged += (s, e) => { Component.NotifyUpdate(); };
         }
 
         /// <summary>

@@ -13,7 +13,7 @@
                 <ColumnDefinition Width="70*"/>
             </Grid.ColumnDefinitions>
             <TextBlock Name="StrLabel"  TextAlignment="Center" Background="#FF373737" Foreground="White" FontSize="2"></TextBlock>
-            <TextBox Name="StrContent" BorderThickness="0" Foreground="White" MaxLines="2" TextWrapping="Wrap" Grid.Column="1" VerticalScrollBarVisibility="Auto" Background="#FF676767"  >
+            <TextBox Name="StrContent" BorderThickness="0" Foreground="White" MaxLines="2" TextWrapping="Wrap" Grid.Column="1" VerticalScrollBarVisibility="Auto" Background="#FF676767" UndoLimit="0"  >
                 <TextBox.LayoutTransform>
                     <TransformGroup>
                         <ScaleTransform ScaleX="0.1" ScaleY="0.1"/>

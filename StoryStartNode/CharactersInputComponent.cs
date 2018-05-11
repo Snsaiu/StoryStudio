@@ -1,13 +1,14 @@
 ﻿using NodeBase;
 using System;
 using System.Collections.Generic;
+using System.Windows;
 
 namespace StoryStartNode
 {
     public class CharactersInputComponent : InputComponent
     {
         public CharactersInputComponent(NodeBase.NodeBase node) : base(node)
-        {
+        { 
         }
 
         public override string Label => "角色";
@@ -24,10 +25,14 @@ namespace StoryStartNode
 
         public override void Process(NodeComponentBase component)
         {
+            if (component==null)
+            {
+                MessageBox.Show("ddd");
+            }
             Console.WriteLine(this.MyNotifiers.Count);
 
             List<string> _names = new List<string>();
-
+       
             foreach (var item in this.MyNotifiers)
             {
                 if (item.GetStringAttrSet()!=null)

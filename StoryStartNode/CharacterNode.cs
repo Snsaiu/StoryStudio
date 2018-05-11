@@ -19,7 +19,7 @@ namespace StoryStartNode
 
         public override void Process()
         {
-          
+            base.Process();
         }
 
         protected override List<InputComponent> AddInputComponent()

@@ -71,7 +71,8 @@ namespace NodeBase
                             stringAttrUI.StrUILabel = item.DisplayName;
                             stringAttrUI.StrUIContent = item.DefaultValue;
                             item.SetUi(stringAttrUI);
-                            stringAttrUI.LostFocus += (s, e) => { item.DefaultValue = stringAttrUI.StrUIContent; };
+                            stringAttrUI.StrContent.PreviewKeyDown += (s, e) => { item.DefaultValue = stringAttrUI.StrUIContent; };
+                            stringAttrUI.StrContent.TextChanged += (s, e) => { item.DefaultValue = stringAttrUI.StrUIContent; };
                             this.componentstack.Children.Add(stringAttrUI);
                         }
                     }
@@ -163,7 +164,8 @@ namespace NodeBase
                             stringAttrUI.StrUILabel = item.DisplayName;
                             stringAttrUI.StrUIContent = item.DefaultValue;
                             item.SetUi(stringAttrUI);
-                            stringAttrUI.LostFocus += (s, e) => { item.DefaultValue = stringAttrUI.StrUIContent;};
+                            stringAttrUI.StrContent.PreviewKeyDown += (s, e) => { item.DefaultValue = stringAttrUI.StrUIContent;};
+                            stringAttrUI.StrContent.TextChanged += (s, e) => { item.DefaultValue = stringAttrUI.StrUIContent; };
                             this.componentstack.Children.Add(stringAttrUI);
                         }
                     }
@@ -382,7 +384,25 @@ namespace NodeBase
         /// <summary>
         /// 节点处理事务
         /// </summary>
-        public abstract void Process();
+        public virtual void Process()
+        {
+            if (this.GetInputComponents()!=null)
+            {
+                foreach (var item in this.GetInputComponents())
+                {
+                    item.NotifyUpdate();
+                }
+            }
+
+            if (this.GetOutputComponents()!=null)
+            {
+                foreach (var item in this.GetOutputComponents())
+                {
+                    item.NotifyUpdate();
+                }
+            }
+
+        }
 
 
     }
