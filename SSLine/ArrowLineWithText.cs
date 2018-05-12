@@ -1,7 +1,10 @@
 ﻿namespace SSLine
 {
+    using CommandManager;
+    using SSLine.Commands;
     using System.Globalization;
     using System.Windows;
+    using System.Windows.Forms;
     using System.Windows.Media;
 
     /// <summary>
@@ -167,7 +170,7 @@
                      this.formattedText = new FormattedText(
                         txt,
                         CultureInfo.CurrentCulture,
-                        FlowDirection.LeftToRight,
+                       System.Windows.FlowDirection.LeftToRight,
                         defaultTypeface,
                        3,
                         Brushes.White)
@@ -201,6 +204,24 @@
                     drawingContext.Pop();
                 }
             }
+        }
+
+        public override void SetStrokeColor()
+        {
+            ColorDialog colorDialog = new ColorDialog();
+            if (colorDialog.ShowDialog() == DialogResult.OK)
+            {
+                System.Drawing.SolidBrush sb = new System.Drawing.SolidBrush(colorDialog.Color);
+                SolidColorBrush solidColorBrush = new SolidColorBrush(Color.FromArgb(sb.Color.A, sb.Color.R, sb.Color.G, sb.Color.B));
+                //引入命令管理器
+                CommandManager commandManager = CommandManager.GetInstance();
+                SetLineColorCommand setLineColorCommand = new SetLineColorCommand(this,solidColorBrush);
+
+                commandManager.ExecuteCommand(setLineColorCommand);
+            }
+
+
+       
         }
 
         #endregion Overrides

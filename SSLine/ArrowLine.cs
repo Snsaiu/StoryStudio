@@ -133,9 +133,9 @@ namespace SSLine
         public ArrowLine()
         {
             //右键菜单
-
             ContextMenu contextMenu = new ContextMenu();
             MenuItem changelinecolor = new MenuItem();
+            changelinecolor.Click += (s, e) => { this.SetStrokeColor(); };
             changelinecolor.Header = ContextMenuLabelEnum.改变颜色;
             MenuItem changelinestroke = new MenuItem();
             changelinestroke.Header = ContextMenuLabelEnum.改变线宽;
@@ -149,6 +149,14 @@ namespace SSLine
             this.ContextMenu = contextMenu;
         }
 
+        /// <summary>
+        /// 设置线的颜色
+        /// </summary>
+        /// <param name="brush"></param>
+        public virtual void SetStrokeColor()
+        {
+
+        }
         #endregion
 
     }
