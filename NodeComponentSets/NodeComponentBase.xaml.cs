@@ -1,13 +1,9 @@
 ﻿using BaseTypeEnum;
-using SSLine;
+using NodeBase;
 using System;
 using System.Collections.Generic;
-using System.IO.Packaging;
-using System.Reflection;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Markup;
-using System.Windows.Navigation;
 
 namespace NodeBase
 {
@@ -38,7 +34,7 @@ namespace NodeBase
         /// <summary>
         /// 保存线集合
         /// </summary>
-        private List<ArrowLineWithText> _lines = null;
+        private List<SSLine.ArrowBase> _lines = null;
 
         /// <summary>
         /// 存放单选列表属性
@@ -134,7 +130,7 @@ namespace NodeBase
             this.LoadViewFromUri("/NodeComponentSets;component/nodecomponentbase.xaml");
 
             this._node = node;
-            this._lines = new List<ArrowLineWithText>();
+            this._lines = new List<SSLine.ArrowBase>();
 
             // 初始化属性容器
             this._stringAttrs = new List<StringAttr>();
@@ -167,7 +163,7 @@ namespace NodeBase
         /// 获得线集合
         /// </summary>
         /// <returns>线集合对象</returns>
-        public List<ArrowLineWithText> GetLines()
+        public List<SSLine.ArrowBase> GetLines()
         {
             return this._lines;
         }
@@ -184,7 +180,7 @@ namespace NodeBase
         /// 添加一根线到容器中
         /// </summary>
         /// <param name="line">线对象</param>
-        public void AddNewLine(ArrowLineWithText line)
+        public void AddNewLine(SSLine.ArrowBase line)
         {
             this._lines.Add(line);
         }
@@ -194,7 +190,7 @@ namespace NodeBase
         /// </summary>
         /// <param name="line">要移除的线的实例</param>
         /// <returns>移除成功返回true，否则返回false</returns>
-        public bool DeleteLineByInstance(ArrowLineWithText line)
+        public bool DeleteLineByInstance( SSLine.ArrowBase line)
         {
             foreach (var item in this._lines)
             {
@@ -565,6 +561,8 @@ namespace NodeBase
             this._mynotifiers.Remove(comp);
         }
        
+
+      
 
         #endregion
 

@@ -57,11 +57,12 @@ namespace SSLine
         /// <summary>
         /// 结束点
         /// </summary>
-        public Point EndPoint
+        public override Point EndPoint
         {
             get { return (Point)this.GetValue(EndPointProperty); }
             set { this.SetValue(EndPointProperty, value); }
         }
+
 
         #endregion Properties
 

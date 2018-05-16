@@ -1,5 +1,7 @@
-﻿using GlobalTracker;
+﻿using DefaultLineFactory;
+using GlobalTracker;
 using SSLine;
+using SSLineFactoryAbs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,8 +38,8 @@ namespace NodeBase
             // 根据条件创建线的起点
 
             //创建线工厂
-            SSLineFactoryAbs sSLineFactory = new DefaultLineFactory();
-            ArrowLineWithText arrowLineWithText = null;
+            SSLineFactoryAbs.SSLineFactoryAbs sSLineFactory = new DefaultLineFactory.DefaultLineFactory();
+            ArrowBase arrowLineWithText = null;
 
             //判断当前是否有线需要被连接，如果已经有线正在被连接，那么不创建线
             if (LineTracker.CanCreateLine==false)
@@ -77,7 +79,10 @@ namespace NodeBase
                                 //取消事件关注
                                 this.canvas.MouseMove -= LineTracker.StoreLineObj.MoveEndWithMouse;
                                 LineTracker.StoreLineObj.EndComponent = this;
+
+                             
                                 CommandManager.CommandManager commandManager = CommandManager.CommandManager.GetInstance();
+                               
                                 CreateLineCommand createLineCommand = new CreateLineCommand(LineTracker.StoreLineObj, this.canvas);
                                 commandManager.ExecuteCommand(createLineCommand);
                              
@@ -162,14 +167,10 @@ namespace NodeBase
 
             }
 
-
-            
-
-
-
-
-
         }
 
+
+
+     
     }
 }

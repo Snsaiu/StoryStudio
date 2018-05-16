@@ -1,14 +1,14 @@
-﻿namespace SSLine
+﻿namespace ArrowLineWithText
 {
+    using ArrowLine;
     using CommandManager;
-    using SSLine.Commands;
+  
     using System.Globalization;
     using System.Windows;
-    using System.Windows.Forms;
     using System.Windows.Media;
 
     /// <summary>
-    /// 带文本和箭头的两点之间连线
+    /// 带文本和箭头的两点之间连线   
     /// </summary>
     public class ArrowLineWithText : ArrowLine
     {
@@ -206,23 +206,6 @@
             }
         }
 
-        public override void SetStrokeColor()
-        {
-            ColorDialog colorDialog = new ColorDialog();
-            if (colorDialog.ShowDialog() == DialogResult.OK)
-            {
-                System.Drawing.SolidBrush sb = new System.Drawing.SolidBrush(colorDialog.Color);
-                SolidColorBrush solidColorBrush = new SolidColorBrush(Color.FromArgb(sb.Color.A, sb.Color.R, sb.Color.G, sb.Color.B));
-                //引入命令管理器
-                CommandManager commandManager = CommandManager.GetInstance();
-                SetLineColorCommand setLineColorCommand = new SetLineColorCommand(this,solidColorBrush);
-
-                commandManager.ExecuteCommand(setLineColorCommand);
-            }
-
-
-       
-        }
 
         #endregion Overrides
 
@@ -242,6 +225,8 @@
             var xaxis = new Vector(1, 0);
             return Vector.AngleBetween(xaxis, vec);
         }
+
+
 
         #endregion Private Methods
     }

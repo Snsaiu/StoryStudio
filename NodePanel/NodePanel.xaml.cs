@@ -1,5 +1,4 @@
-﻿using NodeBase;
-using System;
+﻿using System;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -70,6 +69,7 @@ namespace NodePanel
             // node panel mousewheel event ,it can scale node panel size 
             this.NodeCanvas.MouseWheel += (s, e) =>
             {
+
                 Point scaleCenter = e.GetPosition(this.NodeCanvas);
 
                 if (e.Delta > 0)
@@ -255,4 +255,7 @@ namespace NodePanel
         }
     }
     
+
+  
+
 }

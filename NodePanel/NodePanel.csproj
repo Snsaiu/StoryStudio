@@ -103,10 +103,6 @@
       <Project>{C5E0AFC7-BC71-4621-BF29-E30FA06A2BD5}</Project>
       <Name>ISSBase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SSLine\SSLine.csproj">
-      <Project>{517F1B3F-E555-4BBA-8385-86483FA947C2}</Project>
-      <Name>SSLine</Name>
-    </ProjectReference>
     <ProjectReference Include="..\StoryStartNode\StoryNodes.csproj">
       <Project>{AEAE898E-1167-4BD8-B419-2ABDA62106B1}</Project>
       <Name>StoryNodes</Name>

@@ -1,20 +1,13 @@
-﻿using SSLine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace GlobalTracker
+﻿namespace GlobalTracker
 {
-  public static class LineTracker
+    public static class LineTracker
     {
-        private static ArrowLineWithText _storeLineObj;
+        private static SSLine.ArrowBase _storeLineObj;
 
         /// <summary>
         /// 设置或者获得当前需要链接的线
         /// </summary>
-        public static ArrowLineWithText StoreLineObj
+        public static SSLine.ArrowBase StoreLineObj
         {
             get { return _storeLineObj; }
             set { _storeLineObj = value; }

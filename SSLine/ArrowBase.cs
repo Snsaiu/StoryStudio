@@ -1,3 +1,4 @@
+using DisplayLabelEnum;
 using System;
 using System.Windows;
 using System.Windows.Controls;
@@ -94,8 +95,23 @@ namespace SSLine
         protected ArrowBase()
         {
 
+            //右键菜单
+            ContextMenu contextMenu = new ContextMenu();
+            MenuItem changelinecolor = new MenuItem();
+            changelinecolor.Click += (s, e) => { this.SetStrokeColor(); };
+            changelinecolor.Header = ContextMenuLabelEnum.改变颜色;
+            MenuItem changelinestroke = new MenuItem();
+            changelinestroke.Header = ContextMenuLabelEnum.改变线宽;
+            MenuItem deleteline = new MenuItem();
+            deleteline.Click += (s, e) => { this.DeleteLine(); };
+            deleteline.Header = ContextMenuLabelEnum.删除;
 
-        
+            contextMenu.Items.Add(changelinecolor);
+            contextMenu.Items.Add(changelinestroke);
+            contextMenu.Items.Add(deleteline);
+
+            this.ContextMenu = contextMenu;
+
 
             var polyLineSegStart = new PolyLineSegment();
             this.figureStart.Segments.Add(polyLineSegStart);
@@ -113,6 +129,30 @@ namespace SSLine
 
         #region Properties
 
+
+        public abstract  Point EndPoint { get; set; }
+
+        private object _startComponent;
+
+        /// <summary>
+        /// 线连接的起始对象
+        /// </summary>
+        public object StartComponent
+        {
+            get { return _startComponent; }
+            set { _startComponent = value; }
+        }
+
+        private object _endComponent;
+
+        /// <summary>
+        /// 线连接的终点对象
+        /// </summary>
+        public object EndComponent
+        {
+            get { return _endComponent; }
+            set { _endComponent = value; }
+        }
 
         /// <summary>
         /// 保存线的起始是否已经链接到组件上
@@ -308,6 +348,40 @@ namespace SSLine
         /// <param name="sender"></param>
         /// <param name="e"></param>
         public abstract void MoveEndWithMouse(object sender, MouseEventArgs e);
+
+
+        /// <summary>
+        /// 设置线的颜色
+        /// </summary>
+        /// <param name="brush"></param>
+        public virtual void SetStrokeColor()
+        {
+            {
+                System.Windows.Forms.ColorDialog colorDialog = new System.Windows.Forms.ColorDialog();
+                if (colorDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                {
+                    System.Drawing.SolidBrush sb = new System.Drawing.SolidBrush(colorDialog.Color);
+                    SolidColorBrush solidColorBrush = new SolidColorBrush(Color.FromArgb(sb.Color.A, sb.Color.R, sb.Color.G, sb.Color.B));
+                    //引入命令管理器
+                    CommandManager.CommandManager commandManager = CommandManager.CommandManager.GetInstance();
+                    ISSCommand.ISSCommand setLineColorCommand = new SetLineColorCommand(this, solidColorBrush);
+
+                    commandManager.ExecuteCommand(setLineColorCommand);
+                }
+            }
+
+        }
+
+
+        /// <summary>
+        /// 删除线
+        /// </summary>
+        public virtual void DeleteLine()
+        {
+            CommandManager.CommandManager commandManager = CommandManager.CommandManager.GetInstance();
+         
+            //DeleteLineCommand
+        }
 
         #endregion
 

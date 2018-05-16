@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace SSLine
+﻿namespace SSLineFactoryAbs
 {
     /// <summary>
     /// 创建节点之间的连线的抽象类
@@ -15,13 +9,13 @@ namespace SSLine
         /// 创建角色节点之间的线样式
         /// </summary>
         /// <returns></returns>
-        public abstract ArrowLineWithText CreateCharacterLine();
+        public abstract SSLine.ArrowBase CreateCharacterLine();
 
         /// <summary>
         /// 创建事件节点之间的线样式
         /// </summary>
         /// <returns></returns>
-        public abstract ArrowLineWithText CreateEventLine();
+        public abstract SSLine.ArrowBase CreateEventLine();
 
  
     }

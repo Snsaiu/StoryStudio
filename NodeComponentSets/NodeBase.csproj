@@ -34,6 +34,8 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -47,9 +49,7 @@
     <Compile Include="BoolAttrUI.xaml.cs">
       <DependentUpon>BoolAttrUI.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Commands\CreateLineCommand.cs" />
-    <Compile Include="Commands\EditLineTextCommand.cs" />
-    <Compile Include="Commands\RemoveLineCommand.cs" />
+    <Compile Include="command\CreateLineCommand.cs" />
     <Compile Include="ComponentAttributes\BoolAttr.cs" />
     <Compile Include="ComponentAttributes\FloatAttr.cs" />
     <Compile Include="ComponentAttributes\IntAttr.cs" />
@@ -124,6 +124,10 @@
       <Project>{9f724c5e-5126-42d5-8575-6cdeecd8a67e}</Project>
       <Name>CommandManager</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DefaultLineFactory\DefaultLineFactory.csproj">
+      <Project>{02075B8B-E00B-426A-8BBF-21255B38295E}</Project>
+      <Name>DefaultLineFactory</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DisplayLabelEnum\DisplayLabelEnum.csproj">
       <Project>{D4FF5E98-64D3-4766-9E9D-D04F75466D87}</Project>
       <Name>DisplayLabelEnum</Name>
@@ -133,11 +137,15 @@
       <Name>GlobalTracker</Name>
     </ProjectReference>
     <ProjectReference Include="..\ISSCommand\ISSCommand.csproj">
-      <Project>{a886cb65-6727-4bc4-b567-9cee0b765608}</Project>
+      <Project>{A886CB65-6727-4BC4-B567-9CEE0B765608}</Project>
       <Name>ISSCommand</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SSLineFactoryAbs\SSLineFactoryAbs.csproj">
+      <Project>{9C26A6D9-B6CB-4C39-B269-824068E4FCBB}</Project>
+      <Name>SSLineFactoryAbs</Name>
+    </ProjectReference>
     <ProjectReference Include="..\SSLine\SSLine.csproj">
-      <Project>{517F1B3F-E555-4BBA-8385-86483FA947C2}</Project>
+      <Project>{517f1b3f-e555-4bba-8385-86483fa947c2}</Project>
       <Name>SSLine</Name>
     </ProjectReference>
   </ItemGroup>

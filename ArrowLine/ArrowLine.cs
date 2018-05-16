@@ -1,15 +1,17 @@
-namespace SSLine
+namespace ArrowLine
 {
+    using CommandManager;
     using DisplayLabelEnum;
+    using ISSCommand;
+    using SSLine;
     using System.Windows;
     using System.Windows.Controls;
-    using System.Windows.Input;
     using System.Windows.Media;
 
     /// <summary>
     /// 两点之间带箭头的直线
     /// </summary>
-    public class ArrowLine : ArrowBase
+    public abstract class ArrowLine : ArrowBase
     {
         #region Fields
 
@@ -34,33 +36,13 @@ namespace SSLine
         /// <summary>
         /// 结束点
         /// </summary>
-        public Point EndPoint
+        public override Point EndPoint
         {
             get { return (Point)this.GetValue(EndPointProperty); }
             set { this.SetValue(EndPointProperty, value); }
         }
 
-        private object _startComponent;
-
-        /// <summary>
-        /// 线连接的起始对象
-        /// </summary>
-        public object StartComponent
-        {
-            get { return _startComponent; }
-            set { _startComponent = value; }
-        }
-
-        private object _endComponent;
-
-        /// <summary>
-        /// 线连接的终点对象
-        /// </summary>
-        public object EndComponent
-        {
-            get { return _endComponent; }
-            set { _endComponent = value; }
-        }
+     
 
 
 
@@ -110,15 +92,16 @@ namespace SSLine
             return this.EndPoint;
         }
 
-        public override void MoveStartWithMouse(object sender, MouseEventArgs e)
+        public override void MoveStartWithMouse(object sender, System.Windows.Input.MouseEventArgs e)
         {
+           
             if (this.StartPointConnected==false)
             {
                 this.StartPoint = e.GetPosition(sender as Canvas);
             }
         }
 
-        public override void MoveEndWithMouse(object sender, MouseEventArgs e)
+        public override void MoveEndWithMouse(object sender, System.Windows.Input.MouseEventArgs e)
         {
             if (this.EndPointConnected==false)
             {
@@ -132,31 +115,13 @@ namespace SSLine
         #region Public Method
         public ArrowLine()
         {
-            //右键菜单
-            ContextMenu contextMenu = new ContextMenu();
-            MenuItem changelinecolor = new MenuItem();
-            changelinecolor.Click += (s, e) => { this.SetStrokeColor(); };
-            changelinecolor.Header = ContextMenuLabelEnum.改变颜色;
-            MenuItem changelinestroke = new MenuItem();
-            changelinestroke.Header = ContextMenuLabelEnum.改变线宽;
-            MenuItem deleteline = new MenuItem(); 
-             deleteline.Header = ContextMenuLabelEnum.删除;
-
-            contextMenu.Items.Add(changelinecolor);
-            contextMenu.Items.Add(changelinestroke);
-            contextMenu.Items.Add(deleteline);
-
-            this.ContextMenu = contextMenu;
+       
         }
 
-        /// <summary>
-        /// 设置线的颜色
-        /// </summary>
-        /// <param name="brush"></param>
-        public virtual void SetStrokeColor()
-        {
+        
 
-        }
+
+       
         #endregion
 
     }

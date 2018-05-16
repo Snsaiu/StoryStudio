@@ -1,25 +1,20 @@
 ﻿using ISSCommand;
-using SSLine;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Controls;
 
 namespace NodeBase
 {
     public class CreateLineCommand : ISSCommand.ISSCommand
     {
-        private ArrowLineWithText _arrowLineWithText = null;
+        private SSLine.ArrowBase _arrowLineWithText = null;
 
         private InputComponent _input = null;
 
         private Canvas _canvas = null;
         private OutputComponent _out = null;
-        public CreateLineCommand(ArrowLineWithText arrowLineWithText,Canvas canvas)
+        public CreateLineCommand(SSLine.ArrowBase arrowLineWithText,Canvas canvas)
         {
             this._canvas = canvas;
+           
             this._arrowLineWithText = arrowLineWithText;
             this._input = this._arrowLineWithText.EndComponent as InputComponent;
             this._out = this._arrowLineWithText.StartComponent as OutputComponent;
@@ -75,9 +70,9 @@ namespace NodeBase
             bool hasInCanvas = false;
             foreach (var item in this._canvas.Children)
             {
-                if (item is ArrowLineWithText)
+                if (item is SSLine.ArrowBase)
                 {
-                   if ((ArrowLineWithText)item== this._arrowLineWithText )
+                   if ((SSLine.ArrowBase)item== this._arrowLineWithText )
                     {
                         hasInCanvas = true;
                     }

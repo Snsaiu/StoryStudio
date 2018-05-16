@@ -84,8 +84,8 @@ namespace NodeBase
 
 
             //创建线工厂
-            SSLineFactoryAbs sSLineFactory = new DefaultLineFactory();
-            ArrowLineWithText arrowLineWithText = null;
+            SSLineFactoryAbs.SSLineFactoryAbs sSLineFactory = new DefaultLineFactory.DefaultLineFactory();
+            SSLine.ArrowBase arrowLineWithText = null;
 
 
             if (this.IOType == BaseTypeEnum.IOTypeEnum.output)

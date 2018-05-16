@@ -59,7 +59,7 @@
       <Name>ISSBase</Name>
     </ProjectReference>
     <ProjectReference Include="..\SSLine\SSLine.csproj">
-      <Project>{517F1B3F-E555-4BBA-8385-86483FA947C2}</Project>
+      <Project>{517f1b3f-e555-4bba-8385-86483fa947c2}</Project>
       <Name>SSLine</Name>
     </ProjectReference>
   </ItemGroup>
