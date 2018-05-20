@@ -58,10 +58,6 @@
       <Project>{C5E0AFC7-BC71-4621-BF29-E30FA06A2BD5}</Project>
       <Name>ISSBase</Name>
     </ProjectReference>
-    <ProjectReference Include="..\SSLine\SSLine.csproj">
-      <Project>{517f1b3f-e555-4bba-8385-86483fa947c2}</Project>
-      <Name>SSLine</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

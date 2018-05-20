@@ -34,7 +34,7 @@ namespace NodeBase
         /// <summary>
         /// 保存线集合
         /// </summary>
-        private List<SSLine.ArrowBase> _lines = null;
+        private List<ArrowBase> _lines = null;
 
         /// <summary>
         /// 存放单选列表属性
@@ -130,7 +130,7 @@ namespace NodeBase
             this.LoadViewFromUri("/NodeComponentSets;component/nodecomponentbase.xaml");
 
             this._node = node;
-            this._lines = new List<SSLine.ArrowBase>();
+            this._lines = new List<ArrowBase>();
 
             // 初始化属性容器
             this._stringAttrs = new List<StringAttr>();
@@ -163,7 +163,7 @@ namespace NodeBase
         /// 获得线集合
         /// </summary>
         /// <returns>线集合对象</returns>
-        public List<SSLine.ArrowBase> GetLines()
+        public List<ArrowBase> GetLines()
         {
             return this._lines;
         }
@@ -180,7 +180,7 @@ namespace NodeBase
         /// 添加一根线到容器中
         /// </summary>
         /// <param name="line">线对象</param>
-        public void AddNewLine(SSLine.ArrowBase line)
+        public void AddNewLine(ArrowBase line)
         {
             this._lines.Add(line);
         }
@@ -190,7 +190,7 @@ namespace NodeBase
         /// </summary>
         /// <param name="line">要移除的线的实例</param>
         /// <returns>移除成功返回true，否则返回false</returns>
-        public bool DeleteLineByInstance( SSLine.ArrowBase line)
+        public bool DeleteLineByInstance( ArrowBase line)
         {
             foreach (var item in this._lines)
             {

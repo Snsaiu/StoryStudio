@@ -52,7 +52,6 @@
   <ItemGroup>
     <Compile Include="AdjustableArrowBezierCurve.cs" />
     <Compile Include="AdjustableArrowQuadraticBezier.cs" />
-    <Compile Include="ArrowBase.cs" />
     <Compile Include="ArrowBezierCurve.cs" />
     <Compile Include="ArrowEnds.cs" />
     <Compile Include="ArrowQuadraticBezier.cs" />

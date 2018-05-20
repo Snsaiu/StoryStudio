@@ -49,21 +49,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GlobalTracker\GlobalTracker.csproj">
-      <Project>{802AEC58-DB62-4352-99B2-1B5A7CDF9120}</Project>
-      <Name>GlobalTracker</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ISSCommand\ISSCommand.csproj">
       <Project>{A886CB65-6727-4BC4-B567-9CEE0B765608}</Project>
       <Name>ISSCommand</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\NodeComponentSets\NodeBase.csproj">
-      <Project>{4B0F4665-7813-4E1E-A0F3-E04D0576521B}</Project>
-      <Name>NodeBase</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SSLine\SSLine.csproj">
-      <Project>{517f1b3f-e555-4bba-8385-86483fa947c2}</Project>
-      <Name>SSLine</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

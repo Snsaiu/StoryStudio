@@ -5,7 +5,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Shapes;
-namespace SSLine
+namespace NodeBase
 {
 
 
@@ -379,7 +379,8 @@ namespace SSLine
         public virtual void DeleteLine()
         {
             CommandManager.CommandManager commandManager = CommandManager.CommandManager.GetInstance();
-         
+            DeleteLineCommand deleteLineCommand = new DeleteLineCommand(this);
+            commandManager.ExecuteCommand(deleteLineCommand);
             //DeleteLineCommand
         }
 

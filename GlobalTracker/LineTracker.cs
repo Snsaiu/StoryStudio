@@ -2,12 +2,12 @@
 {
     public static class LineTracker
     {
-        private static SSLine.ArrowBase _storeLineObj;
+        private static object _storeLineObj;
 
         /// <summary>
         /// 设置或者获得当前需要链接的线
         /// </summary>
-        public static SSLine.ArrowBase StoreLineObj
+        public static object StoreLineObj
         {
             get { return _storeLineObj; }
             set { _storeLineObj = value; }

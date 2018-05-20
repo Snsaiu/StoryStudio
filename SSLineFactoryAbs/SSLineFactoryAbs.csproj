@@ -43,11 +43,5 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SSLineFactoryAbs.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\SSLine\SSLine.csproj">
-      <Project>{517f1b3f-e555-4bba-8385-86483fa947c2}</Project>
-      <Name>SSLine</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

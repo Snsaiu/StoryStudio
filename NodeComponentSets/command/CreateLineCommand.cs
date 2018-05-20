@@ -5,13 +5,13 @@ namespace NodeBase
 {
     public class CreateLineCommand : ISSCommand.ISSCommand
     {
-        private SSLine.ArrowBase _arrowLineWithText = null;
+        private ArrowBase _arrowLineWithText = null;
 
         private InputComponent _input = null;
 
         private Canvas _canvas = null;
         private OutputComponent _out = null;
-        public CreateLineCommand(SSLine.ArrowBase arrowLineWithText,Canvas canvas)
+        public CreateLineCommand(ArrowBase arrowLineWithText,Canvas canvas)
         {
             this._canvas = canvas;
            
@@ -70,9 +70,9 @@ namespace NodeBase
             bool hasInCanvas = false;
             foreach (var item in this._canvas.Children)
             {
-                if (item is SSLine.ArrowBase)
+                if (item is ArrowBase)
                 {
-                   if ((SSLine.ArrowBase)item== this._arrowLineWithText )
+                   if ((ArrowBase)item== this._arrowLineWithText )
                     {
                         hasInCanvas = true;
                     }

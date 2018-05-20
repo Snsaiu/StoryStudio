@@ -1,4 +1,4 @@
-﻿namespace SSLineFactoryAbs
+﻿namespace NodeBase
 {
     /// <summary>
     /// 创建节点之间的连线的抽象类

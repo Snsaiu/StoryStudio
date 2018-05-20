@@ -1,5 +1,4 @@
 ﻿using GlobalTracker;
-using SSLine;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -34,10 +33,12 @@ namespace NodeBase
 
             if (LineTracker.CanCreateLine==false)
             {
+                ArrowLine line = LineTracker.StoreLineObj as ArrowLine;
+
                 //判断是否可以进行连接
-                if (LineTracker.StoreLineObj.EndComponent is NodeComponentBase)
+                if (line.EndComponent is NodeComponentBase)
                 {
-                    NodeComponentBase temp = LineTracker.StoreLineObj.EndComponent as NodeComponentBase;
+                    NodeComponentBase temp = line.EndComponent as NodeComponentBase;
                     // 判断组件类型是否能够连接
 
                     //判断当前两个组件是否已经存在链接
@@ -58,13 +59,13 @@ namespace NodeBase
                     {
                         if (temp.IOType==BaseTypeEnum.IOTypeEnum.input)
                         {
-                            this.canvas.MouseMove -= LineTracker.StoreLineObj.MoveStartWithMouse;
-                            LineTracker.StoreLineObj.StartComponent = this;
+                            this.canvas.MouseMove -= line.MoveStartWithMouse;
+                            line.StartComponent = this;
                             CommandManager.CommandManager commandManager = CommandManager.CommandManager.GetInstance();
-                            CreateLineCommand createLineCommand = new CreateLineCommand(LineTracker.StoreLineObj, this.canvas);
+                            CreateLineCommand createLineCommand = new CreateLineCommand(line, this.canvas);
                             commandManager.ExecuteCommand(createLineCommand);
 
-                            LineTracker.StoreLineObj.IsHitTestVisible = true;
+                            line.IsHitTestVisible = true;
 
                             LineTracker.CanCreateLine = true;
                             LineTracker.StoreLineObj = null;
@@ -84,8 +85,8 @@ namespace NodeBase
 
 
             //创建线工厂
-            SSLineFactoryAbs.SSLineFactoryAbs sSLineFactory = new DefaultLineFactory.DefaultLineFactory();
-            SSLine.ArrowBase arrowLineWithText = null;
+            SSLineFactoryAbs sSLineFactory = new DefaultLineFactory();
+            ArrowBase arrowLineWithText = null;
 
 
             if (this.IOType == BaseTypeEnum.IOTypeEnum.output)
@@ -134,7 +135,7 @@ namespace NodeBase
                 {
 
                     //删除线
-                    this.canvas.Children.Remove(LineTracker.StoreLineObj);
+                    this.canvas.Children.Remove(LineTracker.StoreLineObj as ArrowLine);
                     //可以重新创建线
                     LineTracker.CanCreateLine = true;
                 };

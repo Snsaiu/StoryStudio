@@ -47,23 +47,5 @@
     <Compile Include="DefaultLineFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ArrowLineWithText\ArrowLineWithText.csproj">
-      <Project>{29D627BE-88B9-45CE-9E0D-C4DEB784933A}</Project>
-      <Name>ArrowLineWithText</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ArrowLine\ArrowLine.csproj">
-      <Project>{7312851A-6593-4288-A465-477E3CD53203}</Project>
-      <Name>ArrowLine</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SSLineFactoryAbs\SSLineFactoryAbs.csproj">
-      <Project>{9C26A6D9-B6CB-4C39-B269-824068E4FCBB}</Project>
-      <Name>SSLineFactoryAbs</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SSLine\SSLine.csproj">
-      <Project>{517F1B3F-E555-4BBA-8385-86483FA947C2}</Project>
-      <Name>SSLine</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -59,10 +59,6 @@
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ArrowLine\ArrowLine.csproj">
-      <Project>{7312851A-6593-4288-A465-477E3CD53203}</Project>
-      <Name>ArrowLine</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CommandManager\CommandManager.csproj">
       <Project>{9F724C5E-5126-42D5-8575-6CDEECD8A67E}</Project>
       <Name>CommandManager</Name>
@@ -70,10 +66,6 @@
     <ProjectReference Include="..\ISSCommand\ISSCommand.csproj">
       <Project>{A886CB65-6727-4BC4-B567-9CEE0B765608}</Project>
       <Name>ISSCommand</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\SSLine\SSLine.csproj">
-      <Project>{517F1B3F-E555-4BBA-8385-86483FA947C2}</Project>
-      <Name>SSLine</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

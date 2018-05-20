@@ -1,20 +1,23 @@
-﻿namespace LineCommandSet
+﻿using GlobalTracker;
+using NodeBase;
+
+namespace NodeBase
 {
     public class DeleteLineCommand : ISSCommand.ISSCommand
     {
 
-        private SSLine.ArrowBase  _line = null;
+        private ArrowBase  _line = null;
 
         private InputComponent _inputComponent = null;
 
         private OutputComponent _outputComponent = null;
 
-        public DeleteLineCommand(SSLine.ArrowBase line)
+        public DeleteLineCommand(ArrowBase line)
         {
             this._line = line;
 
-            this._inputComponent = this._line.StartComponent as InputComponent;
-            this._outputComponent = this._line.EndComponent as OutputComponent;
+            this._outputComponent = this._line.StartComponent as OutputComponent;
+            this._inputComponent = this._line.EndComponent as InputComponent; 
 
         }
         public void Execute()

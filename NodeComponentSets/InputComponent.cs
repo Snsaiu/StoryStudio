@@ -1,16 +1,7 @@
-﻿using DefaultLineFactory;
-using GlobalTracker;
-using SSLine;
-using SSLineFactoryAbs;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using GlobalTracker;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
-using System.Windows.Media;
 
 namespace NodeBase
 {
@@ -38,7 +29,7 @@ namespace NodeBase
             // 根据条件创建线的起点
 
             //创建线工厂
-            SSLineFactoryAbs.SSLineFactoryAbs sSLineFactory = new DefaultLineFactory.DefaultLineFactory();
+            SSLineFactoryAbs sSLineFactory = new DefaultLineFactory();
             ArrowBase arrowLineWithText = null;
 
             //判断当前是否有线需要被连接，如果已经有线正在被连接，那么不创建线
@@ -52,9 +43,10 @@ namespace NodeBase
                 //判断 是能否进行连接
                 if (LineTracker.StoreLineObj!=null)
                 {
-                    if (LineTracker.StoreLineObj.StartComponent is NodeComponentBase)
+                    ArrowLine arrowLine = LineTracker.StoreLineObj as ArrowLine;
+                    if (arrowLine.StartComponent is NodeComponentBase)
                     {
-                        NodeComponentBase temp = LineTracker.StoreLineObj.StartComponent as NodeComponentBase;
+                        NodeComponentBase temp = arrowLine.StartComponent as NodeComponentBase;
                         //todo判断节点类型以确定是否能够连接
                         //判断节点类型,只有相同类型的才能 连接
 
@@ -77,18 +69,18 @@ namespace NodeBase
                             if (temp.IOType==BaseTypeEnum.IOTypeEnum.output)
                             {
                                 //取消事件关注
-                                this.canvas.MouseMove -= LineTracker.StoreLineObj.MoveEndWithMouse;
-                                LineTracker.StoreLineObj.EndComponent = this;
+                                this.canvas.MouseMove -= arrowLine.MoveEndWithMouse;
+                                arrowLine.EndComponent = this;
 
                              
                                 CommandManager.CommandManager commandManager = CommandManager.CommandManager.GetInstance();
                                
-                                CreateLineCommand createLineCommand = new CreateLineCommand(LineTracker.StoreLineObj, this.canvas);
+                                CreateLineCommand createLineCommand = new CreateLineCommand(arrowLine, this.canvas);
                                 commandManager.ExecuteCommand(createLineCommand);
-                             
+
 
                                 // 恢复线的事件
-                                LineTracker.StoreLineObj.IsHitTestVisible = true;
+                                arrowLine.IsHitTestVisible = true;
 
                                 //初始化线追踪器
                                 LineTracker.CanCreateLine = true;
@@ -148,7 +140,7 @@ namespace NodeBase
                 {
 
                     //删除线
-                    this.canvas.Children.Remove(LineTracker.StoreLineObj);
+                    this.canvas.Children.Remove(LineTracker.StoreLineObj as ArrowLine);
                     //可以重新创建线
                     LineTracker.CanCreateLine = true;
                 };

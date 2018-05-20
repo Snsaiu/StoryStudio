@@ -1,6 +1,6 @@
 ﻿namespace ArrowLineWithText
 {
-    using ArrowLine;
+    using NodeBase;
     using System.Globalization;
     using System.Windows;
     using System.Windows.Media;
@@ -8,7 +8,7 @@
     /// <summary>
     /// 带文本和箭头的两点之间连线   
     /// </summary>
-    public class ArrowLineWithText : ArrowLine.ArrowLine
+    public class ArrowLineWithText : ArrowLine
     {
 
         public ArrowLineWithText()
