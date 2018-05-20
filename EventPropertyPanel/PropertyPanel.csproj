@@ -47,9 +47,6 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EventPropertyPanel.xaml.cs">
-      <DependentUpon>EventPropertyPanel.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -73,12 +70,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="EventPropertyPanel.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BaseTypeEnum\BaseTypeEnum.csproj">
       <Project>{337E92F4-FA82-4519-B488-8E73E80B56DE}</Project>
       <Name>BaseTypeEnum</Name>
@@ -94,6 +85,10 @@
     <ProjectReference Include="..\IPanelBase\IPanelBase.csproj">
       <Project>{F8085D51-BC3C-44A5-8BAB-232C83E51942}</Project>
       <Name>IPanelBase</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NodeComponentSets\NodeBase.csproj">
+      <Project>{4B0F4665-7813-4E1E-A0F3-E04D0576521B}</Project>
+      <Name>NodeBase</Name>
     </ProjectReference>
     <ProjectReference Include="..\SSBase\ISSBase.csproj">
       <Project>{C5E0AFC7-BC71-4621-BF29-E30FA06A2BD5}</Project>

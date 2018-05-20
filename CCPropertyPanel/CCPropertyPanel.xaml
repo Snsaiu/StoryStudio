@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:CCPropertyPanel"
              mc:Ignorable="d" 
              d:DesignHeight="726" Width="371">
-    <Grid Background="Beige">
+    <StackPanel Name="ccpro" Background="Beige">
             
-    </Grid>
+    </StackPanel>
 </UserControl>

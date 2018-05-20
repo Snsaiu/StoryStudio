@@ -29,6 +29,10 @@ namespace NodeBase
             this.IntContent.TextChanged += (s, e) => { Component.NotifyUpdate(); };
 
         }
+        public IntAttrUI()
+        {
+
+        }
 
         /// <summary>
         /// 设置或者获得属性ui是否可编辑

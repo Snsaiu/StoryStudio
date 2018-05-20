@@ -100,14 +100,12 @@ namespace NodeBase
             MenuItem changelinecolor = new MenuItem();
             changelinecolor.Click += (s, e) => { this.SetStrokeColor(); };
             changelinecolor.Header = ContextMenuLabelEnum.改变颜色;
-            MenuItem changelinestroke = new MenuItem();
-            changelinestroke.Header = ContextMenuLabelEnum.改变线宽;
             MenuItem deleteline = new MenuItem();
             deleteline.Click += (s, e) => { this.DeleteLine(); };
             deleteline.Header = ContextMenuLabelEnum.删除;
 
             contextMenu.Items.Add(changelinecolor);
-            contextMenu.Items.Add(changelinestroke);
+
             contextMenu.Items.Add(deleteline);
 
             this.ContextMenu = contextMenu;

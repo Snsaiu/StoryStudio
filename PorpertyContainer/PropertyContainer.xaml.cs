@@ -1,20 +1,7 @@
-﻿using GlobalTracker;
-using IJoinGlobalTracker;
-using IPanelBase;
+﻿using NodeBase;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace PorpertyContainer
 {
@@ -38,13 +25,18 @@ namespace PorpertyContainer
         public PropertyContainer()
         {
             InitializeComponent();
+            PropertyPanel p = new PropertyPanel();
+            GlobalTracker.GlobalTracker.GetInstance().PropertyPanel = p;
+            this.PriPropertyGrid.Children.Add(p);
         }
+
+
 
         private bool _isactivity = false;
 
         public bool IsActivity { get => _isactivity; set => this._isactivity = value; }
 
-        public string PanelLabel => "属性容器面板";
+        public string PanelLabel => "属性面板";
         public int Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
         public global::BaseTypeEnum.BaseTypeEnum BaseType { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 

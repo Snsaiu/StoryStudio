@@ -11,7 +11,9 @@
             <RowDefinition Height="14*"/>
             <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
-        <Grid Name="PriPropertyGrid" Background="Blue" Grid.Column="0" Grid.Row="0"></Grid>
+        <Grid Name="PriPropertyGrid" Background="Blue" Grid.Column="0" Grid.Row="0">
+            <Button Content="gello"/>
+        </Grid>
         <Grid Name="PublicPropertyGrid" Background="Yellow" Grid.Column="0" Grid.Row="1"></Grid>
     </Grid>
 </UserControl>

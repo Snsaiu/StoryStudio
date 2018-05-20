@@ -26,6 +26,11 @@ namespace NodeBase
             this.ListContent.SelectionChanged += (s, e) => { Component.NotifyUpdate(); };
         }
 
+        public ListAttrUI()
+        {
+
+        }
+
         /// <summary>
         /// 设置或者获得属性ui是否可用
         /// </summary>

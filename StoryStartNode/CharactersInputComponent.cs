@@ -11,6 +11,7 @@ namespace StoryStartNode
         { 
         }
 
+
         public override string Label => "角色";
 
         public override string ShortName => "CC";

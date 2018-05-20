@@ -2,8 +2,11 @@
 using NodeBase;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Markup;
+using System.Xml;
 
 namespace NodeBase
 {
@@ -106,7 +109,7 @@ namespace NodeBase
         /// <summary>
         /// 获得当前组件的依赖的节点
         /// </summary>
-        public NodeBase MyShell { get => this._node; }
+        public NodeBase MyShell { get => this._node; set => this._node = value; }
         #endregion
 
 
@@ -123,6 +126,40 @@ namespace NodeBase
             }
             return null;
         }
+
+        public NodeComponentBase()
+        {
+            this.LoadViewFromUri("/NodeComponentSets;component/nodecomponentbase.xaml");
+            this._lines = new List<ArrowBase>();
+
+            // 初始化属性容器
+            this._stringAttrs = new List<StringAttr>();
+            this._intAttrs = new List<IntAttr>();
+            this._boolAttrs = new List<BoolAttr>();
+            this._listAttrs = new List<ListAttr>();
+            this._floatAttrs = new List<FloatAttr>();
+            this._mulitSelectAttrs = new List<MulitSelectAttr>();
+
+            this._mynotifiers = new List<NodeComponentBase>();
+
+            //初始化注册组件容器对象
+            this._componentList = new List<NodeComponentBase>();
+
+            //添加属性
+            this.SetAttributes();
+            this.IOComponentBtn.Click += ClickEvent;
+
+            // 添加组件显示名称
+            if (String.IsNullOrEmpty(this.Label))
+            {
+                this.IOComponentBtn.Content = "X";
+            }
+            else
+            {
+                this.IOComponentBtn.Content = this.Label;
+            }
+        }
+
 
         public NodeComponentBase(NodeBase node)
         {
@@ -560,9 +597,20 @@ namespace NodeBase
         {
             this._mynotifiers.Remove(comp);
         }
-       
 
-      
+        /// <summary>
+        /// 克隆对象
+        /// </summary>
+        /// <returns></returns>
+        public NodeComponentBase Clone()
+        {
+            ///使用序列化分序列化
+            ///
+            string rectXaml = XamlWriter.Save(this);
+            StringReader stringReader = new StringReader(rectXaml);
+            XmlReader xmlReader = XmlReader.Create(stringReader);
+            return XamlReader.Load(xmlReader) as NodeComponentBase;
+        }
 
         #endregion
 

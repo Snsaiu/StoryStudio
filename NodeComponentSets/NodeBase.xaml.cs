@@ -35,6 +35,9 @@ namespace NodeBase
 
             //右键菜单
             this.CreateContextMenu();
+
+            //双击事件
+            this.MouseDoubleClick += (s, e) => { this.SendToPanel(); };
             // 绑定事件
             this.MouseMove += NodeBase_MouseMove;
             // 显示Nodelabel
@@ -49,6 +52,9 @@ namespace NodeBase
             }
         }
 
+        /// <summary>
+        /// 创建右键菜单
+        /// </summary>
         private void CreateContextMenu()
         {
             ContextMenu contextMenu = new ContextMenu();
@@ -65,12 +71,13 @@ namespace NodeBase
             //todo:这里可以添加一个扩张
 
             this.ContextMenu = contextMenu;
-
-            
-            
-
         }
 
+
+        private void SendToPanel()
+        {
+            (GlobalTracker.GlobalTracker.GetInstance().PropertyPanel as PropertyPanel).ParseNode(this);
+        }
         /// <summary>
         /// 组装组件
         /// </summary>
@@ -406,6 +413,28 @@ namespace NodeBase
         public List<InputComponent> GetInputComponents()
         {
             return this._inputs;
+        }
+
+        /// <summary>
+        /// 设置节点的所有输入组件
+        /// </summary>
+        /// <param name="inputComponents"></param>
+        public void UpdateInputComponents(List<InputComponent> inputComponents)
+        {
+            
+                this._inputs.Clear();
+            this._inputs = inputComponents;
+
+        }
+
+        /// <summary>
+        /// 设置节点的所有输出组件
+        /// </summary>
+        /// <param name="outputComponents"></param>
+        public void UpdateOutputComponents(List<OutputComponent> outputComponents)
+        {
+            this._outputs.Clear();
+            this._outputs = outputComponents;
         }
 
         /// <summary>

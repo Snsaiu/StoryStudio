@@ -26,6 +26,10 @@ namespace NodeBase
             this.MultiSelectContent.SelectionChanged += (s, e) => { Component.NotifyUpdate(); };
         }
 
+        public MulitSelectAttrUI()
+        {
+
+        }
         /// <summary>
         /// 设置或者获得属性ui是否能被编辑，通常输入属性不应该可编辑，输出组件可以编辑
         /// </summary>

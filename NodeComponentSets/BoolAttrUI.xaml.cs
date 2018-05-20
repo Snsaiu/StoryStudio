@@ -27,6 +27,10 @@ namespace NodeBase
             this.BoolContent.Click += (s, e) => { nodeComponentBase.NotifyUpdate(); };
         }
 
+        public BoolAttrUI()
+        {
+
+        }
         /// <summary>
         /// 设置或者获得属性ui是否可用
         /// </summary>

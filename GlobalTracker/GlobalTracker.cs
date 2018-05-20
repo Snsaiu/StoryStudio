@@ -254,6 +254,10 @@ namespace GlobalTracker
             set { _lastNode = value; }
         }
 
+        /// <summary>
+        /// 获得或者设置节点属性面板实例
+        /// </summary>
+        public object PropertyPanel { get; set; }
 
     }
 }

@@ -29,6 +29,11 @@ namespace NodeBase
             this.StrContent.TextChanged += (s, e) => { Component.NotifyUpdate(); };
         }
 
+        public StringAttrUI()
+        {
+
+        }
+
         /// <summary>
         /// 设置或者获得属性ui是否可编辑
         /// </summary>
