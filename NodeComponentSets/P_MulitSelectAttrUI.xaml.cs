@@ -16,20 +16,20 @@ using System.Windows.Shapes;
 namespace NodeBase
 {
     /// <summary>
-    /// Interaction logic for MulitSelectAttrUI.xaml
+    /// Interaction logic for P_MulitSelectAttrUI.xaml
     /// </summary>
-    public partial class MulitSelectAttrUI : UserControl
+    public partial class P_MulitSelectAttrUI : UserControl
     {
-        public MulitSelectAttrUI(NodeComponentBase Component)
+        private MulitSelectAttr _attr;
+        public P_MulitSelectAttrUI(MulitSelectAttr attr)
         {
             InitializeComponent();
-            this.MultiSelectContent.SelectionChanged += (s, e) => { Component.NotifyUpdate(); };
+
+            this._attr = attr;
+            this.MultiSelectContent.SelectionChanged += (s, e) => { this._attr.UpdateIndexs(this.DefaultIndexs); };
         }
 
-        public MulitSelectAttrUI()
-        {
 
-        }
         /// <summary>
         /// 设置或者获得属性ui是否能被编辑，通常输入属性不应该可编辑，输出组件可以编辑
         /// </summary>
@@ -65,9 +65,9 @@ namespace NodeBase
                         this.MultiSelectContent.SelectedItems.Add(item);
                     }
                 }
+
             }
         }
-
 
     }
 }

@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:NodeBase"
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
-    <StackPanel Background="DimGray" Orientation="Vertical" Name="PropertyStack" Margin="0,0,0,-369">
-
+    <StackPanel Background="#FF393939" Orientation="Vertical" Name="PropertyStack" >
+      
     </StackPanel>
 </UserControl>

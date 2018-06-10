@@ -121,6 +121,7 @@ namespace NodeBase
                           
                             IntAttrUI intAttr = new IntAttrUI(this._inputs[i]);
                             intAttr.IntUILabel = item.DisplayName;
+                            item.SetUi(intAttr);
                             intAttr.CanEdit = false;
                             intAttr.IntUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(intAttr);
@@ -133,6 +134,7 @@ namespace NodeBase
                         {
                             FloatAttrUI floatAttrUI = new FloatAttrUI(this._inputs[i]);
                             floatAttrUI.FloatUILabel = item.DisplayName;
+                            item.SetUi(floatAttrUI);
                             floatAttrUI.CanEdit = false;
                             floatAttrUI.FloatUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(floatAttrUI);
@@ -147,6 +149,7 @@ namespace NodeBase
                             ListAttrUI listAttrUI = new ListAttrUI(this._inputs[i]);
                             listAttrUI.ListUILabel = item.DisplayName;
                             listAttrUI.CanEdit = true;
+                            item.SetUi(listAttrUI);
                             listAttrUI.ListUIContent = item.Value;
                             listAttrUI.DefaultIndex = item.DefaultIndex;
                             this.componentstack.Children.Add(listAttrUI);
@@ -176,6 +179,7 @@ namespace NodeBase
                         {
                             BoolAttrUI boolAttrUI = new BoolAttrUI(this._inputs[i]);
                             boolAttrUI.BoolUILabel = item.DisplayName;
+                            item.SetUi(boolAttrUI);
                             boolAttrUI.CanEdit = true;
                             boolAttrUI.BoolUIContent = item.DefaultValue;
                             this.componentstack.Children.Add(boolAttrUI);
@@ -219,6 +223,7 @@ namespace NodeBase
 
                             IntAttrUI intAttr = new IntAttrUI(this._outputs[i]);
                             intAttr.IntUILabel = item.DisplayName;
+                            item.SetUi(intAttr);
                             intAttr.IntUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(intAttr);
                         }
@@ -230,6 +235,7 @@ namespace NodeBase
                         {
                             FloatAttrUI floatAttrUI = new FloatAttrUI(this._outputs[i]);
                             floatAttrUI.FloatUILabel = item.DisplayName;
+                            item.SetUi(floatAttrUI);
                             floatAttrUI.FloatUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(floatAttrUI);
                         }
@@ -242,6 +248,7 @@ namespace NodeBase
                         {
                             ListAttrUI listAttrUI = new ListAttrUI(this._outputs[i]);
                             listAttrUI.ListUILabel = item.DisplayName;
+                            item.SetUi(listAttrUI);
                             listAttrUI.ListUIContent = item.Value;
                             listAttrUI.DefaultIndex = item.DefaultIndex;
                             this.componentstack.Children.Add(listAttrUI);
@@ -256,7 +263,7 @@ namespace NodeBase
                             MulitSelectAttrUI MulitSelectAttrUI = new MulitSelectAttrUI(this._outputs[i]);
                             MulitSelectAttrUI.MultiSelectUILabel = item.DisplayName;
                             MulitSelectAttrUI.MulitListUIContent = item.Value;
-                         
+                            item.SetUi(MulitSelectAttrUI);
                             MulitSelectAttrUI.DefaultIndexs = item.DefaultItems;
                             item.SetUi(MulitSelectAttrUI);
                             MulitSelectAttrUI.MultiSelectContent.SelectionChanged += (s, e) => {  item.DefaultItems = MulitSelectAttrUI.DefaultIndexs; };
@@ -272,6 +279,7 @@ namespace NodeBase
                         {
                             BoolAttrUI boolAttrUI = new BoolAttrUI(this._outputs[i]);
                             boolAttrUI.BoolUILabel = item.DisplayName;
+                            item.SetUi(boolAttrUI);
                             boolAttrUI.BoolUIContent = item.DefaultValue;
                             this.componentstack.Children.Add(boolAttrUI);
                         }

@@ -7,6 +7,8 @@ namespace NodeBase
 
         #region Fields
 
+    
+
         private List<string> _value;
 
         /// <summary>
@@ -66,12 +68,21 @@ namespace NodeBase
         /// 设置新的内容并更新组件,如果组件存在
         /// </summary>
         /// <param name="content">更新内容</param>
-        public void UpdateUiContent(List<string> content)
+        public void UpdateList(List<string> content)
         {
             this.Value = content;
             if (this._ui != null)
             {
                 this._ui.MulitListUIContent = content;
+            }
+        }
+
+        public void UpdateIndexs(List<string> indexs)
+        {
+            this.DefaultItems = indexs;
+            if (this._ui!=null)
+            {
+                this._ui.DefaultIndexs = indexs;
             }
         }
 

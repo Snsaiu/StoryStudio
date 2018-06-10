@@ -7,8 +7,8 @@
     <ProjectGuid>{4B0F4665-7813-4E1E-A0F3-E04D0576521B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NodeComponentSets</RootNamespace>
-    <AssemblyName>NodeComponentSets</AssemblyName>
+    <RootNamespace>NodeBase</RootNamespace>
+    <AssemblyName>NodeBase</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -95,6 +95,24 @@
     <Compile Include="PropertyPanel.xaml.cs">
       <DependentUpon>PropertyPanel.xaml</DependentUpon>
     </Compile>
+    <Compile Include="P_BoolAttriUI.xaml.cs">
+      <DependentUpon>P_BoolAttriUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="P_FloatAttrUI.xaml.cs">
+      <DependentUpon>P_FloatAttrUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="p_IntAttrUI.xaml.cs">
+      <DependentUpon>p_IntAttrUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="P_ListAttrUI.xaml.cs">
+      <DependentUpon>P_ListAttrUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="P_MulitSelectAttrUI.xaml.cs">
+      <DependentUpon>P_MulitSelectAttrUI.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="P_StringAttrUI.xaml.cs">
+      <DependentUpon>P_StringAttrUI.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StringAttrUI.xaml.cs">
       <DependentUpon>StringAttrUI.xaml</DependentUpon>
     </Compile>
@@ -135,6 +153,30 @@
     <Page Include="PropertyPanel.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="P_BoolAttriUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="P_FloatAttrUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="p_IntAttrUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="P_ListAttrUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="P_MulitSelectAttrUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="P_StringAttrUI.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StringAttrUI.xaml">
       <Generator>MSBuild:Compile</Generator>

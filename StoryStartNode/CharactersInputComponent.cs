@@ -54,7 +54,7 @@ namespace StoryStartNode
                 {
                     if (item.Name== "ccinputlist")
                     {
-                        item.UpdateUiContent (_names);
+                        item.UpdateList (_names);
                     }
                 }
             }

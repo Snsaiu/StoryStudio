@@ -49,7 +49,7 @@ namespace StoryStartNode
                                             {
                                                 if (outdata.Name == "ccoutputlist")
                                                 {
-                                                    outdata.UpdateUiContent(attr.Value);
+                                                    outdata.UpdateList(attr.Value);
                                                 }
                                             }
                                         }

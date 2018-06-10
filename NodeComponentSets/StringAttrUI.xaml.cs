@@ -23,7 +23,7 @@ namespace NodeBase
         public StringAttrUI(NodeComponentBase Component)
         {
             //InitializeComponent();
-            this.LoadViewFromUri("/NodeComponentSets;component/stringattrui.xaml");
+            this.LoadViewFromUri("/NodeBase;component/stringattrui.xaml");
 
             this.StrContent.PreviewKeyDown += (s, e) => { Component.NotifyUpdate(); };
             this.StrContent.TextChanged += (s, e) => { Component.NotifyUpdate(); };
@@ -31,7 +31,7 @@ namespace NodeBase
 
         public StringAttrUI()
         {
-
+            this.LoadViewFromUri("/NodeBase;component/stringattrui.xaml");
         }
 
         /// <summary>

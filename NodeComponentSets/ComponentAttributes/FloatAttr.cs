@@ -8,6 +8,8 @@ namespace NodeBase
 {
   public class FloatAttr
     {
+        private FloatAttrUI _attrui;
+
         /// <summary>
         /// 唯一标识名
         /// </summary>
@@ -26,5 +28,25 @@ namespace NodeBase
         /// 属性是否要显示在Node面板中
         /// </summary>
         public bool DisplayOnNode { get; set; }
+
+        public void SetUi(FloatAttrUI floatAttrUI)
+        {
+            this._attrui = floatAttrUI;
+        }
+
+        /// <summary>
+        /// 通知Ui组件更新空间内容
+        /// </summary>
+        /// <param name="content"></param>
+        public void UpdateUiContent(float content)
+        {
+            this.DefaultValue = content;
+
+            if (this._attrui != null)
+            {
+                this._attrui.FloatUIContent = content.ToString();
+            }
+        }
+
     }
 }
