@@ -29,7 +29,6 @@ namespace StoryStartNode
         /// <param name="component"></param>
         public override void Process(NodeComponentBase component)
         {
-            System.Console.WriteLine("ccout" +this.RegistedComponents.Count );
             return;
         }
 

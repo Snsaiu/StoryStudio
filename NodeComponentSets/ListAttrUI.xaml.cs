@@ -20,10 +20,18 @@ namespace NodeBase
     /// </summary>
     public partial class ListAttrUI : UserControl
     {
+
+        private NodeComponentBase _component;
         public ListAttrUI(NodeComponentBase Component)
         {
             InitializeComponent();
-            this.ListContent.SelectionChanged += (s, e) => { Component.NotifyUpdate(); };
+            this._component = Component;
+            this.ListContent.SelectionChanged += ListContent_SelectionChanged;
+        }
+
+        private void ListContent_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            this._component.NotifyUpdate();
         }
 
         public ListAttrUI()

@@ -20,11 +20,19 @@ namespace NodeBase
     /// </summary>
     public partial class BoolAttrUI : UserControl
     {
+
+        private NodeComponentBase _componet = null;
+
         public BoolAttrUI(NodeComponentBase nodeComponentBase)
         {
             InitializeComponent();
+            this._componet = nodeComponentBase;
+            this.BoolContent.Click += BoolContent_Click;
+        }
 
-            this.BoolContent.Click += (s, e) => { nodeComponentBase.NotifyUpdate(); };
+        private void BoolContent_Click(object sender, RoutedEventArgs e)
+        {
+            this._componet.NotifyUpdate();
         }
 
         public BoolAttrUI()

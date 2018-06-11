@@ -123,6 +123,8 @@ namespace NodeBase
                             intAttr.IntUILabel = item.DisplayName;
                             item.SetUi(intAttr);
                             intAttr.CanEdit = false;
+                            intAttr.IntContent.PreviewKeyDown += (s, e) => { item.DefaultValue =int.Parse( intAttr.IntUIContent); };
+                            intAttr.IntContent.TextChanged += (s, e) => { item.DefaultValue = int.Parse(intAttr.IntUIContent); };
                             intAttr.IntUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(intAttr);
                         }
@@ -136,6 +138,8 @@ namespace NodeBase
                             floatAttrUI.FloatUILabel = item.DisplayName;
                             item.SetUi(floatAttrUI);
                             floatAttrUI.CanEdit = false;
+                            floatAttrUI.FloatContent.PreviewKeyDown += (s, e) => { item.DefaultValue = float.Parse(floatAttrUI.FloatUIContent); };
+                            floatAttrUI.FloatContent.TextChanged += (s, e) => { item.DefaultValue = float.Parse(floatAttrUI.FloatUIContent); };
                             floatAttrUI.FloatUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(floatAttrUI);
                         }
@@ -150,6 +154,7 @@ namespace NodeBase
                             listAttrUI.ListUILabel = item.DisplayName;
                             listAttrUI.CanEdit = true;
                             item.SetUi(listAttrUI);
+                            listAttrUI.ListContent.SelectionChanged += (s, e) => { item.DefaultIndex = listAttrUI.DefaultIndex; };
                             listAttrUI.ListUIContent = item.Value;
                             listAttrUI.DefaultIndex = item.DefaultIndex;
                             this.componentstack.Children.Add(listAttrUI);
@@ -181,6 +186,7 @@ namespace NodeBase
                             boolAttrUI.BoolUILabel = item.DisplayName;
                             item.SetUi(boolAttrUI);
                             boolAttrUI.CanEdit = true;
+                            boolAttrUI.BoolContent.Click += (s, e) => { item.DefaultValue = boolAttrUI.BoolUIContent; };
                             boolAttrUI.BoolUIContent = item.DefaultValue;
                             this.componentstack.Children.Add(boolAttrUI);
                         }
@@ -224,6 +230,8 @@ namespace NodeBase
                             IntAttrUI intAttr = new IntAttrUI(this._outputs[i]);
                             intAttr.IntUILabel = item.DisplayName;
                             item.SetUi(intAttr);
+                            intAttr.IntContent.PreviewKeyDown += (s, e) => { item.DefaultValue = int.Parse( intAttr.IntUIContent); };
+                            intAttr.IntContent.TextChanged += (s, e) => { item.DefaultValue = int.Parse(intAttr.IntUIContent); };
                             intAttr.IntUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(intAttr);
                         }
@@ -236,6 +244,8 @@ namespace NodeBase
                             FloatAttrUI floatAttrUI = new FloatAttrUI(this._outputs[i]);
                             floatAttrUI.FloatUILabel = item.DisplayName;
                             item.SetUi(floatAttrUI);
+                            floatAttrUI.FloatContent.PreviewKeyDown += (s, e) => { item.DefaultValue = float.Parse(floatAttrUI.FloatUIContent); };
+                            floatAttrUI.FloatContent.TextChanged += (s, e) => { item.DefaultValue = float.Parse(floatAttrUI.FloatUIContent); };
                             floatAttrUI.FloatUIContent = item.DefaultValue.ToString();
                             this.componentstack.Children.Add(floatAttrUI);
                         }
@@ -249,6 +259,7 @@ namespace NodeBase
                             ListAttrUI listAttrUI = new ListAttrUI(this._outputs[i]);
                             listAttrUI.ListUILabel = item.DisplayName;
                             item.SetUi(listAttrUI);
+                            listAttrUI.ListContent.SelectionChanged += (s, e) => { item.DefaultIndex = listAttrUI.DefaultIndex; };
                             listAttrUI.ListUIContent = item.Value;
                             listAttrUI.DefaultIndex = item.DefaultIndex;
                             this.componentstack.Children.Add(listAttrUI);
@@ -280,6 +291,7 @@ namespace NodeBase
                             BoolAttrUI boolAttrUI = new BoolAttrUI(this._outputs[i]);
                             boolAttrUI.BoolUILabel = item.DisplayName;
                             item.SetUi(boolAttrUI);
+                            boolAttrUI.BoolContent.Click += (s, e) => { item.DefaultValue = boolAttrUI.BoolUIContent; };
                             boolAttrUI.BoolUIContent = item.DefaultValue;
                             this.componentstack.Children.Add(boolAttrUI);
                         }

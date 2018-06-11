@@ -27,8 +27,13 @@ namespace NodeBase
             InitializeComponent();
 
             this._attr = boolAttr;
-            this.BoolContent.Click += (s, e) => { this._attr.UpdateUiContent(this.BoolUIContent); };
+        
+            this.BoolContent.Click += BoolContent_Click;
+        }
 
+        private void BoolContent_Click(object sender, RoutedEventArgs e)
+        {
+            this._attr.UpdateUiContent(this.BoolUIContent);
         }
 
         /// <summary>
