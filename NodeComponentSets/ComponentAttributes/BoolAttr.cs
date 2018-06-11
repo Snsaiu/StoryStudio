@@ -41,7 +41,7 @@
         /// 通知Ui组件更新空间内容
         /// </summary>
         /// <param name="content"></param>
-        public void UpdateUiContent(bool content)
+        public void UpdateUiContent(bool? content)
         {
             this.DefaultValue = content;
 

@@ -20,9 +20,15 @@ namespace NodeBase
     /// </summary>
     public partial class P_BoolAttriUI : UserControl
     {
-        public P_BoolAttriUI()
+
+        private BoolAttr _attr = null;
+        public P_BoolAttriUI(BoolAttr boolAttr)
         {
             InitializeComponent();
+
+            this._attr = boolAttr;
+            this.BoolContent.Click += (s, e) => { this._attr.UpdateUiContent(this.BoolUIContent); };
+
         }
 
         /// <summary>
