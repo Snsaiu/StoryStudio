@@ -131,6 +131,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NodeBase", "NodeComponentSe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoryStudio", "StudioStory\StoryStudio.csproj", "{D8A38C39-F612-4A88-95FF-D13CD0FF8A9F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CameraTake", "CameraTake\CameraTake.csproj", "{0E4E3E95-31FE-471D-84BB-0205795232C6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -341,6 +343,10 @@ Global
 		{D8A38C39-F612-4A88-95FF-D13CD0FF8A9F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8A38C39-F612-4A88-95FF-D13CD0FF8A9F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8A38C39-F612-4A88-95FF-D13CD0FF8A9F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E4E3E95-31FE-471D-84BB-0205795232C6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E4E3E95-31FE-471D-84BB-0205795232C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E4E3E95-31FE-471D-84BB-0205795232C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E4E3E95-31FE-471D-84BB-0205795232C6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

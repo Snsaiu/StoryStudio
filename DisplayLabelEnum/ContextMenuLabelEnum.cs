@@ -11,7 +11,7 @@ namespace DisplayLabelEnum
     /// </summary>
     public enum ContextMenuLabelEnum
     {
-        编辑,删除,聚焦,
+        编辑,删除,聚焦,作为镜头,绘制分镜,
 
         改变颜色,改变线宽,
 

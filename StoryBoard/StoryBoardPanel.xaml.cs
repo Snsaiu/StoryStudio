@@ -21,7 +21,7 @@ namespace StoryBoard
     /// <summary>
     /// Interaction logic for StoryBoardPanel.xaml
     /// </summary>
-    public partial class StoryBoardPanel : UserControl,IPanelBase.IPanelBase, IJoinGlobalTracker.IJoinGlobalTracker
+    public partial class StoryBoardPanel : Window,IPanelBase.IPanelBase, IJoinGlobalTracker.IJoinGlobalTracker
     {
         public StoryBoardPanel()
         {

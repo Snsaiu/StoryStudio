@@ -7,6 +7,8 @@ using System.Reflection;
 using System.IO.Packaging;
 using System.Windows.Markup;
 using DisplayLabelEnum;
+using System.Windows.Media;
+using CameraTake.View;
 
 namespace NodeBase
 {
@@ -58,12 +60,47 @@ namespace NodeBase
         private void CreateContextMenu()
         {
             ContextMenu contextMenu = new ContextMenu();
+
+            MenuItem drawTakemenu = new MenuItem();
+            drawTakemenu.Header = ContextMenuLabelEnum.绘制分镜;
+            drawTakemenu.Click += (s, e) =>
+            {
+                CameraTakeView _v = new CameraTakeView();
+                _v.ShowDialog();
+            };
+
             MenuItem editmenu = new MenuItem();
             editmenu.Header = ContextMenuLabelEnum.编辑;
             MenuItem deletemenu = new MenuItem();
             deletemenu.Header = ContextMenuLabelEnum.删除;
             MenuItem focusmenu = new MenuItem();
             focusmenu.Header = ContextMenuLabelEnum.聚焦;
+            MenuItem asTakemenu = new MenuItem();
+            //作为镜头是一个checkbox，根据是否勾选来判断是否作为镜头，
+            //作为镜头的特点就是节点的背景色会发生改变
+            CheckBox _c = new CheckBox();
+
+            //如果被勾选
+            _c.Checked += (s, e) => {
+                //转换背景边框的颜色
+                this.nodeborder.BorderBrush= new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFE93939"));
+
+                // todo:应该将设为镜头的节点放到一个容器当中去
+            };
+
+
+            // 如果取消勾选
+            _c.Unchecked += (s, e) =>
+            {
+                //还原背景边框的颜色
+                this.nodeborder.BorderBrush = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FF259AFD"));
+                //todo:容器中要剔除该节点
+
+            };
+            _c.Content = ContextMenuLabelEnum.作为镜头;
+            asTakemenu.Header = _c;
+            contextMenu.Items.Add(asTakemenu);
+            contextMenu.Items.Add(drawTakemenu);
             contextMenu.Items.Add(editmenu);
             contextMenu.Items.Add(deletemenu);
             contextMenu.Items.Add(focusmenu);

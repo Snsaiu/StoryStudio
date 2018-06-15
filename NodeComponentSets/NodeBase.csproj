@@ -188,6 +188,10 @@
       <Project>{337E92F4-FA82-4519-B488-8E73E80B56DE}</Project>
       <Name>BaseTypeEnum</Name>
     </ProjectReference>
+    <ProjectReference Include="..\CameraTake\CameraTake.csproj">
+      <Project>{0E4E3E95-31FE-471D-84BB-0205795232C6}</Project>
+      <Name>CameraTake</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CommandManager\CommandManager.csproj">
       <Project>{9f724c5e-5126-42d5-8575-6cdeecd8a67e}</Project>
       <Name>CommandManager</Name>
