@@ -7,6 +7,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Ink;
 using System.Windows.Input;
 using System.Windows.Media;
@@ -117,7 +118,7 @@ namespace CameraTake.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void ink_MouseMove(object sender, MouseEventArgs e)
+        private void ink_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
         {
           
 
@@ -172,6 +173,41 @@ namespace CameraTake.View
             if (e.MiddleButton==MouseButtonState.Released)
             {
                 this._middleMouseDown = false;
+            }
+        }
+
+        /// <summary>
+        /// 橡皮擦功能
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void EraseByPointEvent(object sender, RoutedEventArgs e)
+        {
+            this._inkcanvas.EditingMode = InkCanvasEditingMode.EraseByPoint;
+        }
+
+        /// <summary>
+        /// 画笔事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PenEvent(object sender, RoutedEventArgs e)
+        {
+            this._inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
+        }
+
+        /// <summary>
+        /// 画笔颜色事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void PenColorEvent(object sender, RoutedEventArgs e)
+        {
+            ColorDialog _c = new ColorDialog();
+            if (_c.ShowDialog()==System.Windows.Forms.DialogResult.OK)
+            {
+                this._inkcanvas.DefaultDrawingAttributes.Color = System.Windows.Media.Color.FromArgb(_c.Color.A, _c.Color.R, _c.Color.G, _c.Color.B);
+
             }
         }
     }

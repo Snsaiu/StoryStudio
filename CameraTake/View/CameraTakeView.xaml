@@ -57,9 +57,9 @@
                     <Setter Property="Margin" Value="0 1 0 1"/>
                 </Style>
             </StackPanel.Resources>
-            <Button Content="画笔"/>
-            <Button Content="橡皮"/>
-            <Button Content="色彩"/>
+            <Button Click="PenEvent" Content="画笔"/>
+            <Button Click="EraseByPointEvent" Content="橡皮"/>
+            <Button Click="PenColorEvent" Content="色彩"/>
             <Button Content="放大"/>
             <Button Content="缩小"/>
         </StackPanel>
