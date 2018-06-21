@@ -21,7 +21,9 @@ namespace NodeBase
         {
             // todo:添加线的具体描述
             ArrowBase arrowLineWithText = new ArrowLineWithText.ArrowLineWithText();
-
+            arrowLineWithText.Stroke = Brushes.BlueViolet;
+            arrowLineWithText.StrokeThickness = 0.3;
+            arrowLineWithText.ArrowLength = 3;
             return arrowLineWithText;
         }
     }

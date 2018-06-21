@@ -5,6 +5,9 @@ using System.Windows;
 
 namespace StoryStartNode
 {
+    /// <summary>
+    /// 角色输入节点组件
+    /// </summary>
     public class CharactersInputComponent : InputComponent
     {
         public CharactersInputComponent(NodeBase.NodeBase node) : base(node)

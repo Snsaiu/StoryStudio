@@ -40,6 +40,12 @@ namespace CameraTake.View
         /// 判断鼠标中键当前状态
         /// </summary>
         private bool _middleMouseDown = false;
+
+        //记录触摸设备ID  
+        private List<int> dec = new List<int>();
+        //中心点  
+        Point centerPoint;
+
         #endregion
 
         public CameraTakeView()
@@ -152,15 +158,105 @@ namespace CameraTake.View
 
             this._inkcanvas.Height = 350;
             this._inkcanvas.Width = 600;
-
+            this._inkcanvas.IsManipulationEnabled = true;
             this._inkcanvas.MouseWheel += ink_MouseWheel;
             this._inkcanvas.MouseMove += ink_MouseMove;
             this._inkcanvas.PreviewMouseUp += ink_PreviewMouseUp; ;
-
+            this._inkcanvas.PreviewTouchDown += inkcanvas_PreviewTouchDown;
             this._inkcanvas.PreviewMouseDown += ink_PreviewMouseDown;
-
+            this._inkcanvas.PreviewTouchUp += inkcanvas_PreviewTouchUp;
+            this._inkcanvas.ManipulationStarting += inkcanvas_ManipulationStarting;
+            this._inkcanvas.ManipulationDelta += inkcanvas_ManipulationDelta;
             this.canvascontainer.Children.Add(this._inkcanvas);
         }
+
+        private void inkcanvas_ManipulationDelta(object sender, ManipulationDeltaEventArgs e)
+        {
+            //小于两指 不触发事件  
+            if (dec.Count < 2) return;
+            //两指缩放  
+            if (dec.Count == 2)
+            {
+                //foreach (Stroke stroke in this._inkcanvas.Strokes)
+                //{
+                //    Matrix matrix = new Matrix();
+                //    matrix.ScaleAt(e.DeltaManipulation.Scale.X, e.DeltaManipulation.Scale.Y, centerPoint.X, centerPoint.Y);
+                //    stroke.Transform(matrix, false);
+                //}
+                if (e.DeltaManipulation.Scale.X>1)
+                {
+                    this.rate *= 1.08;
+                    ScaleTransform _st = new ScaleTransform(this.rate, this.rate , centerPoint.X, centerPoint.Y);
+                    this._inkcanvas.RenderTransform = _st;
+                }
+                if (e.DeltaManipulation.Scale.X<1)
+                {
+                    if (this.rate <= 1)
+                    {
+                        return;
+                    }
+                    this.rate /= 1.08;
+                    ScaleTransform st = new ScaleTransform(this.rate, this.rate, centerPoint.X, centerPoint.Y);
+                    this._inkcanvas.RenderTransform = st;
+                }
+              
+            }
+            //三指滑动  
+            if (dec.Count == 3)
+            {
+                foreach (Stroke stroke in this._inkcanvas.Strokes)
+                {
+                    Matrix matrix = new Matrix();
+                    matrix.Translate(e.DeltaManipulation.Translation.X, e.DeltaManipulation.Translation.Y);
+                    stroke.Transform(matrix, false);
+                }
+            }
+        }
+
+        private void inkcanvas_ManipulationStarting(object sender, ManipulationStartingEventArgs e)
+        {
+            e.ManipulationContainer = this._inkcanvas;
+            e.Mode = ManipulationModes.All;
+        }
+
+        private void inkcanvas_PreviewTouchUp(object sender, TouchEventArgs e)
+        {
+         // 手势完成后切回之前的状态
+           if (dec.Count > 1)
+            {
+                if (this._inkcanvas.EditingMode == InkCanvasEditingMode.None)
+                {
+                    this._inkcanvas.EditingMode = InkCanvasEditingMode.Ink;
+                }
+            }
+            dec.Remove(e.TouchDevice.Id);
+        }
+
+        /// <summary>
+        /// 手指预触碰事件
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void inkcanvas_PreviewTouchDown(object sender, TouchEventArgs e)
+        {
+            dec.Add(e.TouchDevice.Id);
+            //设备1个的时候，记录中心点  
+            if (dec.Count == 1)
+            {
+                TouchPoint touchPoint = e.GetTouchPoint(this._inkcanvas);
+                centerPoint = touchPoint.Position;
+            }
+            //设备两个及两个以上，将画笔功能关闭  
+            if (dec.Count > 1)
+            {
+                if (this._inkcanvas.EditingMode != InkCanvasEditingMode.None)
+                {
+                    this._inkcanvas.EditingMode = InkCanvasEditingMode.None;
+                }
+            }
+        }
+
+
 
         /// <summary>
         /// 鼠标抬起事件

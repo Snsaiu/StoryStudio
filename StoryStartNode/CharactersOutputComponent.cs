@@ -5,6 +5,10 @@ using System.Collections.Generic;
 
 namespace StoryStartNode
 {
+
+    /// <summary>
+    /// 角色输出组件
+    /// </summary>
     public class CharactersOutputComponent : OutputComponent
     {
         public CharactersOutputComponent(NodeBase.NodeBase node) : base(node)

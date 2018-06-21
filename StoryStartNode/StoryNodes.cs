@@ -19,6 +19,7 @@ namespace StoryStartNode
         {
             this.nodelist.Add(new StoryStartNode());
             this.nodelist.Add(new CharacterNode());
+            this.nodelist.Add(new StoryDevelopmentNode());
             //todo:以后新增加的node都在这里添加
 
             return this.nodelist;

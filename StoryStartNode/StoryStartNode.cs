@@ -3,6 +3,10 @@ using NodeBase;
 
 namespace StoryStartNode
 {
+
+    /// <summary>
+    /// 故事序幕节点
+    /// </summary>
     public class StoryStartNode : NodeBase.NodeBase
     {
 

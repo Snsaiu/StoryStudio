@@ -49,8 +49,10 @@
     <Compile Include="CharactersInputComponent.cs" />
     <Compile Include="CharactersOutputComponent.cs" />
     <Compile Include="EventCharacterOutputComponent.cs" />
+    <Compile Include="EventEventInputComponent.cs" />
     <Compile Include="EventEventOutputComponent.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="StoryDevelopmentNode.cs" />
     <Compile Include="StoryNodes.cs" />
     <Compile Include="StoryStartNode.cs" />
   </ItemGroup>

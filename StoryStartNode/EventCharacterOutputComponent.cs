@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace StoryStartNode
 {
+    /// <summary>
+    /// 事件 角色输出组件
+    /// </summary>
     public class EventCharacterOutputComponent : OutputComponent
     {
         public EventCharacterOutputComponent(NodeBase.NodeBase node) : base(node)

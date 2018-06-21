@@ -6,11 +6,15 @@ namespace StoryStartNode
 {
     class EventEventOutputComponent : OutputComponent
     {
+        /// <summary>
+        /// 事件输出组件
+        /// </summary>
+        /// <param name="node"></param>
         public EventEventOutputComponent(NodeBase.NodeBase node) : base(node)
         {
         }
 
-        public override string Label => "事件";
+        public override string Label => "输出事件";
 
         public override string ShortName => "SEO";
 
@@ -29,8 +33,8 @@ namespace StoryStartNode
         {
             try
             {
-                this.AddStringAttr("starteventoutputsummary", "事件摘要", "", false, true);
-                this.AddStringAttr("starteventoutputdescription", "事件描述", "", true, true);
+                this.AddStringAttr("eventoutputsummary", "事件摘要", "", false, true);
+                this.AddStringAttr("eventoutputdescription", "事件描述", "", true, true);
                 return true;
             }
             catch (Exception)
